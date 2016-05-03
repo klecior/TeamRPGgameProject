@@ -1,0 +1,2 @@
+enum systemMessages{quitGame=1, setState, getCurrentGameState,getMouseX,getMouseY,drawGUI, setGUIstate,initialiseGUI};
+enum objectMessages{test1 = 100,test2,test3,test4, movePup,movePdown,movePright,movePleft, leftMouseClick,healthChange,staminaChange,manaChange};

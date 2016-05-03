@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GameSpecyficClasses">
+      <UniqueIdentifier>{d7671074-b3da-44e6-bf41-0aba8c6cced3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ManagerClasses">
+      <UniqueIdentifier>{944d4d32-43c6-4320-b51d-6e2a66860bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ManagerClasses\GameManager">
+      <UniqueIdentifier>{9b7ff057-91ee-4a84-a5d8-875ce7f7a290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{b814007d-5066-4e92-b71a-8218f9b76506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\Title">
+      <UniqueIdentifier>{4f5dac60-3709-4389-9783-e309c3f5caec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\Help">
+      <UniqueIdentifier>{e86d9a18-315b-4062-a2ff-040995a60b36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\GamePlay">
+      <UniqueIdentifier>{e5b9ded3-a7d7-4d10-835d-3cba5952490f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\GameOver">
+      <UniqueIdentifier>{40ecd1ad-cf36-41da-86a4-6d80c12c5959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ManagerClasses\SdlManager">
+      <UniqueIdentifier>{701cb97d-f510-4268-86bd-2b8d1ff7c47d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ManagerClasses\SpriteManager">
+      <UniqueIdentifier>{39c9bd50-b5a0-4dd5-bdb0-e17047f88000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\Pause">
+      <UniqueIdentifier>{199673e1-254d-4a24-b29e-53c1dfccf5b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Framework\Setup">
+      <UniqueIdentifier>{c6a41b57-53eb-493c-ab8c-572b1e39c988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AbstractClasses">
+      <UniqueIdentifier>{37055967-82b8-4f4a-a774-54562c29f8d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AbstractClasses\baseGameState">
+      <UniqueIdentifier>{849fe9de-7c46-476e-8f9d-55e887d32d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AbstractClasses\GameObject">
+      <UniqueIdentifier>{dcb07094-c629-4712-a11b-b27dad16ad0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\UtilityClasses">
+      <UniqueIdentifier>{7e6a87d6-4d5d-4ddb-a4f7-ba508986f871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\UtilityClasses\TextureImage">
+      <UniqueIdentifier>{22368488-7326-4203-8404-b7cb62b7263b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\UtilityClasses\ExampleClass">
+      <UniqueIdentifier>{26d94d7a-56d0-481b-bab3-62b531b16650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\UtilityClasses\sequenceAnimation">
+      <UniqueIdentifier>{9aa058c1-1755-4503-8c27-c8adfc5fd223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\UtilityClasses\Button">
+      <UniqueIdentifier>{fb48b7a1-e8b6-4216-aa3e-4673dbdbbce5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ManagerClasses\MessageBus">
+      <UniqueIdentifier>{b25107ea-acc2-4bec-a276-1937262cd2fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems">
+      <UniqueIdentifier>{40d08456-652a-4da7-bd82-76e7131370c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\InputSystem">
+      <UniqueIdentifier>{e0dde974-ab7b-4555-98fb-696ab021a2be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\BasicFunctionality">
+      <UniqueIdentifier>{73955dac-da93-4e13-abb9-ec32235dd2c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AbstractClasses\Observer">
+      <UniqueIdentifier>{ab50975a-9e8b-4f82-9bec-1639df77525a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSpecyficClasses\Player">
+      <UniqueIdentifier>{9afab7ea-ae9e-44cd-bb58-d550c1f17b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\StateHandler">
+      <UniqueIdentifier>{dcf7e076-392f-40c2-8aa5-33e0d76158e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\GUI System">
+      <UniqueIdentifier>{89cec173-3690-473b-8371-cd1a55d5d334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AbstractClasses\messageEvent">
+      <UniqueIdentifier>{4b6f870a-fdab-4872-9cc3-abb03de07af7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\RenderSystem">
+      <UniqueIdentifier>{8d061425-e799-4c4c-90af-9e730257f548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUIelements">
+      <UniqueIdentifier>{f592ce31-1af0-402d-b171-bfb2f8ca64f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUIelements\GUIbar">
+      <UniqueIdentifier>{42d897ce-82d0-46d2-b87a-9f017c064fd4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="gameManager.cpp">
+      <Filter>ManagerClasses\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="baseGameState.cpp">
+      <Filter>AbstractClasses\baseGameState</Filter>
+    </ClCompile>
+    <ClCompile Include="title.cpp">
+      <Filter>States\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="help.cpp">
+      <Filter>States\Help</Filter>
+    </ClCompile>
+    <ClCompile Include="gamePlay.cpp">
+      <Filter>States\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="gameOver.cpp">
+      <Filter>States\GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObject.cpp">
+      <Filter>AbstractClasses\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="textureImage.cpp">
+      <Filter>Framework\UtilityClasses\TextureImage</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLManager.cpp">
+      <Filter>ManagerClasses\SdlManager</Filter>
+    </ClCompile>
+    <ClCompile Include="exampleClass.cpp">
+      <Filter>Framework\UtilityClasses\ExampleClass</Filter>
+    </ClCompile>
+    <ClCompile Include="sequenceAnimation.cpp">
+      <Filter>Framework\UtilityClasses\sequenceAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.cpp">
+      <Filter>ManagerClasses\SpriteManager</Filter>
+    </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>Framework\UtilityClasses\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="pause.cpp">
+      <Filter>States\Pause</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Framework\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="program.cpp">
+      <Filter>Framework\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="messageBus.cpp">
+      <Filter>ManagerClasses\MessageBus</Filter>
+    </ClCompile>
+    <ClCompile Include="inputSystem.cpp">
+      <Filter>Systems\InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="observer.cpp">
+      <Filter>AbstractClasses\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>GameSpecyficClasses\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="stateHandler.cpp">
+      <Filter>Systems\StateHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIsystem.cpp">
+      <Filter>Systems\GUI System</Filter>
+    </ClCompile>
+    <ClCompile Include="msgEvent.cpp">
+      <Filter>AbstractClasses\messageEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="renderSystem.cpp">
+      <Filter>Systems\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIbar.cpp">
+      <Filter>GUIelements\GUIbar</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gameManager.h">
+      <Filter>ManagerClasses\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="baseGameState.h">
+      <Filter>AbstractClasses\baseGameState</Filter>
+    </ClInclude>
+    <ClInclude Include="title.h">
+      <Filter>States\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="help.h">
+      <Filter>States\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="gamePlay.h">
+      <Filter>States\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="gameOver.h">
+      <Filter>States\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject.h">
+      <Filter>AbstractClasses\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="textureImage.h">
+      <Filter>Framework\UtilityClasses\TextureImage</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLManager.h">
+      <Filter>ManagerClasses\SdlManager</Filter>
+    </ClInclude>
+    <ClInclude Include="exampleClass.h">
+      <Filter>Framework\UtilityClasses\ExampleClass</Filter>
+    </ClInclude>
+    <ClInclude Include="sequenceAnimation.h">
+      <Filter>Framework\UtilityClasses\sequenceAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteManager.h">
+      <Filter>ManagerClasses\SpriteManager</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>Framework\UtilityClasses\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="pause.h">
+      <Filter>States\Pause</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Framework\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="program.h">
+      <Filter>Framework\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="messageBus.h">
+      <Filter>ManagerClasses\MessageBus</Filter>
+    </ClInclude>
+    <ClInclude Include="inputSystem.h">
+      <Filter>Systems\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="messages.h">
+      <Filter>Framework\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="observer.h">
+      <Filter>AbstractClasses\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>GameSpecyficClasses\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="stateHandler.h">
+      <Filter>Systems\StateHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIsystem.h">
+      <Filter>Systems\GUI System</Filter>
+    </ClInclude>
+    <ClInclude Include="msgEvent.h">
+      <Filter>AbstractClasses\messageEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="renderSystem.h">
+      <Filter>Systems\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GUIbar.h">
+      <Filter>GUIelements\GUIbar</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
