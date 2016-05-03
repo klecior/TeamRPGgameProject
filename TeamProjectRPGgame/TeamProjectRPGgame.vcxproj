@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="audioManager.cpp" />
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="exampleClass.cpp" />
@@ -111,6 +112,7 @@
     <ClCompile Include="title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="audioManager.h" />
     <ClInclude Include="baseGameState.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="constants.h" />
