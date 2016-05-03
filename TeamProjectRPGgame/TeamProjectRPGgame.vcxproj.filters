@@ -172,9 +172,6 @@
     <ClCompile Include="msgEvent.cpp">
       <Filter>AbstractClasses\messageEvent</Filter>
     </ClCompile>
-    <ClCompile Include="renderSystem.cpp">
-      <Filter>Systems\RenderSystem</Filter>
-    </ClCompile>
     <ClCompile Include="GUIbar.cpp">
       <Filter>GUIelements\GUIbar</Filter>
     </ClCompile>
@@ -251,9 +248,6 @@
     </ClInclude>
     <ClInclude Include="msgEvent.h">
       <Filter>AbstractClasses\messageEvent</Filter>
-    </ClInclude>
-    <ClInclude Include="renderSystem.h">
-      <Filter>Systems\RenderSystem</Filter>
     </ClInclude>
     <ClInclude Include="GUIbar.h">
       <Filter>GUIelements\GUIbar</Filter>
