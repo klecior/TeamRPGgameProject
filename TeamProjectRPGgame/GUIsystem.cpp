@@ -15,11 +15,12 @@ GUIsystem::~GUIsystem()
 void GUIsystem::initialise()
 {
 	std::cout<<"initialising GUI"<<std::endl;
+
 	//--INITIALISE GAME OVERLAY--//
 	healthBar = new GUIbar(100,"Assets/GUI/healthBar/backdrop.png","Assets/GUI/healthBar/bar.png","Assets/GUI/healthBar/border.png");
 	healthBar->setPos('x',100);
 	healthBar->setPos('y',600);
-	healthBar->updatePercentage(50);
+	healthBar->updatePercentage(100);
 
 	staminaBar = new GUIbar(100,"Assets/GUI/healthBar/backdrop.png","Assets/GUI/healthBar/bar.png","Assets/GUI/healthBar/border.png");
 	staminaBar->setPos('x',800);
@@ -39,19 +40,22 @@ void GUIsystem::initialise()
 
 void GUIsystem::handleMessage(int message)
 {
-	if(message == initialiseGUI){ initialise(); }
-	if(message == drawGUI)		{ drawState();	}
+	if(message == initialiseGUI){ initialise(); }		//load all of the objects
+	if(message == drawGUI)		{ drawState();	}		//draw the current state
 }
+
+
 void GUIsystem::handleMessage(msgEvent& msg)
 {
 	
 	if(msg.eventID == setGUIstate)	{	currentState = msg.intData;					}
 	if(msg.eventID == drawGUI)		{	drawState();								}
 	if(msg.eventID == initialiseGUI){	initialise();								}
-	if(msg.eventID == healthChange) {   healthBar->updatePercentage(msg.intData); std::cout<<"asdsad";	}
+	if(msg.eventID == healthChange) {   healthBar->updatePercentage(msg.intData);	}
 	if(msg.eventID == staminaChange){   staminaBar->updatePercentage(msg.intData);	}
 }
 
+//draws the state//
 void GUIsystem::drawState()
 {
 
