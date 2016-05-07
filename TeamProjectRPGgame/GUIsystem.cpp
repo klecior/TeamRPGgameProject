@@ -4,12 +4,16 @@ GUIsystem::GUIsystem()
 {
 
 	currentState = TITLE;
-	messageBus::sharedMessageBus()->registerSystem(this);
+	messageBus::sharedMessageBus()->registerListener(changeStateMessage,this);
+	messageBus::sharedMessageBus()->registerListener(changeHealthMessage,this);
+	messageBus::sharedMessageBus()->registerListener(changeStaminaMessage,this);
 }
 
 GUIsystem::~GUIsystem()
 {
-
+	messageBus::sharedMessageBus()->unRegisterListener(changeStateMessage,this);
+	messageBus::sharedMessageBus()->unRegisterListener(changeHealthMessage,this);
+	messageBus::sharedMessageBus()->unRegisterListener(changeStaminaMessage,this);
 }
 
 void GUIsystem::initialise()
@@ -38,21 +42,14 @@ void GUIsystem::initialise()
 	//------------------//
 }
 
-void GUIsystem::handleMessage(int message)
+void GUIsystem::handleMessage(abstractEvent& msgEvent)
 {
-	if(message == initialiseGUI){ initialise(); }		//load all of the objects
-	if(message == drawGUI)		{ drawState();	}		//draw the current state
-}
+	int msgType = msgEvent.getEventType();
 
+	if(msgType == changeStateMessage)	{ changeState(&msgEvent);			}
+	if(msgType == changeHealthMessage)	{ updateHealthBar(&msgEvent);		}
+	if(msgType == changeStaminaMessage) { updateStaminaBar(&msgEvent);		}
 
-void GUIsystem::handleMessage(msgEvent& msg)
-{
-	
-	if(msg.eventID == setGUIstate)	{	currentState = msg.intData;					}
-	if(msg.eventID == drawGUI)		{	drawState();								}
-	if(msg.eventID == initialiseGUI){	initialise();								}
-	if(msg.eventID == healthChange) {   healthBar->updatePercentage(msg.intData);	}
-	if(msg.eventID == staminaChange){   staminaBar->updatePercentage(msg.intData);	}
 }
 
 //draws the state//
@@ -76,3 +73,31 @@ void GUIsystem::drawState()
 	}
 
 }
+
+#pragma region event handlers
+
+void GUIsystem::changeState(abstractEvent* msgEvent)
+{
+	//cast
+	changeStateEvent& stateChange = *(changeStateEvent*)msgEvent;
+
+	currentState = stateChange.changeState;
+}
+
+void GUIsystem::updateHealthBar(abstractEvent* msgEvent)
+{
+	//cast
+	changeHealthEvent& healthChange = *(changeHealthEvent*)msgEvent;
+
+	healthBar->updatePercentage(healthChange.newHealth);
+}
+
+void GUIsystem::updateStaminaBar(abstractEvent* msgEvent)
+{
+	//cast
+	changeStaminaEvent& staminaChange = *(changeStaminaEvent*)msgEvent;
+
+	staminaBar->updatePercentage(staminaChange.newStamina);
+}
+
+#pragma endregion 

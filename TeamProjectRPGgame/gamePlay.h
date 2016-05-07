@@ -6,6 +6,8 @@
 #include "player.h"
 #include "messageBus.h"
 
+#include "changeStateEvent.h"
+
 class gamePlay :
 	public baseGameState
 {

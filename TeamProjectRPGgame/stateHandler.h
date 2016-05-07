@@ -6,6 +6,7 @@
 #include "constants.h"
 
 #include <vector>
+#include <map>
 
 //--all of the states--//
 #include"baseGameState.h"
@@ -16,29 +17,30 @@
 #include "pause.h"
 //---------------------//
 
+//--events--//
+#include "changeStateEvent.h"
+#include "getCurrentStateEvent.h"
+
 
 class stateHandler : public observer
 {
 protected:
 
 	int currentState;
-	std::vector<baseGameState*> stateHandlerVec;
+
+	void changeState(abstractEvent* msgEvent);
+	void getCurrentState(abstractEvent* msgEvent);
+
+	std::map<int,baseGameState*> stateHandlerList;
 
 public:
 	stateHandler(void);
 	~stateHandler(void);
-	void handleMessage(int message);
-	void handleMessage(msgEvent& msg);
+	
+	void handleMessage(abstractEvent& msgEvent);
+
 	void updateGameState();
 	void initialiseStates();
-
-	
-
-	gamePlay*		theGame;
-	title*			theTitle;
-	help*			theHelp;
-	gameOver*		theGameOver;
-	pause*			thePause;
 
 
 };

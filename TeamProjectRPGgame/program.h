@@ -12,6 +12,7 @@
 #include "inputSystem.h"
 #include "stateHandler.h"
 #include "GUIsystem.h"
+//-----------//
 
 //**Main class for the game, contains all of the states as well as the game loop**//
 class program

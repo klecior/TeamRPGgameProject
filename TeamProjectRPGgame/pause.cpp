@@ -17,7 +17,7 @@ void pause::handleEvent()
 	if(finishedLoading)
 	{
 
-		if(backButton->mouseClick()){ messageBus::sharedMessageBus()->sendMessageS(msgEvent(setState,GAME,false)); }
+		messageBus::sharedMessageBus()->sendMessage(changeStateEvent(GAME));
 
 	}
 }

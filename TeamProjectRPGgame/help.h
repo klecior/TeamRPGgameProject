@@ -4,6 +4,8 @@
 
 #include "button.h"
 
+#include "changeStateEvent.h"
+
 class help :
 	public baseGameState
 {

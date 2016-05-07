@@ -19,46 +19,31 @@ messageBus::~messageBus(void)
 }
 
 
-
-#pragma region registering observers
-void messageBus::registerSystem(observer* systemToRegister)
+void messageBus::registerListener(int messageType, observer* object)
 {
-	registeredSystems.push_back(systemToRegister);
-	std::cout<<"system registered"<<std::endl;
+	//adds the object to the right list
+	registers[messageType].push_back(object);
 }
 
-void messageBus::registerObject(observer* objectToRegister)
+void messageBus::unRegisterListener(int messageType, observer* object)
 {
-	registeredObjects.push_back(objectToRegister);
-	std::cout<<"object registered"<<std::endl;
-}
-#pragma endregion //registering various groups of observers.
-
-#pragma region sendingMessages
-
-void messageBus::sendMessageS(int message)
-{
-	for(int i = 0; i < registeredSystems.size(); i++)
+	for(int i = 0; i < registers[messageType].size(); i++)
 	{
-		registeredSystems.at(i)->handleMessage(message);
+		if(registers[messageType].at(i) == object)
+		{
+			registers[messageType].erase(registers[messageType].begin()+i);
+		}
 	}
 }
 
-void messageBus::sendMessageS(msgEvent& msg)
+void messageBus::sendMessage(abstractEvent& msgEvent)
 {
-	for(int i = 0; i < registeredSystems.size(); i++)
-	{
-		registeredSystems.at(i)->handleMessage(msg);
-	}
-};
+	//get type
+	int messageType = msgEvent.getEventType();
 
-void messageBus::sendMessageO(int message)
-{
-
-	for(int i = 0; i < registeredObjects.size(); i++)
+	//sends the message to every object listening for it.
+	for(int j = 0; j<registers[messageType].size(); j++)
 	{
-		registeredObjects.at(i)->handleMessage(message);
+		registers[messageType].at(j)->handleMessage(msgEvent);
 	}
 }
-
-#pragma endregion	//code for sending messages to different groups/types of objects.

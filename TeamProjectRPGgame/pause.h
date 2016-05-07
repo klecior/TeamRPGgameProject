@@ -5,6 +5,8 @@
 #include "textureImage.h"
 #include "button.h"
 
+#include "changeStateEvent.h"
+
 class pause :
 	public baseGameState
 {

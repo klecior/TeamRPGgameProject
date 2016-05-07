@@ -17,8 +17,7 @@ program::~program(void)
 bool program::initialise()
 {
 
-	
-	messageBus::sharedMessageBus()->sendMessageS(msgEvent(setState,TITLE,false));
+	messageBus::sharedMessageBus()->sendMessage(changeStateEvent(TITLE));				//make sure that the starting game state is title.
 	bool success = true;	//success flag
 
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
@@ -29,7 +28,7 @@ bool program::initialise()
 	else
 	{
 		//create main window.
-		mainWindow = SDL_CreateWindow("TempName",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
+		mainWindow = SDL_CreateWindow("Lets kill hitler game",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,SCREEN_WIDTH,SCREEN_HEIGHT,SDL_WINDOW_SHOWN);
 		if(mainWindow == NULL)
 		{
 			std::cout<<"window could not be created: "<<SDL_GetError()<<std::endl;
@@ -50,7 +49,7 @@ bool program::initialise()
 				//set color to white
 				SDL_SetRenderDrawColor(SDLManager::sharedSDLManager()->mainRenderer,0xFF,0xFF,0xFF,0xFF);
 				gameStatesS.initialiseStates();
-				messageBus::sharedMessageBus()->sendMessageS(initialiseGUI);
+				GUIs.initialise();
 			}
 		}
 	}
@@ -69,7 +68,7 @@ void program::gameLoop()
 		//callSystems//
 		inputsS.manageInput(evt);
 		gameStatesS.updateGameState();
-		messageBus::sharedMessageBus()->sendMessageS(drawGUI);
+		GUIs.drawState();
 	
 	
 

@@ -6,6 +6,9 @@
 #include "SpriteManager.h"
 #include "messageBus.h"
 
+//events//
+#include "getMousePosEvent.h"
+
  /**Button that returns "true" if clicked, contains 2 states: idle, and over.**/
 class button :
 	public gameObject
@@ -17,8 +20,7 @@ protected:
 	textureImage* sprOver;
 
 	//--messages that need to be sent every frame--//
-	msgEvent getMouseXe;
-	msgEvent getMouseYe;
+	getMousePosEvent currMousePos;
 	//---------------------------------------------//
 
 	bool hovering;
@@ -30,7 +32,9 @@ public:
 	~button(void);
 
 	void loadImages(std::string idle, std::string over);			//loads images for both states of the button.
-	void handleMessage(int msg);									//waits for a mouse click.
+	void handleMessage(abstractEvent& msgEvent);
+
+
 	bool mouseClick();									//returns true of false depending if the mouse was clicked.
 };
 

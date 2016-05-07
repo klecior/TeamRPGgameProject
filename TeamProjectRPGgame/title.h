@@ -8,6 +8,8 @@
 
 #include "button.h"
 
+#include "changeStateEvent.h"
+
 class title :
 	public baseGameState
 {

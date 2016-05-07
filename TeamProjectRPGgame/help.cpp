@@ -16,9 +16,10 @@ void help::handleEvent()
 {
 	if(finishedLoading)
 	{
-
-		if(backButton->mouseClick()){ messageBus::sharedMessageBus()->sendMessageS(msgEvent(setState,TITLE,false)); }
-
+		if(backButton->mouseClick())
+		{
+			messageBus::sharedMessageBus()->sendMessage(changeStateEvent(TITLE));
+		}
 	}
 }
 

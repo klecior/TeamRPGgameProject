@@ -9,13 +9,15 @@ player::player(void)
 	isMoving = false;
 
 	gameManager::sharedGameManager()->addToList(this,GAME);
-	messageBus::sharedMessageBus()->registerObject(this);
+	messageBus::sharedMessageBus()->registerListener(movePlayerMessage,this);
+
 	objectType = "player";
 }
 
 
 player::~player(void)
 {
+	messageBus::sharedMessageBus()->unRegisterListener(movePlayerMessage,this);
 }
 
 void player::loadOnCreation()
@@ -46,13 +48,27 @@ void player::update()
 
 	isMoving = false;
 }
-void player::handleMessage(int message)
+void player::handleMessage(abstractEvent& msgEvent)
 {
-	
-	if(message == movePleft)	{position.x		-=	2;	isMoving = true;	}
-	if(message == movePright)	{position.x		+=	2;	isMoving = true;	}
-	if(message == movePdown)	{position.y		+=	2;	isMoving = true;	}
-	if(message == movePup)		{position.y		-=	2;	isMoving = true;	}
+	int msgType = msgEvent.getEventType();
+
+	if(msgType == movePlayerMessage) { playerMovement(&msgEvent); }
 
 }
+
+#pragma region event handlers
+
+void player::playerMovement(abstractEvent* msgEvent)
+{
+	//cast
+	movePlayerEvent& playerMoving = *(movePlayerEvent*)msgEvent;
+
+	if(playerMoving.downPressed)	{ position.y += 3; isMoving = true; }
+	if(playerMoving.upPressed)		{ position.y -= 3; isMoving = true; }
+	if(playerMoving.leftPressed)	{ position.x -= 3; isMoving = true; }
+	if(playerMoving.rightPressed)	{ position.x += 3; isMoving = true; }
+
+}
+
+#pragma endregion
 

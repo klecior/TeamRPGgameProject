@@ -19,8 +19,7 @@ void gamePlay::handleEvent()
 
 		if(backButton->mouseClick())
 		{ 
-			messageBus::sharedMessageBus()->sendMessageS(msgEvent(setState,TITLE,false)); 
-			messageBus::sharedMessageBus()->sendMessageS(msgEvent(setGUIstate,TITLE,false));
+			messageBus::sharedMessageBus()->sendMessage(changeStateEvent(TITLE));
 		}
 
 	}

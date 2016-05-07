@@ -13,8 +13,8 @@ inputSystem::inputSystem(void)
 	mouseX		=	0;
 	mouseY		=	0;
 	
-	currentStateE.eventID = getCurrentGameState;
-	messageBus::sharedMessageBus()->registerSystem(this);
+
+	messageBus::sharedMessageBus()->registerListener(getMousePosMessage,this);
 
 	//temp debug keys//
 	uKey	=	false;
@@ -29,7 +29,7 @@ inputSystem::inputSystem(void)
 
 inputSystem::~inputSystem(void)
 {
-	
+	messageBus::sharedMessageBus()->unRegisterListener(getMousePosMessage,this);
 }
 
 //interface with the rest of the program.
@@ -86,7 +86,7 @@ void inputSystem::manageKeyHolds(SDL_Event &evt)
 			if(evt.key.keysym.sym == SDLK_l){lKey	= false;	}
 
 		}
-		if(evt.type == SDL_QUIT){ messageBus::sharedMessageBus()->sendMessageS(quitGame); }
+		if(evt.type == SDL_QUIT){/* messageBus::sharedMessageBus()->sendMessageS(quitGame);*/ }
 		
 }
 
@@ -98,8 +98,7 @@ void inputSystem::handleMouse(SDL_Event& evt)
 
 	if(evt.type == SDL_MOUSEBUTTONDOWN && evt.button.button == SDL_BUTTON_LEFT)
 	{
-		messageBus::sharedMessageBus()->sendMessageS(leftMouseClick);
-		messageBus::sharedMessageBus()->sendMessageO(leftMouseClick);
+		messageBus::sharedMessageBus()->sendMessage(leftMouseClickEvent(mouseX,mouseY));
 	}
 
 }
@@ -108,27 +107,27 @@ void inputSystem::handleMouse(SDL_Event& evt)
 
 void inputSystem::translateMeaning()
 {
-	messageBus::sharedMessageBus()->sendMessageS(currentStateE);
+	
+	getCurrentStateEvent currentState;
+	messageBus::sharedMessageBus()->sendMessage(currentState);
 
-	if(currentStateE.intData == GAME)	{ gameplayInputs(); }
+	if(currentState.currentStateIs == GAME)	{ gameplayInputs(); }
 	else
 	{
 		menuInputs();
 	}
 
+	//gameplayInputs();
 
 
 	//debug stuff
-	if(kKey){ messageBus::sharedMessageBus()->sendMessageS(msgEvent(healthChange,30,false)); }
+	if(kKey){ messageBus::sharedMessageBus()->sendMessage(changeHealthEvent(20)); }
 	
 }
 
 void inputSystem::gameplayInputs()
 {
-	if(upKey)	{	messageBus::sharedMessageBus()->sendMessageO(movePup);		}
-	if(downKey)	{	messageBus::sharedMessageBus()->sendMessageO(movePdown);	}
-	if(leftKey)	{	messageBus::sharedMessageBus()->sendMessageO(movePleft);	}
-	if(rightKey){	messageBus::sharedMessageBus()->sendMessageO(movePright);	}
+	messageBus::sharedMessageBus()->sendMessage(movePlayerEvent(upKey,downKey,leftKey,rightKey));
 }
 
 void inputSystem::menuInputs()
@@ -136,12 +135,23 @@ void inputSystem::menuInputs()
 
 }
 
-void inputSystem::handleMessage(int message)
+void inputSystem::handleMessage(abstractEvent& msgEvent)
 {
-	
+	int msgType = msgEvent.getEventType();
+
+	if(msgType == getMousePosMessage){ getMousePosition(&msgEvent);	}
+
+
 }
-void inputSystem::handleMessage(msgEvent& msg)
+
+#pragma region message handlers
+void inputSystem::getMousePosition(abstractEvent* msgEvent)
 {
-	if(msg.eventID == getMouseX){msg.intData = mouseX;	}
-	if(msg.eventID == getMouseY){msg.intData = mouseY; }
+	//cast
+	getMousePosEvent& getMouse = *(getMousePosEvent*)msgEvent;
+
+	//return the right data
+	getMouse.mouseXis = mouseX;
+	getMouse.mouseYis = mouseY;
 }
+#pragma endregion funtions for handling the events.

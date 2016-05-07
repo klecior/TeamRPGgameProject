@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -85,21 +85,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="abstractEvent.cpp" />
     <ClCompile Include="audioManager.cpp" />
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
+    <ClCompile Include="changeHealthEvent.cpp" />
+    <ClCompile Include="changeStaminaEvent.cpp" />
+    <ClCompile Include="changeStateEvent.cpp" />
     <ClCompile Include="exampleClass.cpp" />
     <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="gameOver.cpp" />
     <ClCompile Include="gamePlay.cpp" />
+    <ClCompile Include="getCurrentStateEvent.cpp" />
+    <ClCompile Include="getMousePosEvent.cpp" />
     <ClCompile Include="GUIbar.cpp" />
     <ClCompile Include="GUIsystem.cpp" />
     <ClCompile Include="help.cpp" />
     <ClCompile Include="inputSystem.cpp" />
+    <ClCompile Include="leftMouseClickEvent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="messageBus.cpp" />
-    <ClCompile Include="msgEvent.cpp" />
+    <ClCompile Include="movePlayerEvent.cpp" />
     <ClCompile Include="pause.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="program.cpp" />
@@ -112,22 +119,29 @@
     <ClCompile Include="title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="abstractEvent.h" />
     <ClInclude Include="audioManager.h" />
     <ClInclude Include="baseGameState.h" />
     <ClInclude Include="button.h" />
+    <ClInclude Include="changeHealthEvent.h" />
+    <ClInclude Include="changeStaminaEvent.h" />
+    <ClInclude Include="changeStateEvent.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="exampleClass.h" />
     <ClInclude Include="gameManager.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="gameOver.h" />
     <ClInclude Include="gamePlay.h" />
+    <ClInclude Include="getCurrentStateEvent.h" />
+    <ClInclude Include="getMousePosEvent.h" />
     <ClInclude Include="GUIbar.h" />
     <ClInclude Include="GUIsystem.h" />
     <ClInclude Include="help.h" />
     <ClInclude Include="inputSystem.h" />
+    <ClInclude Include="leftMouseClickEvent.h" />
     <ClInclude Include="messageBus.h" />
     <ClInclude Include="messages.h" />
-    <ClInclude Include="msgEvent.h" />
+    <ClInclude Include="movePlayerEvent.h" />
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="program.h" />

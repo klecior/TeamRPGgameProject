@@ -9,8 +9,14 @@
 
 //gui objects//
 #include "GUIbar.h"
-
 //-----------//
+
+//events//
+#include "changeHealthEvent.h"
+#include "changeStaminaEvent.h"
+#include "changeStateEvent.h"
+//------//
+
 
 //**GUI System class is responsible for loading, storing, and updating all of the GUI related elements. It's servers as a way for object's to update the GUI, without having to be coupled with it**//
 class GUIsystem : public observer
@@ -22,23 +28,27 @@ protected:
 	std::vector<gameObject*>inventoryScreen;
 	std::vector<gameObject*>mapScreen;
 
-	int currentState;
-	void initialise();
+	//TODO change the vectors into a single map implementation for easier usage.
 
-	void drawState();			//draw the GUI, whatever it may currently be.
-	void updateState();
+	int currentState;
 
 	//gameOverlay
 	GUIbar*		healthBar;
 	GUIbar*		staminaBar;
 
+	//event handlers
+	void updateHealthBar(abstractEvent* msgEvent);
+	void updateStaminaBar(abstractEvent* msgEvent);
+	void changeState(abstractEvent* msgEvent);
+
 public:
 	GUIsystem(void);
 	~GUIsystem(void);
 	
-	void handleMessage(int message);
-	void handleMessage(msgEvent& msg);
+	void initialise();
+	void drawState();			//draw the GUI, whatever it may currently be.
 
+	void handleMessage(abstractEvent& msgEvent);
 
 };
 

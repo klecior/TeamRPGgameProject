@@ -89,9 +89,6 @@
     <Filter Include="Systems\GUI System">
       <UniqueIdentifier>{89cec173-3690-473b-8371-cd1a55d5d334}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AbstractClasses\messageEvent">
-      <UniqueIdentifier>{4b6f870a-fdab-4872-9cc3-abb03de07af7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Systems\RenderSystem">
       <UniqueIdentifier>{8d061425-e799-4c4c-90af-9e730257f548}</UniqueIdentifier>
     </Filter>
@@ -103,6 +100,33 @@
     </Filter>
     <Filter Include="ManagerClasses\AudioManager">
       <UniqueIdentifier>{b8536114-0c65-47df-86fd-ac8aa8afe5e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events">
+      <UniqueIdentifier>{6c92e57c-46cc-4351-b707-f99245ed56a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\AbstractEvent">
+      <UniqueIdentifier>{4599ec76-258f-4fd6-bd00-0bc114d91c39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\ChangeStateEvent">
+      <UniqueIdentifier>{272afd64-b77a-4b4f-bdbf-753fa46cf1aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\GetCurrentStateEvent">
+      <UniqueIdentifier>{0b41af0c-ac30-4dc2-87f7-43edc17177e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\GetMousePosEvent">
+      <UniqueIdentifier>{46367c18-6d2e-49dd-ad71-188f5f6737b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\LeftMouseClickEvent">
+      <UniqueIdentifier>{d036f954-c099-416d-8870-9992a75951b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\ChangeHealthEvent">
+      <UniqueIdentifier>{bc53dc50-4fe9-42e1-9f5e-1669985dd547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\ChangeStaminaEvent">
+      <UniqueIdentifier>{1b3430f0-234b-407e-88a4-30e4abe0e7f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\MovePlayerEvent">
+      <UniqueIdentifier>{b0a7f88c-0b8c-46aa-836a-e7d547ce6015}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -172,14 +196,35 @@
     <ClCompile Include="GUIsystem.cpp">
       <Filter>Systems\GUI System</Filter>
     </ClCompile>
-    <ClCompile Include="msgEvent.cpp">
-      <Filter>AbstractClasses\messageEvent</Filter>
-    </ClCompile>
     <ClCompile Include="GUIbar.cpp">
       <Filter>GUIelements\GUIbar</Filter>
     </ClCompile>
     <ClCompile Include="audioManager.cpp">
       <Filter>ManagerClasses\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="abstractEvent.cpp">
+      <Filter>Events\AbstractEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="changeStateEvent.cpp">
+      <Filter>Events\ChangeStateEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="getCurrentStateEvent.cpp">
+      <Filter>Events\GetCurrentStateEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="getMousePosEvent.cpp">
+      <Filter>Events\GetMousePosEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="leftMouseClickEvent.cpp">
+      <Filter>Events\LeftMouseClickEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="changeHealthEvent.cpp">
+      <Filter>Events\ChangeHealthEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="changeStaminaEvent.cpp">
+      <Filter>Events\ChangeStaminaEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="movePlayerEvent.cpp">
+      <Filter>Events\MovePlayerEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -252,14 +297,35 @@
     <ClInclude Include="GUIsystem.h">
       <Filter>Systems\GUI System</Filter>
     </ClInclude>
-    <ClInclude Include="msgEvent.h">
-      <Filter>AbstractClasses\messageEvent</Filter>
-    </ClInclude>
     <ClInclude Include="GUIbar.h">
       <Filter>GUIelements\GUIbar</Filter>
     </ClInclude>
     <ClInclude Include="audioManager.h">
       <Filter>ManagerClasses\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="abstractEvent.h">
+      <Filter>Events\AbstractEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="changeStateEvent.h">
+      <Filter>Events\ChangeStateEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="getCurrentStateEvent.h">
+      <Filter>Events\GetCurrentStateEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="getMousePosEvent.h">
+      <Filter>Events\GetMousePosEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="leftMouseClickEvent.h">
+      <Filter>Events\LeftMouseClickEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="changeHealthEvent.h">
+      <Filter>Events\ChangeHealthEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="changeStaminaEvent.h">
+      <Filter>Events\ChangeStaminaEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="movePlayerEvent.h">
+      <Filter>Events\MovePlayerEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,14 +1,14 @@
 #pragma once
-//message data type for allowing passing, and reciving data back between objects, without them being coupled together.
 
-#include "msgEvent.h"
+#include "abstractEvent.h"
+
+//**the abstract class that every object will inherit from. Allows listening, and handling of events/messages**//
 class observer
 {
-private:
-
 public:
-	
-	virtual void handleMessage(int message);						//simple message with no extra data.
-	virtual void handleMessage(msgEvent& message);					//message containing additional data.
-	
+
+	//handle message function takes in any event derived/inheriting the abstractEvent class, basically any existing event can be passed here.
+	virtual void handleMessage(abstractEvent& msgEvent);
+
 };
+

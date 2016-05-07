@@ -3,42 +3,30 @@
 //--Creates a button with one, state containing temporary 'x' image--//
 button::button(int list)
 {
-
-	sprIdle = SpriteManager::sharedSpriteManager()->getImage("images/temp/X.png");
-	displayImage = sprIdle;
-
 	position.x = 0;
 	position.y = 0;
-	position.w = 0;
-	position.h = 0;
+	loadImages("images/temp/X.png","images/temp/X.png");
+	displayImage = sprIdle;
+
 	buttonClicked = false;
 
-	getMouseXe.eventID = getMouseX;
-	getMouseYe.eventID = getMouseY;
 	gameManager::sharedGameManager()->addToList(this,list);
-	messageBus::sharedMessageBus()->registerObject(this);
+	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage,this);
 }
 
 //--Creates a button and loads both of the states straight away. Lowers the amount of code required later--//
 button::button(int list, std::string idle, std::string over)
 {
 
-	sprIdle = SpriteManager::sharedSpriteManager()->getImage(idle.c_str());
-	sprOver = SpriteManager::sharedSpriteManager()->getImage(over.c_str());
-
-	displayImage = sprIdle;
-
 	position.x = 0;
 	position.y = 0;
-	position.w = sprIdle->getOffset().w;
-	position.h = sprIdle->getOffset().h;
+	loadImages(idle,over);
+	displayImage = sprIdle;
+
 	buttonClicked = false;
 
-	getMouseXe.eventID = getMouseX;
-	getMouseYe.eventID = getMouseY;
-
 	gameManager::sharedGameManager()->addToList(this,list);
-	messageBus::sharedMessageBus()->registerObject(this);
+	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage,this);
 }
 
 
@@ -47,6 +35,8 @@ button::~button(void)
 	displayImage = NULL;
 	sprIdle		 = NULL;
 	sprOver		 = NULL;
+
+	messageBus::sharedMessageBus()->unRegisterListener(leftMouseClickMessage,this);
 }
 
 
@@ -80,13 +70,14 @@ bool button::mouseClick()
 		return true;				//returns that the button was clicked.
 	}
 
+	//get mousePosition
+	messageBus::sharedMessageBus()->sendMessage(currMousePos);
+
 	//--x collision--//
-	messageBus::sharedMessageBus()->sendMessageS(getMouseXe);	//getX
-	if(getMouseXe.intData > getPosition().x && getMouseXe.intData < (getPosition().x + getPosition().w) )
+	if(currMousePos.mouseXis > getPosition().x && currMousePos.mouseXis < (getPosition().x + getPosition().w) )
 		{
 			//y collision--//
-			messageBus::sharedMessageBus()->sendMessageS(getMouseYe);	//getY
-			if(getMouseYe.intData > getPosition().y && getMouseYe.intData < (getPosition().y +getPosition().h) )
+			if(currMousePos.mouseYis > getPosition().y && currMousePos.mouseYis < (getPosition().y +getPosition().h) )
 			{
 				//--change the image to an different one--//
 				displayImage = sprOver;
@@ -97,9 +88,11 @@ bool button::mouseClick()
 	return false;
 }
 
-void button::handleMessage(int msg)
+void button::handleMessage(abstractEvent& msgEvent)
 {
-	if(msg == leftMouseClick)
+	int msgType = msgEvent.getEventType();
+
+	if(msgType == leftMouseClickMessage)
 	{
 		if(hovering == true){ buttonClicked = true; }
 	}

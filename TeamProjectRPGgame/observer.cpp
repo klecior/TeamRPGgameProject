@@ -1,11 +1,7 @@
 #include "observer.h"
 
-
-
-void observer::handleMessage(int message)
+//this will allways be overwritten if needed to do anything at all.
+void observer::handleMessage(abstractEvent& msgEvent)
 {
-}
 
-void observer::handleMessage(msgEvent& msg)
-{
 }

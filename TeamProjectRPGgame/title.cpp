@@ -24,10 +24,9 @@ void title::handleEvent()
 		//--buttons--//
 		if(startButton->mouseClick())
 		{ 
-			messageBus::sharedMessageBus()->sendMessageS(msgEvent(setGUIstate,GAME,false));
-			messageBus::sharedMessageBus()->sendMessageS(msgEvent(setState,GAME,false));
+			messageBus::sharedMessageBus()->sendMessage(changeStateEvent(GAME));
 		}
-		if(helpButton->mouseClick()) { messageBus::sharedMessageBus()->sendMessageS(msgEvent(setState,HELP,false)); }
+		if(helpButton->mouseClick()) { messageBus::sharedMessageBus()->sendMessage(changeStateEvent(HELP)); }
 		if(quitButton->mouseClick()) { gameManager::sharedGameManager()->isRunning = false;	}
 		//----------//
 
