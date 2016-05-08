@@ -10,7 +10,7 @@ button::button(int list)
 
 	buttonClicked = false;
 
-	gameManager::sharedGameManager()->addToList(this,list);
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(list,"button",this));
 	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage,this);
 }
 
@@ -25,7 +25,7 @@ button::button(int list, std::string idle, std::string over)
 
 	buttonClicked = false;
 
-	gameManager::sharedGameManager()->addToList(this,list);
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(list,"button",this));
 	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage,this);
 }
 

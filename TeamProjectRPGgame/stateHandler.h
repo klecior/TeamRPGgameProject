@@ -33,6 +33,7 @@ protected:
 
 	std::map<int,baseGameState*> stateHandlerList;
 
+
 public:
 	stateHandler(void);
 	~stateHandler(void);

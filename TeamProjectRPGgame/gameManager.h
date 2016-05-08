@@ -38,12 +38,6 @@ public:
 	bool isRunning;
 	//-------------------//
 
-	//--lists--//
-	void addToList(gameObject* tgo, int list);
-	void updateList(int list);
-	void drawList(int list);
-	//--------//
-
 	//--stuff to do each frame--//
 	void regulateFrameRate();
 	void sweep();

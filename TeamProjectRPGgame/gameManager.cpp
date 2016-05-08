@@ -34,69 +34,6 @@ void gameManager::regulateFrameRate()
 }
 //-----------------------------//
 
-
-void gameManager::addToList(gameObject* tgo, int list)
-{
-	if(list == TITLE)	{ titleList.push_back(tgo);			}
-	if(list == GAME)	{ gamePlayList.push_back(tgo);		}
-	if(list == HELP)	{ helpList.push_back(tgo);			}
-	if(list == GAMEOVER){ gameOverList.push_back(tgo);		}
-	if(list == PAUSE)	{ pauseList.push_back(tgo);			}
-}
-
-void gameManager::updateList(int list)
-{
-
-	if(list == TITLE)	
-	{ 
-		for(int i = 0; i < titleList.size(); i++){ titleList[i]->update(); }	
-	}
-	if(list == GAME)
-	{
-		for(int i = 0; i < gamePlayList.size(); i++){ gamePlayList[i]->update(); }
-	}
-	if(list == HELP)
-	{
-		for(int i = 0; i < helpList.size(); i++){ helpList[i]->update(); }
-	}
-	if(list == GAMEOVER)
-	{
-		for(int i = 0; i < gameOverList.size(); i++){ gameOverList[i]->update(); }
-	}
-	if(list == PAUSE)
-	{
-		for(int i = 0; i < pauseList.size(); i++){ pauseList[i]->update(); }
-	}
-
-}
-
-void gameManager::drawList(int list)
-{
-
-	if(list == TITLE)	
-	{ 
-		for(int i = 0; i < titleList.size(); i++){ titleList[i]->draw(); }	
-	}
-	if(list == GAME)
-	{
-		for(int i = 0; i < gamePlayList.size(); i++){ gamePlayList[i]->draw(); }
-	}
-	if(list == HELP)
-	{
-		for(int i = 0; i < helpList.size(); i++){ helpList[i]->draw(); }
-	}
-	if(list == GAMEOVER)
-	{
-		for(int i = 0; i < gameOverList.size(); i++){ gameOverList[i]->draw(); }
-	}
-	if(list == PAUSE)
-	{
-		for(int i = 0; i < pauseList.size(); i++){ pauseList[i]->draw(); }
-	}
-
-}
-
-
 //--COLLISION CHECKS--//
 bool gameManager::checkCollisionWith(std::string type, SDL_Rect &collisionBox)
 {

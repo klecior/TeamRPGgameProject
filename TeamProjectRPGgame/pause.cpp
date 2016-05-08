@@ -17,7 +17,7 @@ void pause::handleEvent()
 	if(finishedLoading)
 	{
 
-		messageBus::sharedMessageBus()->sendMessage(changeStateEvent(GAME));
+		if(backButton->mouseClick()){	messageBus::sharedMessageBus()->sendMessage(changeStateEvent(GAME)); }
 
 	}
 }
@@ -28,7 +28,7 @@ void pause::updateWorld()
 	loadOnCreation();
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->updateList(PAUSE);
+		
 	}
 	
 }
@@ -37,7 +37,7 @@ void pause::updateDrawing()
 {
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->drawList(PAUSE);
+		
 
 	}
 }

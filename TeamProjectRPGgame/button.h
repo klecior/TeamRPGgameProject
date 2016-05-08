@@ -8,6 +8,8 @@
 
 //events//
 #include "getMousePosEvent.h"
+#include "entityCreatedEvent.h"
+#include "entityDeletedEvent.h"
 
  /**Button that returns "true" if clicked, contains 2 states: idle, and over.**/
 class button :

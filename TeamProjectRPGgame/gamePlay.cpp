@@ -31,7 +31,8 @@ void gamePlay::updateWorld()
 	loadOnCreation();
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->updateList(GAME);
+		
+		//mainPlayer->update();
 
 	}
 	
@@ -41,7 +42,7 @@ void gamePlay::updateDrawing()
 {
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->drawList(GAME);
+		//gameManager::sharedGameManager()->drawList(GAME);
 		//Drawing collisions is something for rendering system
 		//if (gameManager::sharedGameManager()->space)
 		//{

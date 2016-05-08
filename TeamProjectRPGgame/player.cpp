@@ -8,10 +8,10 @@ player::player(void)
 
 	isMoving = false;
 
-	gameManager::sharedGameManager()->addToList(this,GAME);
 	messageBus::sharedMessageBus()->registerListener(movePlayerMessage,this);
 
 	objectType = "player";
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME,objectType,this));
 }
 
 
@@ -39,14 +39,14 @@ void player::update()
 {
 	loadOnCreation();
 	
-	if(isMoving){changeImage(moveState);}
-	else{changeImage(idleState);}
+	if(finishedLoading)
+	{
+		if(isMoving){changeImage(moveState);}
+		else{changeImage(idleState);}
 
+		isMoving = false;
+	}
 
-
-
-
-	isMoving = false;
 }
 void player::handleMessage(abstractEvent& msgEvent)
 {
@@ -63,7 +63,7 @@ void player::playerMovement(abstractEvent* msgEvent)
 	//cast
 	movePlayerEvent& playerMoving = *(movePlayerEvent*)msgEvent;
 
-	if(playerMoving.downPressed)	{ position.y += 3; isMoving = true; }
+	if(playerMoving.downPressed)	{ position.y += 3; isMoving = true; messageBus::sharedMessageBus()->sendMessage(entityDeletedEvent(GAME,this)); }
 	if(playerMoving.upPressed)		{ position.y -= 3; isMoving = true; }
 	if(playerMoving.leftPressed)	{ position.x -= 3; isMoving = true; }
 	if(playerMoving.rightPressed)	{ position.x += 3; isMoving = true; }

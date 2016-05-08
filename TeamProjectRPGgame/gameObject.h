@@ -5,6 +5,8 @@
 #include <vector>
 #include "SpriteManager.h"
 #include "observer.h"
+
+
 //**gameObject class is the main base level object with common functionality. Most other object inherit from it.**//
 class gameObject : public observer
 {

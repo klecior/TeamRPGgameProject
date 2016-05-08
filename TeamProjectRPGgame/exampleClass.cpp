@@ -27,7 +27,7 @@ exampleClass::exampleClass(int list)
 
 	collisionBoxes.push_back(&secondCollision);						//pushes second collision box onto the vector list of collision boxes for the object.
 
-	gameManager::sharedGameManager()->addToList(this,list);			//adds this object onto a selected list in the game manager.
+//	gameManager::sharedGameManager()->addToList(this,list);			//adds this object onto a selected list in the game manager.
 }
 
 

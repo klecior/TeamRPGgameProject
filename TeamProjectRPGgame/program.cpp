@@ -68,10 +68,11 @@ void program::gameLoop()
 		//callSystems//
 		inputsS.manageInput(evt);
 		gameStatesS.updateGameState();
+		gameLogicS.doLogic();
+		//ai update?
+		//Audio.play();
+		renderS.drawScene();
 		GUIs.drawState();
-	
-	
-
 
 		//--Draw current screen, same function as previously SDL_Flip()--//
 		SDL_RenderPresent(SDLManager::sharedSDLManager()->mainRenderer);

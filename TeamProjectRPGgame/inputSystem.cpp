@@ -128,6 +128,10 @@ void inputSystem::translateMeaning()
 void inputSystem::gameplayInputs()
 {
 	messageBus::sharedMessageBus()->sendMessage(movePlayerEvent(upKey,downKey,leftKey,rightKey));
+	if(escKey)
+	{
+		messageBus::sharedMessageBus()->sendMessage(changeStateEvent(PAUSE));
+	}
 }
 
 void inputSystem::menuInputs()

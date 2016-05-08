@@ -29,7 +29,7 @@ void help::updateWorld()
 	loadOnCreation();
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->updateList(HELP);
+
 	}
 	
 }
@@ -38,7 +38,7 @@ void help::updateDrawing()
 {
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->drawList(HELP);
+		
 
 	}
 }

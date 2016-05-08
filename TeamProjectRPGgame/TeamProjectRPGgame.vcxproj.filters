@@ -128,6 +128,15 @@
     <Filter Include="Events\MovePlayerEvent">
       <UniqueIdentifier>{b0a7f88c-0b8c-46aa-836a-e7d547ce6015}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\EntityCreatedEvent">
+      <UniqueIdentifier>{3ca10f66-cbbd-4de7-81b2-f81d91d50588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\EntityDeletedEvent">
+      <UniqueIdentifier>{43af492c-2c27-4c87-bb87-62f25dfc0458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems\GameLogicSystem">
+      <UniqueIdentifier>{66b0b35e-81bd-4112-b582-5bc75aec3610}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -225,6 +234,18 @@
     </ClCompile>
     <ClCompile Include="movePlayerEvent.cpp">
       <Filter>Events\MovePlayerEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="entityCreatedEvent.cpp">
+      <Filter>Events\EntityCreatedEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="renderSystem.cpp">
+      <Filter>Systems\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="entityDeletedEvent.cpp">
+      <Filter>Events\EntityDeletedEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="gameLogicSystem.cpp">
+      <Filter>Systems\GameLogicSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +347,18 @@
     </ClInclude>
     <ClInclude Include="movePlayerEvent.h">
       <Filter>Events\MovePlayerEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="entityCreatedEvent.h">
+      <Filter>Events\EntityCreatedEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="renderSystem.h">
+      <Filter>Systems\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="entityDeletedEvent.h">
+      <Filter>Events\EntityDeletedEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="gameLogicSystem.h">
+      <Filter>Systems\GameLogicSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

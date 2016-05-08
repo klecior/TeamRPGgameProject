@@ -8,6 +8,8 @@
 
 //events//
 #include "movePlayerEvent.h"
+#include "entityCreatedEvent.h"
+#include "entityDeletedEvent.h"
 
 class player :
 	public gameObject

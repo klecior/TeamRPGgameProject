@@ -24,7 +24,7 @@ void gameOver::updateWorld()
 	loadOnCreation();
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->updateList(GAMEOVER);
+
 	}
 	
 }
@@ -33,7 +33,7 @@ void gameOver::updateDrawing()
 {
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->drawList(GAMEOVER);
+		
 		std::cout<<"gameOver "<<std::endl;
 	}
 }

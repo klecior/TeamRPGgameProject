@@ -12,6 +12,8 @@
 #include "inputSystem.h"
 #include "stateHandler.h"
 #include "GUIsystem.h"
+#include "renderSystem.h"
+#include "gameLogicSystem.h"
 //-----------//
 
 //**Main class for the game, contains all of the states as well as the game loop**//
@@ -22,6 +24,8 @@ protected:
 	inputSystem		inputsS;
 	stateHandler	gameStatesS;
 	GUIsystem		GUIs;
+	renderSystem	renderS;
+	gameLogicSystem	gameLogicS;
 public:
 	program(void);
 	~program(void);

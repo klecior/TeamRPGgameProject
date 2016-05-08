@@ -22,12 +22,9 @@ void title::handleEvent()
 	{
 
 		//--buttons--//
-		if(startButton->mouseClick())
-		{ 
-			messageBus::sharedMessageBus()->sendMessage(changeStateEvent(GAME));
-		}
-		if(helpButton->mouseClick()) { messageBus::sharedMessageBus()->sendMessage(changeStateEvent(HELP)); }
-		if(quitButton->mouseClick()) { gameManager::sharedGameManager()->isRunning = false;	}
+		if(startButton->mouseClick()){		messageBus::sharedMessageBus()->sendMessage(changeStateEvent(GAME));}
+		if(helpButton->mouseClick()) {		messageBus::sharedMessageBus()->sendMessage(changeStateEvent(HELP)); }
+		if(quitButton->mouseClick()) {		gameManager::sharedGameManager()->isRunning = false;	}
 		//----------//
 
 	}
@@ -39,7 +36,7 @@ void title::updateWorld()
 	loadOnCreation();
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->updateList(TITLE);
+		
 	}
 	
 }
@@ -48,9 +45,7 @@ void title::updateDrawing()
 {
 	if(finishedLoading)
 	{
-		gameManager::sharedGameManager()->drawList(TITLE);
-		//std::cout<<"title "<<std::endl;
-
+		
 	}
 }
 
