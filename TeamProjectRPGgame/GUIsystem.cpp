@@ -33,6 +33,7 @@ void GUIsystem::initialise()
 	staminaBar = new GUIbar(100,"Assets/GUI/healthBar/backdrop.png","Assets/GUI/healthBar/bar.png","Assets/GUI/healthBar/border.png");
 	staminaBar->setPos('x',800);
 	staminaBar->setPos('y',600);
+	staminaBar->updatePercentage(100);
 	//---------------------------//
 
 	//--INITIALISE INVENTORY--//
@@ -82,7 +83,13 @@ void GUIsystem::updateHealthBar(abstractEvent* msgEvent)
 	//cast
 	changeHealthEvent& healthChange = *(changeHealthEvent*)msgEvent;
 
-	healthBar->updatePercentage(healthChange.newHealth);
+	//getStats
+	getPlayerStatsEvent stats;
+	messageBus::sharedMessageBus()->sendMessage(stats);
+
+	//calculate percentage
+	float percentage = (100 * healthChange.newHealth) / stats.mHealth; 
+	healthBar->updatePercentage(percentage);
 }
 
 void GUIsystem::updateStaminaBar(abstractEvent* msgEvent)
@@ -90,15 +97,20 @@ void GUIsystem::updateStaminaBar(abstractEvent* msgEvent)
 	//cast
 	changeStaminaEvent& staminaChange = *(changeStaminaEvent*)msgEvent;
 
-	staminaBar->updatePercentage(staminaChange.newStamina);
+	//getStats
+	getPlayerStatsEvent stats;
+	messageBus::sharedMessageBus()->sendMessage(stats);
+
+	//calculate percentage
+	float percentage = (100 * staminaChange.newStamina) / stats.mStamina; 
+	staminaBar->updatePercentage(percentage);
 }
 
+//whenever an object of type "GUI" is created, it will add it to the handler
 void GUIsystem::addGUIobject(abstractEvent* msgEvent)
 {
 	//cast
 	entityCreatedEvent& newEntity = *(entityCreatedEvent*)msgEvent;
-
-	std::cout << "dadsadsa";
 
 	//if the object created was a GUI object
 	if (newEntity.type == "GUI")
@@ -111,6 +123,7 @@ void GUIsystem::addGUIobject(abstractEvent* msgEvent)
 	}
 }
 
+//whenever an object of type "GUI" is deleted, it will remove it from the handler
 void GUIsystem::removeGUIobject(abstractEvent* msgEvent)
 {
 	//cast

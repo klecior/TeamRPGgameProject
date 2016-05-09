@@ -6,19 +6,42 @@ player::player(void)
 	idleState = nullptr;
 	moveState = nullptr;
 
-	isMoving = false;
+	isMoving	=	false;
+	isSprinting	=	false;
 
-	health		= 100;
-	stamina		= 100;
-	mana		= 100;
+
+	//vitals//
+	maxHealth	= 500;
+	health		= maxHealth;
+
+	maxStamina	= 500;
+	stamina		= maxStamina;
+	
+	maxMana		= 500;
+	mana		= maxMana;
+
+	manaRecovery	=	1;
+	staminaRecovery	=	1;
+	healthRecovery	=	1;
+	//------//
+
+
+	//speed//
+	baseSpeed		= 2;
+	movementSpeed	= baseSpeed;
+
+	sprintModifier	= 3;
+	sprintCost		= 5;	
+	//-----//
 
 	totalDefenceTreshold = 0;
 
 	//registers//
-	messageBus::sharedMessageBus()->registerListener(movePlayerMessage,this);
+	messageBus::sharedMessageBus()->registerListener(playerControlsMessage,this);
 	messageBus::sharedMessageBus()->registerListener(hitPlayerMessage, this);
 	messageBus::sharedMessageBus()->registerListener(changeHealthMessage, this);
 	messageBus::sharedMessageBus()->registerListener(changeStaminaMessage, this);
+	messageBus::sharedMessageBus()->registerListener(getPlayerStatsMessage, this);
 	//---------//
 
 
@@ -29,10 +52,11 @@ player::player(void)
 
 player::~player(void)
 {
-	messageBus::sharedMessageBus()->unRegisterListener(movePlayerMessage,this);
+	messageBus::sharedMessageBus()->unRegisterListener(playerControlsMessage,this);
 	messageBus::sharedMessageBus()->unRegisterListener(hitPlayerMessage, this);
 	messageBus::sharedMessageBus()->unRegisterListener(changeHealthMessage, this);
 	messageBus::sharedMessageBus()->unRegisterListener(changeStaminaMessage, this);
+	messageBus::sharedMessageBus()->unRegisterListener(getPlayerStatsMessage, this);
 }
 
 void player::loadOnCreation()
@@ -56,43 +80,119 @@ void player::update()
 	
 	if(finishedLoading)
 	{
-		if(isMoving){changeImage(moveState);}
-		else{changeImage(idleState);}
 
-		isMoving = false;
+		handleSprites();
 		
+		staminaRegen();
+
 		if (health <= 0)
 		{
-
 			std::cout << "player is DED" << std::endl;
 		}
 	}
 
 }
+
+
+//this function changes how the player looks depending on various states such as idle, moving, sprinting, with effects etc.
+void player::handleSprites()
+{
+	if(isMoving){changeImage(moveState);}
+	else{changeImage(idleState);}
+
+	isMoving = false;
+}
+
+
+void player::staminaRegen()
+{
+
+	if(isSprinting == false)
+	{
+		if(stamina < maxStamina)
+		{
+			messageBus::sharedMessageBus()->sendMessage(changeStaminaEvent(stamina + staminaRecovery));
+		}
+		if(stamina > maxStamina)
+		{
+			messageBus::sharedMessageBus()->sendMessage(changeStaminaEvent(maxStamina));
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+#pragma region event handlers
+
 void player::handleMessage(abstractEvent& msgEvent)
 {
 	int msgType = msgEvent.getEventType();
 
-	if(msgType == movePlayerMessage)	{ playerMovement(&msgEvent);	}
+	if(msgType == playerControlsMessage){ playerControls(&msgEvent);	}
 	if(msgType == hitPlayerMessage)		{ onHit(&msgEvent);				}
 	if(msgType == changeHealthMessage)  { changeHealth(&msgEvent);		}
+	if(msgType == changeStaminaMessage)	{ changeStamina(&msgEvent);		}
+	if(msgType == getPlayerStatsMessage){ getPlayerStats(&msgEvent);	}
 
 }
 
-#pragma region event handlers
 
-void player::playerMovement(abstractEvent* msgEvent)
+#pragma region movement
+void player::playerControls(abstractEvent* msgEvent)
 {
 	//cast
-	movePlayerEvent& playerMoving = *(movePlayerEvent*)msgEvent;
+	playerControlsEvent& playerMoving = *(playerControlsEvent*)msgEvent;
 
-	if(playerMoving.downPressed)	{ position.y += 3; isMoving = true; }
-	if(playerMoving.upPressed)		{ position.y -= 3; isMoving = true; }
-	if(playerMoving.leftPressed)	{ position.x -= 3; isMoving = true; }
-	if(playerMoving.rightPressed)	{ position.x += 3; isMoving = true; }
+	//movement//
+	if(playerMoving.lShiftPressed)
+	{ 
+		sprint();
+	}
+	else{ isSprinting	=	false; movementSpeed = baseSpeed;}
+
+	walk(&playerMoving);
+	//--------//
+
+
 
 }
 
+void player::walk(playerControlsEvent* controls)
+{
+	if(controls->downPressed)	{ position.y +=	movementSpeed; isMoving = true; }
+	if(controls->upPressed)		{ position.y -= movementSpeed; isMoving = true; }
+	if(controls->leftPressed)	{ position.x -= movementSpeed; isMoving = true; }
+	if(controls->rightPressed)	{ position.x += movementSpeed; isMoving = true; }
+}
+
+void player::sprint()
+{
+
+	if(stamina > sprintCost)
+	{
+		isSprinting = true;
+		std::cout<<"playerIsSprinting"<<std::endl;
+		movementSpeed	=	baseSpeed * sprintModifier;
+		messageBus::sharedMessageBus()->sendMessage(changeStaminaEvent(stamina - sprintCost));
+	}
+	else
+	{
+		isSprinting = false;
+		movementSpeed = baseSpeed;
+	}
+}
+
+
+#pragma endregion all of movement related functions
+
+
+//calculates the final damage when player got hit.
 void player::onHit(abstractEvent* msgEvent)
 {
 	//cast
@@ -112,6 +212,7 @@ void player::onHit(abstractEvent* msgEvent)
 	messageBus::sharedMessageBus()->sendMessage(changeHealthEvent(finalHealthAfterHit));
 }
 
+//updates health
 void player::changeHealth(abstractEvent* msgEvent)
 {
 	//cast
@@ -120,6 +221,30 @@ void player::changeHealth(abstractEvent* msgEvent)
 	health = newHealth.newHealth;
 	std::cout << "changed health to: " << health << std::endl;
 }
+
+//updates stamina.
+void player::changeStamina(abstractEvent* msgEvent)
+{
+	//cast
+	changeStaminaEvent& newStamina = *(changeStaminaEvent*)msgEvent;
+
+	stamina = newStamina.newStamina;
+	std::cout<<"changed stamina to: "<<stamina<<std::endl;
+}
+
+void player::getPlayerStats(abstractEvent* msgEvent)
+{
+	//cast
+	getPlayerStatsEvent& getStats = *(getPlayerStatsEvent*)msgEvent;
+
+	getStats.cHealth	=	health;
+	getStats.mHealth	=	maxHealth;
+	getStats.cStamina	=	stamina;
+	getStats.mStamina	=	maxStamina;
+	getStats.cMana		=	mana;
+	getStats.mMana		=	maxMana;
+}
+
 
 #pragma endregion
 

@@ -18,6 +18,7 @@
 #include "changeStateEvent.h"
 #include "entityCreatedEvent.h"
 #include "entityDeletedEvent.h"
+#include "getPlayerStatsEvent.h"
 //------//
 
 

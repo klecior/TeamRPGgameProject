@@ -140,6 +140,9 @@
     <Filter Include="Events\HitPlayerEvent">
       <UniqueIdentifier>{9fd4a104-ab03-4dd2-b455-6c735b87f8e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\GetPlayerStatsEvent">
+      <UniqueIdentifier>{abfbf0c0-17cd-43e6-8d0c-4598e95ccf81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -235,9 +238,6 @@
     <ClCompile Include="changeStaminaEvent.cpp">
       <Filter>Events\ChangeStaminaEvent</Filter>
     </ClCompile>
-    <ClCompile Include="movePlayerEvent.cpp">
-      <Filter>Events\MovePlayerEvent</Filter>
-    </ClCompile>
     <ClCompile Include="entityCreatedEvent.cpp">
       <Filter>Events\EntityCreatedEvent</Filter>
     </ClCompile>
@@ -252,6 +252,12 @@
     </ClCompile>
     <ClCompile Include="hitPlayerEvent.cpp">
       <Filter>Events\HitPlayerEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="playerControlsEvent.cpp">
+      <Filter>Events\MovePlayerEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="getPlayerStatsEvent.cpp">
+      <Filter>Events\GetPlayerStatsEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -351,9 +357,6 @@
     <ClInclude Include="changeStaminaEvent.h">
       <Filter>Events\ChangeStaminaEvent</Filter>
     </ClInclude>
-    <ClInclude Include="movePlayerEvent.h">
-      <Filter>Events\MovePlayerEvent</Filter>
-    </ClInclude>
     <ClInclude Include="entityCreatedEvent.h">
       <Filter>Events\EntityCreatedEvent</Filter>
     </ClInclude>
@@ -368,6 +371,12 @@
     </ClInclude>
     <ClInclude Include="hitPlayerEvent.h">
       <Filter>Events\HitPlayerEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="playerControlsEvent.h">
+      <Filter>Events\MovePlayerEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="getPlayerStatsEvent.h">
+      <Filter>Events\GetPlayerStatsEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

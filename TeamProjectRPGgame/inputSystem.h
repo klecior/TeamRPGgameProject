@@ -9,7 +9,7 @@
 #include "getMousePosEvent.h"
 #include "leftMouseClickEvent.h"
 #include "getCurrentStateEvent.h"
-#include "movePlayerEvent.h"
+#include "playerControlsEvent.h"
 #include "changeHealthEvent.h"
 #include "changeStateEvent.h"
 #include "hitPlayerEvent.h"
@@ -28,6 +28,7 @@ protected:
 	bool rightKey;
 	bool spaceKey;
 	bool escKey;
+	bool lShiftKey;
 	//-------//
 
 	//tempDebugKeys//

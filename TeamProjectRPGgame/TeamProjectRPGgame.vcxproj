@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -102,6 +102,7 @@
     <ClCompile Include="gamePlay.cpp" />
     <ClCompile Include="getCurrentStateEvent.cpp" />
     <ClCompile Include="getMousePosEvent.cpp" />
+    <ClCompile Include="getPlayerStatsEvent.cpp" />
     <ClCompile Include="GUIbar.cpp" />
     <ClCompile Include="GUIsystem.cpp" />
     <ClCompile Include="help.cpp" />
@@ -110,7 +111,7 @@
     <ClCompile Include="leftMouseClickEvent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="messageBus.cpp" />
-    <ClCompile Include="movePlayerEvent.cpp" />
+    <ClCompile Include="playerControlsEvent.cpp" />
     <ClCompile Include="pause.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="program.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="gamePlay.h" />
     <ClInclude Include="getCurrentStateEvent.h" />
     <ClInclude Include="getMousePosEvent.h" />
+    <ClInclude Include="getPlayerStatsEvent.h" />
     <ClInclude Include="GUIbar.h" />
     <ClInclude Include="GUIsystem.h" />
     <ClInclude Include="help.h" />
@@ -150,7 +152,7 @@
     <ClInclude Include="leftMouseClickEvent.h" />
     <ClInclude Include="messageBus.h" />
     <ClInclude Include="messages.h" />
-    <ClInclude Include="movePlayerEvent.h" />
+    <ClInclude Include="playerControlsEvent.h" />
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="program.h" />

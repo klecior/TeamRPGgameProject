@@ -9,6 +9,7 @@ inputSystem::inputSystem(void)
 	rightKey	= false;
 	spaceKey	= false;
 	escKey		= false;
+	lShiftKey	= false;
 
 	mouseX		=	0;
 	mouseY		=	0;
@@ -55,7 +56,8 @@ void inputSystem::manageKeyHolds(SDL_Event &evt)
 			if(evt.key.keysym.sym == SDLK_DOWN  || evt.key.keysym.sym == SDLK_s){downKey	= true;	}
 			if(evt.key.keysym.sym == SDLK_ESCAPE|| evt.key.keysym.sym == SDLK_p){escKey		= true;	}
 
-			if(evt.key.keysym.sym == SDLK_SPACE){spaceKey = true;}
+			if(evt.key.keysym.sym == SDLK_SPACE)	{spaceKey = true;	}
+			if(evt.key.keysym.sym == SDLK_LSHIFT)	{lShiftKey = true;	}
 
 			//debug
 			if(evt.key.keysym.sym == SDLK_u){uKey	= true;	}
@@ -74,9 +76,9 @@ void inputSystem::manageKeyHolds(SDL_Event &evt)
 			if(evt.key.keysym.sym == SDLK_UP    || evt.key.keysym.sym == SDLK_w){upKey		= false;	}
 			if(evt.key.keysym.sym == SDLK_DOWN  || evt.key.keysym.sym == SDLK_s){downKey	= false;	}				
 			if(evt.key.keysym.sym == SDLK_ESCAPE|| evt.key.keysym.sym == SDLK_p){escKey		= false;	}
-
-			if(evt.key.keysym.sym == SDLK_SPACE){spaceKey = false;	}
-
+			
+			if(evt.key.keysym.sym == SDLK_SPACE)	{spaceKey = false;	}
+			if(evt.key.keysym.sym == SDLK_LSHIFT)	{lShiftKey = false;	}
 			//debug
 			if (evt.key.keysym.sym == SDLK_u) { uKey = false;	messageBus::sharedMessageBus()->sendMessage(hitPlayerEvent(10)); }
 			if(evt.key.keysym.sym == SDLK_i){iKey	= false;	}
@@ -127,7 +129,7 @@ void inputSystem::translateMeaning()
 
 void inputSystem::gameplayInputs()
 {
-	messageBus::sharedMessageBus()->sendMessage(movePlayerEvent(upKey,downKey,leftKey,rightKey));
+	messageBus::sharedMessageBus()->sendMessage(playerControlsEvent(upKey,downKey,leftKey,rightKey,lShiftKey));
 	if(escKey)
 	{
 		messageBus::sharedMessageBus()->sendMessage(changeStateEvent(PAUSE));
