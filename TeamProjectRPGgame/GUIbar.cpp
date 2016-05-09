@@ -12,6 +12,7 @@ GUIbar::GUIbar()
 	amountShown.y	=	0;
 	amountShown.w	=	position.w;
 	amountShown.h	=	position.h;
+	objectType		= "GUI";
 }
 
 GUIbar::GUIbar(int percentage,std::string backDropPath,std::string barPath, std::string borderPath)
@@ -25,6 +26,8 @@ GUIbar::GUIbar(int percentage,std::string backDropPath,std::string barPath, std:
 	amountShown.x	=	0;
 	amountShown.y	=	0;
 	amountShown.h	=	30;
+	objectType		= "GUI";
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME, "GUI", this));
 }
 
 void GUIbar::draw()

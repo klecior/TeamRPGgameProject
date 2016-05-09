@@ -6,6 +6,7 @@
 #include "constants.h"
 #include <vector>
 #include "gameObject.h"
+#include <map>
 
 //gui objects//
 #include "GUIbar.h"
@@ -15,6 +16,8 @@
 #include "changeHealthEvent.h"
 #include "changeStaminaEvent.h"
 #include "changeStateEvent.h"
+#include "entityCreatedEvent.h"
+#include "entityDeletedEvent.h"
 //------//
 
 
@@ -24,9 +27,11 @@ class GUIsystem : public observer
 protected:
 
 	//lists for all of the diffrent GUI states/settings.
-	std::vector<gameObject*>gamePlayOverlay;
-	std::vector<gameObject*>inventoryScreen;
-	std::vector<gameObject*>mapScreen;
+	//std::vector<gameObject*>gamePlayOverlay;
+	//std::vector<gameObject*>inventoryScreen;
+	//std::vector<gameObject*>mapScreen;
+
+	std::map<int, std::vector<gameObject*>> GUIstatesList;
 
 	//TODO change the vectors into a single map implementation for easier usage.
 
@@ -40,6 +45,9 @@ protected:
 	void updateHealthBar(abstractEvent* msgEvent);
 	void updateStaminaBar(abstractEvent* msgEvent);
 	void changeState(abstractEvent* msgEvent);
+
+	void addGUIobject(abstractEvent* msgEvent);
+	void removeGUIobject(abstractEvent* msgEvent);
 
 public:
 	GUIsystem(void);

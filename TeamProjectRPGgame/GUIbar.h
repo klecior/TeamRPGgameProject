@@ -1,6 +1,9 @@
 #pragma once 
 
 #include "gameObject.h"
+#include "messageBus.h"
+#include "entityCreatedEvent.h"
+#include "entityDeletedEvent.h"
 
 
 class GUIbar : public gameObject

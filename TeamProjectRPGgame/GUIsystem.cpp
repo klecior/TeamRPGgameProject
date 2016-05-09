@@ -7,6 +7,8 @@ GUIsystem::GUIsystem()
 	messageBus::sharedMessageBus()->registerListener(changeStateMessage,this);
 	messageBus::sharedMessageBus()->registerListener(changeHealthMessage,this);
 	messageBus::sharedMessageBus()->registerListener(changeStaminaMessage,this);
+	messageBus::sharedMessageBus()->registerListener(entityCreatedMessage, this);
+	messageBus::sharedMessageBus()->registerListener(entityDeletedMessage, this);
 }
 
 GUIsystem::~GUIsystem()
@@ -14,6 +16,8 @@ GUIsystem::~GUIsystem()
 	messageBus::sharedMessageBus()->unRegisterListener(changeStateMessage,this);
 	messageBus::sharedMessageBus()->unRegisterListener(changeHealthMessage,this);
 	messageBus::sharedMessageBus()->unRegisterListener(changeStaminaMessage,this);
+	messageBus::sharedMessageBus()->unRegisterListener(entityCreatedMessage, this);
+	messageBus::sharedMessageBus()->unRegisterListener(entityDeletedMessage, this);
 }
 
 void GUIsystem::initialise()
@@ -29,8 +33,10 @@ void GUIsystem::initialise()
 	staminaBar = new GUIbar(100,"Assets/GUI/healthBar/backdrop.png","Assets/GUI/healthBar/bar.png","Assets/GUI/healthBar/border.png");
 	staminaBar->setPos('x',800);
 	staminaBar->setPos('y',600);
-	gamePlayOverlay.push_back(healthBar);
-	gamePlayOverlay.push_back(staminaBar);
+	//gamePlayOverlay.push_back(healthBar);
+	//gamePlayOverlay.push_back(staminaBar);
+	//GUIstatesList[GAME].push_back(healthBar);
+	//GUIstatesList[GAME].push_back(staminaBar);
 	//---------------------------//
 
 	//--INITIALISE INVENTORY--//
@@ -49,27 +55,18 @@ void GUIsystem::handleMessage(abstractEvent& msgEvent)
 	if(msgType == changeStateMessage)	{ changeState(&msgEvent);			}
 	if(msgType == changeHealthMessage)	{ updateHealthBar(&msgEvent);		}
 	if(msgType == changeStaminaMessage) { updateStaminaBar(&msgEvent);		}
+	if(msgType == entityCreatedMessage) { addGUIobject(&msgEvent);			}	
+	if(msgType == entityDeletedMessage) { removeGUIobject(&msgEvent);		}
 
 }
 
 //draws the state//
 void GUIsystem::drawState()
 {
-
-	if(currentState == GAME)
-	{
-		for(int i = 0; i < gamePlayOverlay.size(); i++){ gamePlayOverlay[i]->update(); }	
-		for(int i = 0; i < gamePlayOverlay.size(); i++){ gamePlayOverlay[i]->draw();   }	
-	}
-	if(currentState == INVENTORY)
-	{
-		for(int i = 0; i < inventoryScreen.size(); i++){ inventoryScreen[i]->update(); }	
-		for(int i = 0; i < inventoryScreen.size(); i++){ inventoryScreen[i]->draw(); }	
-	}
-	if(currentState == MAPSCREEN)
-	{
-		for(int i = 0; i < mapScreen.size(); i++){ mapScreen[i]->update(); }	
-		for(int i = 0; i < mapScreen.size(); i++){ mapScreen[i]->draw(); }	
+	for (int i = 0; i < GUIstatesList[currentState].size(); i++) 
+	{ 
+		GUIstatesList[currentState].at(i)->update();
+		GUIstatesList[currentState].at(i)->draw();
 	}
 
 }
@@ -98,6 +95,41 @@ void GUIsystem::updateStaminaBar(abstractEvent* msgEvent)
 	changeStaminaEvent& staminaChange = *(changeStaminaEvent*)msgEvent;
 
 	staminaBar->updatePercentage(staminaChange.newStamina);
+}
+
+void GUIsystem::addGUIobject(abstractEvent* msgEvent)
+{
+	//cast
+	entityCreatedEvent& newEntity = *(entityCreatedEvent*)msgEvent;
+
+	std::cout << "dadsadsa";
+
+	//if the object created was a GUI object
+	if (newEntity.type == "GUI")
+	{
+
+		std::cout << newEntity.type << " " << newEntity.atState << std::endl;
+
+		GUIstatesList[newEntity.atState].push_back(newEntity.createdObject);
+		std::cout << "adding something to GUI" << std::endl;
+	}
+}
+
+void GUIsystem::removeGUIobject(abstractEvent* msgEvent)
+{
+	//cast
+	entityDeletedEvent& newEntity = *(entityDeletedEvent*)msgEvent;
+	
+	//go through that state list
+	for (int i = 0; i < GUIstatesList[newEntity.atState].size(); i++)
+	{	
+		//if found the same address
+		if (GUIstatesList[newEntity.atState].at(i) == newEntity.deletedObject)
+		{
+			//delete it from the list
+			GUIstatesList[newEntity.atState].erase(GUIstatesList[newEntity.atState].begin() + 1);
+		}
+	}
 }
 
 #pragma endregion 
