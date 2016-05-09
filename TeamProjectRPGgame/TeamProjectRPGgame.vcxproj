@@ -105,6 +105,7 @@
     <ClCompile Include="GUIbar.cpp" />
     <ClCompile Include="GUIsystem.cpp" />
     <ClCompile Include="help.cpp" />
+    <ClCompile Include="hitPlayerEvent.cpp" />
     <ClCompile Include="inputSystem.cpp" />
     <ClCompile Include="leftMouseClickEvent.cpp" />
     <ClCompile Include="main.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="GUIbar.h" />
     <ClInclude Include="GUIsystem.h" />
     <ClInclude Include="help.h" />
+    <ClInclude Include="hitPlayerEvent.h" />
     <ClInclude Include="inputSystem.h" />
     <ClInclude Include="leftMouseClickEvent.h" />
     <ClInclude Include="messageBus.h" />

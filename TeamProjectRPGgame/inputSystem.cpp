@@ -78,7 +78,7 @@ void inputSystem::manageKeyHolds(SDL_Event &evt)
 			if(evt.key.keysym.sym == SDLK_SPACE){spaceKey = false;	}
 
 			//debug
-			if(evt.key.keysym.sym == SDLK_u){uKey	= false;	}
+			if (evt.key.keysym.sym == SDLK_u) { uKey = false;	messageBus::sharedMessageBus()->sendMessage(hitPlayerEvent(10)); }
 			if(evt.key.keysym.sym == SDLK_i){iKey	= false;	}
 			if(evt.key.keysym.sym == SDLK_o){oKey	= false;	}
 			if(evt.key.keysym.sym == SDLK_j){jKey	= false;	}

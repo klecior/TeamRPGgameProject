@@ -137,6 +137,9 @@
     <Filter Include="Systems\GameLogicSystem">
       <UniqueIdentifier>{66b0b35e-81bd-4112-b582-5bc75aec3610}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\HitPlayerEvent">
+      <UniqueIdentifier>{9fd4a104-ab03-4dd2-b455-6c735b87f8e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -246,6 +249,9 @@
     </ClCompile>
     <ClCompile Include="gameLogicSystem.cpp">
       <Filter>Systems\GameLogicSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="hitPlayerEvent.cpp">
+      <Filter>Events\HitPlayerEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -359,6 +365,9 @@
     </ClInclude>
     <ClInclude Include="gameLogicSystem.h">
       <Filter>Systems\GameLogicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="hitPlayerEvent.h">
+      <Filter>Events\HitPlayerEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

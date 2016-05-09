@@ -10,6 +10,8 @@
 #include "movePlayerEvent.h"
 #include "entityCreatedEvent.h"
 #include "entityDeletedEvent.h"
+#include "hitPlayerEvent.h"
+#include "changeHealthEvent.h"
 
 class player :
 	public gameObject
@@ -22,10 +24,19 @@ protected:
 	textureImage*	idleState;
 	textureImage*	moveState;
 
+	int health;
+	int stamina;
+	int mana;
+
+	int totalDefenceTreshold;
+
+
 	bool isMoving;
 
 	//event handlers
 	void playerMovement(abstractEvent* msgEvent);
+	void onHit(abstractEvent* msgEvent);
+	void changeHealth(abstractEvent* msgEvent);
 
 public:
 	player(void);

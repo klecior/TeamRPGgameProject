@@ -33,10 +33,6 @@ void GUIsystem::initialise()
 	staminaBar = new GUIbar(100,"Assets/GUI/healthBar/backdrop.png","Assets/GUI/healthBar/bar.png","Assets/GUI/healthBar/border.png");
 	staminaBar->setPos('x',800);
 	staminaBar->setPos('y',600);
-	//gamePlayOverlay.push_back(healthBar);
-	//gamePlayOverlay.push_back(staminaBar);
-	//GUIstatesList[GAME].push_back(healthBar);
-	//GUIstatesList[GAME].push_back(staminaBar);
 	//---------------------------//
 
 	//--INITIALISE INVENTORY--//
