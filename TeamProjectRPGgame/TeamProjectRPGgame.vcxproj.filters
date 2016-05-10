@@ -28,9 +28,6 @@
     <Filter Include="ManagerClasses\SdlManager">
       <UniqueIdentifier>{701cb97d-f510-4268-86bd-2b8d1ff7c47d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ManagerClasses\SpriteManager">
-      <UniqueIdentifier>{39c9bd50-b5a0-4dd5-bdb0-e17047f88000}</UniqueIdentifier>
-    </Filter>
     <Filter Include="States\Pause">
       <UniqueIdentifier>{199673e1-254d-4a24-b29e-53c1dfccf5b0}</UniqueIdentifier>
     </Filter>
@@ -98,9 +95,6 @@
     <Filter Include="GUIelements\GUIbar">
       <UniqueIdentifier>{42d897ce-82d0-46d2-b87a-9f017c064fd4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ManagerClasses\AudioManager">
-      <UniqueIdentifier>{b8536114-0c65-47df-86fd-ac8aa8afe5e1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Events">
       <UniqueIdentifier>{6c92e57c-46cc-4351-b707-f99245ed56a5}</UniqueIdentifier>
     </Filter>
@@ -164,6 +158,9 @@
     <Filter Include="GameSpecyficClasses\Status Effects\Status Queue">
       <UniqueIdentifier>{4f8bdeb2-dea8-4513-b95b-e96b51667856}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ManagerClasses\AssetManager">
+      <UniqueIdentifier>{39c9bd50-b5a0-4dd5-bdb0-e17047f88000}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -199,9 +196,6 @@
     <ClCompile Include="sequenceAnimation.cpp">
       <Filter>Framework\UtilityClasses\sequenceAnimation</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteManager.cpp">
-      <Filter>ManagerClasses\SpriteManager</Filter>
-    </ClCompile>
     <ClCompile Include="button.cpp">
       <Filter>Framework\UtilityClasses\Button</Filter>
     </ClCompile>
@@ -234,9 +228,6 @@
     </ClCompile>
     <ClCompile Include="GUIbar.cpp">
       <Filter>GUIelements\GUIbar</Filter>
-    </ClCompile>
-    <ClCompile Include="audioManager.cpp">
-      <Filter>ManagerClasses\AudioManager</Filter>
     </ClCompile>
     <ClCompile Include="abstractEvent.cpp">
       <Filter>Events\AbstractEvent</Filter>
@@ -298,6 +289,9 @@
     <ClCompile Include="statusEffectQueue.cpp">
       <Filter>GameSpecyficClasses\Status Effects\Status Queue</Filter>
     </ClCompile>
+    <ClCompile Include="AssetManager.cpp">
+      <Filter>ManagerClasses\AssetManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameManager.h">
@@ -332,9 +326,6 @@
     </ClInclude>
     <ClInclude Include="sequenceAnimation.h">
       <Filter>Framework\UtilityClasses\sequenceAnimation</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteManager.h">
-      <Filter>ManagerClasses\SpriteManager</Filter>
     </ClInclude>
     <ClInclude Include="button.h">
       <Filter>Framework\UtilityClasses\Button</Filter>
@@ -371,9 +362,6 @@
     </ClInclude>
     <ClInclude Include="GUIbar.h">
       <Filter>GUIelements\GUIbar</Filter>
-    </ClInclude>
-    <ClInclude Include="audioManager.h">
-      <Filter>ManagerClasses\AudioManager</Filter>
     </ClInclude>
     <ClInclude Include="abstractEvent.h">
       <Filter>Events\AbstractEvent</Filter>
@@ -434,6 +422,9 @@
     </ClInclude>
     <ClInclude Include="statusEffectQueue.h">
       <Filter>GameSpecyficClasses\Status Effects\Status Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager.h">
+      <Filter>ManagerClasses\AssetManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
