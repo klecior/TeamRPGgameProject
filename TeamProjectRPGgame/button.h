@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include <string>
 #include "gameManager.h"
-#include "SpriteManager.h"
+#include "assetManager.h"
 #include "messageBus.h"
 
 //events//

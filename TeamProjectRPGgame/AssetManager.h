@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include "Sdl_Mixer.h"
 
 //**id Structs contains the path of an image/animation, and it's position on a vector list.**//
 struct idStruct
@@ -14,12 +15,17 @@ struct idStruct
 };
 
 //**Sprita Manager class is responsible for loading, and retrival of graphics from memory.**//
-class SpriteManager
+class assetManager
 {
 protected:
 
-	SpriteManager();
-	static SpriteManager*		 pSharedSpriteManager;
+	assetManager();
+	static assetManager*		 pSharedassetManager;
+
+	//--lists containing the audio--//
+	std::vector<Mix_Chunk*>					chunkList;
+	std::vector<Mix_Music*>					musicList;
+	//------------------------------//
 
 	//--lists containing the graphics--//
 	std::vector<textureImage*>				imageList;
@@ -29,18 +35,25 @@ protected:
 	//--lists containing the indexes--//
 	std::vector<idStruct*>				idPngList;
 	std::vector<idStruct*>				idAnimList;
+
+	std::vector<idStruct*>				idChunkList;
+	std::vector<idStruct*>				idMusicList;
 	//-------------------------------//
 
 	//--temporary pointers used to create new instances of graphics and indexes--//
 	idStruct*			tempID;
 	textureImage*		tempImage;
 	sequenceAnimation*	tempAnimation;
+	Mix_Chunk*			tempChunk;
+	Mix_Music*			tempMusic;
 	//---------------------------------------------------------------------------//
+
+
 
 	//--opening and reading from a file--//
 	std::stringstream stringConverter;
-	std::fstream file;									
-	std::string StringForStuff;							
+	std::fstream file;
+	std::string StringForStuff;
 	//----------------------------------//
 
 	//--getting a path and number of frames(if animation) from the file--//
@@ -49,11 +62,15 @@ protected:
 	//-------------------------------------------------------------------//
 
 	//--used to fill with junk data--//
-	char	tempChar;	
+	char	tempChar;
 
 public:
 
-	static SpriteManager*	sharedSpriteManager();
+	static assetManager*	sharedassetManager();
+
+	//--returns pointer to audio from memory--//
+	Mix_Chunk*				getChunk(std::string path);
+	Mix_Music*				getMusic(std::string path);
 
 	//--returns pointer to image from memory--//
 	textureImage*			getImage(std::string path);

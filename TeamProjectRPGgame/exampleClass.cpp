@@ -63,10 +63,10 @@ void exampleClass::loadOnCreation()
 	{
 
 		idle	=	new textureImage();
-		idle	=	SpriteManager::sharedSpriteManager()->getImage("images/template/exampleIdle.png");
+		idle	=	assetManager::sharedassetManager()->getImage("images/template/exampleIdle.png");
 
 		moving	=	new sequenceAnimation();
-		moving	=	SpriteManager::sharedSpriteManager()->getAnimation(33,"images/template/Run/RunningSpriteSheet");
+		moving	=	assetManager::sharedassetManager()->getAnimation(33,"images/template/Run/RunningSpriteSheet");
 
 		changeImage(idle);
 

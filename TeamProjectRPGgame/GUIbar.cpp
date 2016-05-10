@@ -18,9 +18,9 @@ GUIbar::GUIbar()
 GUIbar::GUIbar(int percentage,std::string backDropPath,std::string barPath, std::string borderPath)
 {
 	percentageShown	=	percentage;
-	bar				=	SpriteManager::sharedSpriteManager()->getImage(barPath);
-	border			=	SpriteManager::sharedSpriteManager()->getImage(borderPath);
-	backdrop		=	SpriteManager::sharedSpriteManager()->getImage(backDropPath);
+	bar				=	assetManager::sharedassetManager()->getImage(barPath);
+	border			=	assetManager::sharedassetManager()->getImage(borderPath);
+	backdrop		=	assetManager::sharedassetManager()->getImage(backDropPath);
 	position.h		=	bar->getOffset().h;
 	position.w		=	bar->getOffset().w;
 	amountShown.x	=	0;
