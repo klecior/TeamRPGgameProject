@@ -7,6 +7,11 @@ statusEffect::statusEffect()
 	remainingTime = endTime - startTime;
 }
 
+statusEffect::statusEffect(gameObject &targetAddress)
+{
+	target = targetAddress;
+}
+
 statusEffect::~statusEffect()
 {
 }
@@ -24,6 +29,6 @@ int statusEffect::getStartTime()
 void statusEffect::effect()
 {
 	std::cout << "Testing Base Status Effect"<<std::endl;
-	messageBus::sharedMessageBus()->sendMessage(hitPlayerMessage(1));
+	messageBus::sharedMessageBus()->sendMessage(hitPlayerEvent(10));
 	remainingTime = SDL_GetTicks() - endTime;
 }

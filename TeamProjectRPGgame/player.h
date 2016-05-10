@@ -5,6 +5,7 @@
 #include "constants.h"
 #include "SpriteManager.h"
 #include "gameManager.h"
+#include "statusEffect.h"
 
 //events//
 #include "playerControlsEvent.h"
@@ -53,7 +54,7 @@ protected:
 	void staminaRegen();
 	//-----//
 
-
+	std::vector<statusEffect> statusEffectQueue;
 
 	int totalDefenceTreshold;
 
