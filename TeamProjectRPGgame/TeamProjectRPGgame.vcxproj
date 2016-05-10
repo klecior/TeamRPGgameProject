@@ -126,6 +126,7 @@
     <ClCompile Include="observer.cpp" />
     <ClCompile Include="stateHandler.cpp" />
     <ClCompile Include="statusEffect.cpp" />
+    <ClCompile Include="statusEffectQueue.cpp" />
     <ClCompile Include="textureImage.cpp" />
     <ClCompile Include="title.cpp" />
   </ItemGroup>
@@ -172,6 +173,7 @@
     <ClInclude Include="observer.h" />
     <ClInclude Include="stateHandler.h" />
     <ClInclude Include="statusEffect.h" />
+    <ClInclude Include="statusEffectQueue.h" />
     <ClInclude Include="textureImage.h" />
     <ClInclude Include="title.h" />
   </ItemGroup>

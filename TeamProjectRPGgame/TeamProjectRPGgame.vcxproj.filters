@@ -295,6 +295,9 @@
     <ClCompile Include="statusEffect.cpp">
       <Filter>GameSpecyficClasses\Status Effects\Abstract</Filter>
     </ClCompile>
+    <ClCompile Include="statusEffectQueue.cpp">
+      <Filter>GameSpecyficClasses\Status Effects\Status Queue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameManager.h">
@@ -428,6 +431,9 @@
     </ClInclude>
     <ClInclude Include="statusEffect.h">
       <Filter>GameSpecyficClasses\Status Effects\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="statusEffectQueue.h">
+      <Filter>GameSpecyficClasses\Status Effects\Status Queue</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
