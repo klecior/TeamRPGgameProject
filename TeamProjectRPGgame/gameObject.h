@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include "textureImage.h"
 #include <vector>
-#include "SpriteManager.h"
+#include "AssetManager.h"
 #include "observer.h"
 #include "moveWorldEvent.h"
 

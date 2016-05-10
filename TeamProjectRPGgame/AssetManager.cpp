@@ -1,25 +1,25 @@
-#include "SpriteManager.h"
+#include "AssetManager.h"
 
 
-/*shared static instance of the SpriteManager class
-this is the real pSharedSpriteManager object global*/
-SpriteManager*	SpriteManager::pSharedSpriteManager = NULL;
+/*shared static instance of the AssetManager class
+this is the real pSharedAssetManager object global*/
+AssetManager*	AssetManager::pSharedAssetManager = NULL;
 
 
-SpriteManager::SpriteManager(void)
+AssetManager::AssetManager(void)
 {
 }
 
 
-SpriteManager* SpriteManager::sharedSpriteManager()
+AssetManager* AssetManager::sharedAssetManager()
 {	
-	if(pSharedSpriteManager == NULL){pSharedSpriteManager = new SpriteManager();}
-	return pSharedSpriteManager;
+	if(pSharedAssetManager == NULL){pSharedAssetManager = new AssetManager();}
+	return pSharedAssetManager;
 }
 
 
 //--checks if the image was allready loaded, if yes returns the loaded image, if no, makes one, puts it onto a list, and then returns it--//
-textureImage*	SpriteManager::getImage(std::string path)
+textureImage*	AssetManager::getImage(std::string path)
 {
 	
 	//checks all the ids.
@@ -53,7 +53,7 @@ textureImage*	SpriteManager::getImage(std::string path)
 }
 
 //--checks if the animation was allready loaded, if yes returns the loaded animation, if no, makes one, puts it onto a list, and then returns it--//
-sequenceAnimation* SpriteManager::getAnimation(unsigned int frames, std::string path)
+sequenceAnimation* AssetManager::getAnimation(unsigned int frames, std::string path)
 {
 
 	//checks all the ids.
@@ -89,7 +89,7 @@ sequenceAnimation* SpriteManager::getAnimation(unsigned int frames, std::string 
 
 
 //--InitializeFromFile function opens up a text document with every image and animation in the game, and then loads the graphics into memory, so it can be easily retrieved later--//
-void SpriteManager::initializeFromFile(std::string path)
+void AssetManager::initializeFromFile(std::string path)
 {
 	//opens the file
 	file.open(path.c_str(), std::ios::in);		
@@ -159,7 +159,7 @@ void SpriteManager::initializeFromFile(std::string path)
 }
 
 //--free memory will make sure that all of the lists are being properly cleared on quit--// //--Could be potentialy used in between loading screens if multiple levels with multiple graphics are being loaded--//
-void SpriteManager::freeMemory()
+void AssetManager::freeMemory()
 {
 
 	for(unsigned int i = 0;  i < imageList.size(); i++)

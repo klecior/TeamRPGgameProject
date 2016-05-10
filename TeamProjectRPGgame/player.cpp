@@ -64,8 +64,8 @@ void player::loadOnCreation()
 	if(finishedLoading == false)
 	{
 		
-		idleState = SpriteManager::sharedSpriteManager()->getImage("Assets/Characters/Player/playerIdle.png");
-		moveState = SpriteManager::sharedSpriteManager()->getImage("Assets/Characters/Player/playerMoving.png");
+		idleState = AssetManager::sharedAssetManager()->getImage("Assets/Characters/Player/playerIdle.png");
+		moveState = AssetManager::sharedAssetManager()->getImage("Assets/Characters/Player/playerMoving.png");
 
 		changeImage(idleState);
 		std::cout<<"Loaded player assets"<<std::endl;

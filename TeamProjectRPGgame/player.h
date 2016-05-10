@@ -3,7 +3,7 @@
 #include "textureImage.h"
 #include "messageBus.h"
 #include "constants.h"
-#include "SpriteManager.h"
+#include "AssetManager.h"
 #include "gameManager.h"
 #include "statusEffect.h"
 

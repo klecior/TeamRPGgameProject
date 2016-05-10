@@ -14,12 +14,12 @@ struct idStruct
 };
 
 //**Sprita Manager class is responsible for loading, and retrival of graphics from memory.**//
-class SpriteManager
+class AssetManager
 {
 protected:
 
-	SpriteManager();
-	static SpriteManager*		 pSharedSpriteManager;
+	AssetManager();
+	static AssetManager*		 pSharedAssetManager;
 
 	//--lists containing the graphics--//
 	std::vector<textureImage*>				imageList;
@@ -53,7 +53,7 @@ protected:
 
 public:
 
-	static SpriteManager*	sharedSpriteManager();
+	static AssetManager*	sharedAssetManager();
 
 	//--returns pointer to image from memory--//
 	textureImage*			getImage(std::string path);
