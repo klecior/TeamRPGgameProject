@@ -155,6 +155,15 @@
     <Filter Include="GUIelements\SpellButton">
       <UniqueIdentifier>{530c4a83-bdf7-4a2e-ad75-d59b8b234896}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameSpecyficClasses\Status Effects">
+      <UniqueIdentifier>{2d8448ac-c5fd-47a6-9ab0-d7d07086273c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSpecyficClasses\Status Effects\Abstract">
+      <UniqueIdentifier>{5d1b2e06-f274-4bb2-a0c3-b02797b65762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSpecyficClasses\Status Effects\Status Queue">
+      <UniqueIdentifier>{4f8bdeb2-dea8-4513-b95b-e96b51667856}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -282,6 +291,12 @@
     </ClCompile>
     <ClCompile Include="spellButton.cpp">
       <Filter>GUIelements\SpellButton</Filter>
+    </ClCompile>
+    <ClCompile Include="statusEffect.cpp">
+      <Filter>GameSpecyficClasses\Status Effects\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="statusEffectQueue.cpp">
+      <Filter>GameSpecyficClasses\Status Effects\Status Queue</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -413,6 +428,12 @@
     </ClInclude>
     <ClInclude Include="spellButton.h">
       <Filter>GUIelements\SpellButton</Filter>
+    </ClInclude>
+    <ClInclude Include="statusEffect.h">
+      <Filter>GameSpecyficClasses\Status Effects\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="statusEffectQueue.h">
+      <Filter>GameSpecyficClasses\Status Effects\Status Queue</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

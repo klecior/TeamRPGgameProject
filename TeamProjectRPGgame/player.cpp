@@ -89,14 +89,6 @@ void player::update()
 		{
 			std::cout << "player is DED" << std::endl;
 		}
-
-		if (statusEffectQueue.size()>0)
-		{
-			for (int i = 0; i < statusEffectQueue.size(); i++)
-			{
-				statusEffectQueue.at(i).effect();
-			}
-		}
 	}
 
 }
