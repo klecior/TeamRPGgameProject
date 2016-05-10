@@ -198,7 +198,6 @@ void player::onHit(abstractEvent* msgEvent)
 	//cast
 	hitPlayerEvent& playerHit = *(hitPlayerEvent*)msgEvent;
 
-
 	//calculate damage taken based on the player defence
 	int totalDamageTaken = 0;
 	totalDamageTaken = playerHit.damage - totalDefenceTreshold;

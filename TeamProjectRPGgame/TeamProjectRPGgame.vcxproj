@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -92,6 +92,7 @@
     <ClCompile Include="changeHealthEvent.cpp" />
     <ClCompile Include="changeStaminaEvent.cpp" />
     <ClCompile Include="changeStateEvent.cpp" />
+    <ClCompile Include="collision.cpp" />
     <ClCompile Include="entityCreatedEvent.cpp" />
     <ClCompile Include="entityDeletedEvent.cpp" />
     <ClCompile Include="exampleClass.cpp" />
@@ -111,6 +112,7 @@
     <ClCompile Include="leftMouseClickEvent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="messageBus.cpp" />
+    <ClCompile Include="moveWorldEvent.cpp" />
     <ClCompile Include="playerControlsEvent.cpp" />
     <ClCompile Include="pause.cpp" />
     <ClCompile Include="player.cpp" />
@@ -132,6 +134,7 @@
     <ClInclude Include="changeHealthEvent.h" />
     <ClInclude Include="changeStaminaEvent.h" />
     <ClInclude Include="changeStateEvent.h" />
+    <ClInclude Include="collision.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="entityCreatedEvent.h" />
     <ClInclude Include="entityDeletedEvent.h" />
@@ -152,6 +155,7 @@
     <ClInclude Include="leftMouseClickEvent.h" />
     <ClInclude Include="messageBus.h" />
     <ClInclude Include="messages.h" />
+    <ClInclude Include="moveWorldEvent.h" />
     <ClInclude Include="playerControlsEvent.h" />
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />

@@ -63,6 +63,8 @@ void gamePlay::loadOnCreation()
 		backButton->setPos('y',600);
 
 		mainPlayer = new player();
+		mainPlayer->setPos('x', 500);
+		mainPlayer->setPos('y', 400);
 
 		finishedLoading = true;
 	}

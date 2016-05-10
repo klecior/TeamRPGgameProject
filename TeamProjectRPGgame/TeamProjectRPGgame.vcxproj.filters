@@ -143,6 +143,12 @@
     <Filter Include="Events\GetPlayerStatsEvent">
       <UniqueIdentifier>{abfbf0c0-17cd-43e6-8d0c-4598e95ccf81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\MoveWorldEvent">
+      <UniqueIdentifier>{a95c0ee1-35be-4092-950f-75f07020ee40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\BasicFunctionality\Collision">
+      <UniqueIdentifier>{12021f33-dbe4-4c4f-bf6d-147dd90d3812}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -258,6 +264,12 @@
     </ClCompile>
     <ClCompile Include="getPlayerStatsEvent.cpp">
       <Filter>Events\GetPlayerStatsEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="moveWorldEvent.cpp">
+      <Filter>Events\MoveWorldEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="collision.cpp">
+      <Filter>Framework\BasicFunctionality\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -377,6 +389,12 @@
     </ClInclude>
     <ClInclude Include="getPlayerStatsEvent.h">
       <Filter>Events\GetPlayerStatsEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="moveWorldEvent.h">
+      <Filter>Events\MoveWorldEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="collision.h">
+      <Filter>Framework\BasicFunctionality\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

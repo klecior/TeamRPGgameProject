@@ -5,6 +5,7 @@
 #include <vector>
 #include "SpriteManager.h"
 #include "observer.h"
+#include "moveWorldEvent.h"
 
 
 //**gameObject class is the main base level object with common functionality. Most other object inherit from it.**//
@@ -37,6 +38,8 @@ public:
 	void changeImage(textureImage* image);		//changes the image and position rect.
 	void setImage(std::string path);			//loads a new image.
 
+	void moveWorldObject(abstractEvent* msgEvent);
+
 	//--collision boxes and their drawing--//
 	//--every object has at least one collision box by default--//
 	SDL_Rect	collisionBox;
@@ -44,6 +47,7 @@ public:
 
 	void drawCollisionBox();
 	bool collisionWith(SDL_Rect* positions, SDL_Rect* currentBox);
+
 	//------------------------------------//
 
 
