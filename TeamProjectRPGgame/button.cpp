@@ -1,5 +1,9 @@
 #include "button.h"
 
+button::button()
+{
+}
+
 //--Creates a button with one, state containing temporary 'x' image--//
 button::button(int list)
 {

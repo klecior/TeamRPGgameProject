@@ -10,6 +10,7 @@
 #include "getMousePosEvent.h"
 #include "entityCreatedEvent.h"
 #include "entityDeletedEvent.h"
+#include "castSpellEvent.h"
 
  /**Button that returns "true" if clicked, contains 2 states: idle, and over.**/
 class button :
@@ -29,6 +30,7 @@ protected:
 	bool buttonClicked;
 
 public:
+	button();
 	button(int list);
 	button(int list, std::string idle, std::string over);
 	~button(void);

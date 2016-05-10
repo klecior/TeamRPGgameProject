@@ -10,6 +10,7 @@
 
 //gui objects//
 #include "GUIbar.h"
+#include "spellButton.h"
 //-----------//
 
 //events//
@@ -39,8 +40,9 @@ protected:
 	int currentState;
 
 	//gameOverlay
-	GUIbar*		healthBar;
-	GUIbar*		staminaBar;
+	GUIbar*			healthBar;
+	GUIbar*			staminaBar;
+	spellButton*	spell1Hotkey;
 
 	//event handlers
 	void updateHealthBar(abstractEvent* msgEvent);

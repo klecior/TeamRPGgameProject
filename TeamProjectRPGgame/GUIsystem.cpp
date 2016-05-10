@@ -34,6 +34,10 @@ void GUIsystem::initialise()
 	staminaBar->setPos('x',800);
 	staminaBar->setPos('y',600);
 	staminaBar->updatePercentage(100);
+
+	spell1Hotkey = new spellButton("Assets/GUI/healthBar/backdrop.png", "Assets/GUI/healthBar/bar.png", dickButtSpell);
+	spell1Hotkey->setPos('x', 500);
+	spell1Hotkey->setPos('y', 20);
 	//---------------------------//
 
 	//--INITIALISE INVENTORY--//

@@ -149,6 +149,12 @@
     <Filter Include="Framework\BasicFunctionality\Collision">
       <UniqueIdentifier>{12021f33-dbe4-4c4f-bf6d-147dd90d3812}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\CastSpellEvent">
+      <UniqueIdentifier>{babc8ed2-1982-40ee-81b4-0d6b69defdfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUIelements\SpellButton">
+      <UniqueIdentifier>{530c4a83-bdf7-4a2e-ad75-d59b8b234896}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -270,6 +276,12 @@
     </ClCompile>
     <ClCompile Include="collision.cpp">
       <Filter>Framework\BasicFunctionality\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="castSpellEvent.cpp">
+      <Filter>Events\CastSpellEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="spellButton.cpp">
+      <Filter>GUIelements\SpellButton</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -395,6 +407,12 @@
     </ClInclude>
     <ClInclude Include="collision.h">
       <Filter>Framework\BasicFunctionality\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="castSpellEvent.h">
+      <Filter>Events\CastSpellEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="spellButton.h">
+      <Filter>GUIelements\SpellButton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
