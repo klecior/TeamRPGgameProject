@@ -2,14 +2,15 @@
 
 statusEffect::statusEffect()
 {
+	target = nullptr;
+}
+
+statusEffect::statusEffect(gameObject *targetAddress)
+{
+	target = targetAddress;
 	startTime = SDL_GetTicks();
 	endTime = (SDL_GetTicks() + duration);
 	remainingTime = endTime - startTime;
-}
-
-statusEffect::statusEffect(gameObject &targetAddress)
-{
-	target = targetAddress;
 }
 
 statusEffect::~statusEffect()
