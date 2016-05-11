@@ -15,6 +15,8 @@
 #include "changeHealthEvent.h"
 #include "changeStaminaEvent.h"
 #include "getPlayerStatsEvent.h"
+#include "leftMouseClickEvent.h"
+#include "castSpellEvent.h"
 
 class player :
 	public gameObject
@@ -44,31 +46,25 @@ protected:
 	//------//
 #pragma endregion player stats
 
-	//speed//
+	//movement//
 	float	baseSpeed;
 	float	movementSpeed;
 	float	sprintModifier;
 	float	sprintCost;
 	bool	isSprinting;
-	
+	bool	teleportReady;
+
+	bool isMoving;
+	void sprint();
+	void walk(playerControlsEvent* controls);
 	void staminaRegen();
 	//-----//
 
-	std::vector<statusEffect> statusEffectQueue;
+	//std::vector<statusEffect> statusEffectQueue;
 
 	int totalDefenceTreshold;
 
-
-	
-
 	void handleSprites();
-
-	//movement//
-	bool isMoving;
-
-	void sprint();
-	void walk(playerControlsEvent* controls);
-	//-------//
 
 	//event handlers
 	void playerControls(abstractEvent* msgEvent);
@@ -76,6 +72,10 @@ protected:
 	void changeHealth(abstractEvent* msgEvent);
 	void changeStamina(abstractEvent* msgEvent);
 	void getPlayerStats(abstractEvent* msgEvent);
+	void spellHandler(abstractEvent* msgEvent);
+
+	//spells
+	void teleport(abstractEvent* msgEvent);
 
 public:
 	player(void);

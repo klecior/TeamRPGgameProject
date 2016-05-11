@@ -7,6 +7,6 @@ enum messages
 
 enum spellNames
 {
-	fireBallSpell, healSpell,dickButtSpell
+	fireBallSpell, healSpell,teleportSpell
 
 };

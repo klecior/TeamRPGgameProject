@@ -6,9 +6,9 @@ player::player(void)
 	idleState = nullptr;
 	moveState = nullptr;
 
-	isMoving	=	false;
-	isSprinting	=	false;
-
+	isMoving		=	false;
+	isSprinting		=	false;
+	teleportReady	=	false;
 
 	//vitals//
 	maxHealth	= 500;
@@ -42,6 +42,8 @@ player::player(void)
 	messageBus::sharedMessageBus()->registerListener(changeHealthMessage, this);
 	messageBus::sharedMessageBus()->registerListener(changeStaminaMessage, this);
 	messageBus::sharedMessageBus()->registerListener(getPlayerStatsMessage, this);
+	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage, this);
+	messageBus::sharedMessageBus()->registerListener(castSpellMessage, this);
 	//---------//
 
 
@@ -57,6 +59,8 @@ player::~player(void)
 	messageBus::sharedMessageBus()->unRegisterListener(changeHealthMessage, this);
 	messageBus::sharedMessageBus()->unRegisterListener(changeStaminaMessage, this);
 	messageBus::sharedMessageBus()->unRegisterListener(getPlayerStatsMessage, this);
+	messageBus::sharedMessageBus()->unRegisterListener(leftMouseClickMessage, this);
+	messageBus::sharedMessageBus()->unRegisterListener(castSpellMessage, this);
 }
 
 void player::loadOnCreation()
@@ -139,6 +143,8 @@ void player::handleMessage(abstractEvent& msgEvent)
 	if(msgType == changeHealthMessage)  { changeHealth(&msgEvent);		}
 	if(msgType == changeStaminaMessage)	{ changeStamina(&msgEvent);		}
 	if(msgType == getPlayerStatsMessage){ getPlayerStats(&msgEvent);	}
+	if(msgType == castSpellMessage)		{ spellHandler(&msgEvent);		}
+	if(msgType == leftMouseClickMessage){ teleport(&msgEvent);			}
 
 }
 
@@ -188,9 +194,31 @@ void player::sprint()
 	}
 }
 
+void player::teleport(abstractEvent* msgEvent)
+{
+	if(teleportReady)
+	{
+		//cast
+		leftMouseClickEvent& LeftClick = *(leftMouseClickEvent*)msgEvent;
+		position.x = LeftClick.mouseXwas - (position.w/2);
+		position.y = LeftClick.mouseYwas - (position.h/2);
+		teleportReady = false;
+	}
+}
+
 
 #pragma endregion all of movement related functions
 
+void player::spellHandler(abstractEvent* msgEvent)
+{
+	castSpellEvent& spell = *(castSpellEvent*)msgEvent;
+	int spellType = spell.spellName;
+
+	if (spellType == teleportSpell) 
+	{
+		teleportReady = true;
+	}
+}
 
 //calculates the final damage when player got hit.
 void player::onHit(abstractEvent* msgEvent)
