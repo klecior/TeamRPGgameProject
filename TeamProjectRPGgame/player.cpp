@@ -25,6 +25,7 @@ player::player(void)
 	healthRecovery	=	1;
 	//------//
 
+	//testing using git plugin in visual studio 2012
 
 	//speed//
 	baseSpeed		= 2;
