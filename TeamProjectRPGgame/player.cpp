@@ -48,6 +48,7 @@ player::player(void)
 
 
 	objectType = "player";
+	belongsToState = GAME;
 	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME,objectType,this));
 }
 
@@ -183,7 +184,7 @@ void player::sprint()
 	if(stamina > sprintCost)
 	{
 		isSprinting = true;
-		std::cout<<"playerIsSprinting"<<std::endl;
+		//std::cout<<"playerIsSprinting"<<std::endl;
 		movementSpeed	=	baseSpeed * sprintModifier;
 		messageBus::sharedMessageBus()->sendMessage(changeStaminaEvent(stamina - sprintCost));
 	}
@@ -256,7 +257,7 @@ void player::changeStamina(abstractEvent* msgEvent)
 	changeStaminaEvent& newStamina = *(changeStaminaEvent*)msgEvent;
 
 	stamina = newStamina.newStamina;
-	std::cout<<"changed stamina to: "<<stamina<<std::endl;
+	//std::cout<<"changed stamina to: "<<stamina<<std::endl;
 }
 
 void player::getPlayerStats(abstractEvent* msgEvent)

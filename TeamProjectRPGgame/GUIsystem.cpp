@@ -115,15 +115,10 @@ void GUIsystem::addGUIobject(abstractEvent* msgEvent)
 {
 	//cast
 	entityCreatedEvent& newEntity = *(entityCreatedEvent*)msgEvent;
-
 	//if the object created was a GUI object
 	if (newEntity.type == "GUI")
 	{
-
-		std::cout << newEntity.type << " " << newEntity.atState << std::endl;
-
-		GUIstatesList[newEntity.atState].push_back(newEntity.createdObject);
-		std::cout << "adding something to GUI" << std::endl;
+		GUIstatesList[newEntity.atState].push_back(newEntity.createdObject);	
 	}
 }
 
@@ -133,14 +128,23 @@ void GUIsystem::removeGUIobject(abstractEvent* msgEvent)
 	//cast
 	entityDeletedEvent& newEntity = *(entityDeletedEvent*)msgEvent;
 	
-	//go through that state list
-	for (int i = 0; i < GUIstatesList[newEntity.atState].size(); i++)
-	{	
-		//if found the same address
-		if (GUIstatesList[newEntity.atState].at(i) == newEntity.deletedObject)
-		{
-			//delete it from the list
-			GUIstatesList[newEntity.atState].erase(GUIstatesList[newEntity.atState].begin() + 1);
+	//if GUI has it somewhere.
+	if(newEntity.deletedObject->objectType == "GUI")
+	{
+		//go through that state list
+		for (int i = 0; i < GUIstatesList[newEntity.atState].size(); i++)
+		{	
+			//if found the same address
+			if (GUIstatesList[newEntity.atState].at(i) == newEntity.deletedObject)
+			{
+				//delete it from the list
+				std::cout<<"size was: "<<GUIstatesList[newEntity.atState].size();
+				GUIstatesList[newEntity.atState].erase(GUIstatesList[newEntity.atState].begin() + 1);
+				std::cout<<"size is: "<<GUIstatesList[newEntity.atState].size();
+				std::cout<<"DELETED SOMETHING FROM GUI"<<std::endl;
+				std::cout<<"it was at location: "<<i;
+				std::cout<<"from a state: "<<newEntity.atState;
+			}
 		}
 	}
 }

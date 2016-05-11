@@ -7,11 +7,17 @@
 //#include<time.h>
 #include<iostream>
 #include"constants.h"
+#include"observer.h"
+#include"messageBus.h"
+//events
+#include "entityCreatedEvent.h"
+#include "entityDeletedEvent.h"
 
-
-class gameManager
+class gameManager : public observer
 {
 protected:
+
+	
 
 	gameManager(void);
 	static gameManager*	pSharedGameManager;
@@ -22,6 +28,8 @@ protected:
 	std::vector<gameObject*> helpList;
 	std::vector<gameObject*> gameOverList;
 	std::vector<gameObject*> pauseList;
+
+	std::vector<gameObject*> allGameObjects;
 	//--------------------------------------------------------------//
 
 
@@ -42,6 +50,8 @@ public:
 	void regulateFrameRate();
 	void sweep();
 	//--------------------------//
+
+	void handleMessage(abstractEvent& msgEvent);
 
 	//--collision--//
 	//bool checkCollisionWith(std::string type, SDL_Rect &collisionBox);

@@ -12,9 +12,12 @@ button::button(int list)
 	loadImages("images/temp/X.png","images/temp/X.png");
 	displayImage = sprIdle;
 
-	buttonClicked = false;
-
-	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(list,"button",this));
+	objectType		=	"GUI";
+	buttonClicked	=	false;
+	hasCollision	=	false;
+	alive			=	true;
+	belongsToState	=	list;
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(list,objectType,this));
 	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage,this);
 }
 
@@ -27,20 +30,24 @@ button::button(int list, std::string idle, std::string over)
 	loadImages(idle,over);
 	displayImage = sprIdle;
 
-	buttonClicked = false;
-
-	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(list,"button",this));
+	objectType		=	"GUI";
+	buttonClicked	=	false;
+	hasCollision	=	false;
+	alive			=	true;
+	belongsToState	=	list;
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(list,objectType,this));
 	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage,this);
 }
 
 
 button::~button(void)
 {
-	displayImage = NULL;
-	sprIdle		 = NULL;
-	sprOver		 = NULL;
-
+	//sprIdle		 = NULL;
+	//sprOver		 = NULL;
+	std::cout<<"button destroyer called"<<std::endl;
+	//messageBus::sharedMessageBus()->sendMessage(entityDeletedEvent(belongsToState,this));
 	messageBus::sharedMessageBus()->unRegisterListener(leftMouseClickMessage,this);
+	
 }
 
 

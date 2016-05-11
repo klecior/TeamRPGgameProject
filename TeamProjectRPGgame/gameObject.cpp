@@ -19,15 +19,16 @@ gameObject::gameObject(void)
 	objectType		=	"";
 	finishedLoading	=	false;
 	hasCollision	=	false;
+
+	belongsToState  =	0;
 }
 
 
 gameObject::~gameObject(void)
 {
 
-	displayImage->free();
+	//displayImage->free();
 	displayImage = NULL;
-
 }
 
 //--setters and getters--//
@@ -46,6 +47,7 @@ void gameObject::setPos(char pos, int newPos)
 
 SDL_Rect gameObject::getPosition(){ return position; }
 bool gameObject::getAlive(){ return alive; }
+void gameObject::setAlive(bool newAlive){ alive = newAlive; }
 //--endOf setters and getters--//
 
 //--changes the current image to the one provided--//

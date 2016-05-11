@@ -2,7 +2,6 @@
 #include "gameobject.h"
 #include <SDL.h>
 #include <string>
-#include "gameManager.h"
 #include "AssetManager.h"
 #include "messageBus.h"
 

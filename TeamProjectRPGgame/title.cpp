@@ -6,6 +6,8 @@ title::title(void)
 	startButton	=	NULL;
 	helpButton	=	NULL;
 	quitButton	=	NULL;
+
+	test = 0;
 }
 
 
@@ -25,6 +27,8 @@ void title::handleEvent()
 		if(startButton->mouseClick()){		messageBus::sharedMessageBus()->sendMessage(changeStateEvent(GAME));}
 		if(helpButton->mouseClick()) {		messageBus::sharedMessageBus()->sendMessage(changeStateEvent(HELP)); }
 		if(quitButton->mouseClick()) {		gameManager::sharedGameManager()->isRunning = false;	}
+		
+		
 		//----------//
 
 	}
@@ -37,6 +41,7 @@ void title::updateWorld()
 	if(finishedLoading)
 	{
 		
+		
 	}
 	
 }
@@ -45,7 +50,7 @@ void title::updateDrawing()
 {
 	if(finishedLoading)
 	{
-		
+			
 	}
 }
 
@@ -66,6 +71,8 @@ void title::loadOnCreation()
 		startButton->setPos('y', 150 );
 		helpButton->setPos('y', 350 );
 		quitButton->setPos('y', 550 );
+
+	
 
 		finishedLoading = true;
 	}

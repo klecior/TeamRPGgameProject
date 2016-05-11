@@ -30,5 +30,7 @@ public:
 	void updateDrawing();
 	void updateWorld();
 
+	int test;
+
 };
 

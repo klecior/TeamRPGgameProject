@@ -28,14 +28,8 @@ class GUIsystem : public observer
 {
 protected:
 
-	//lists for all of the diffrent GUI states/settings.
-	//std::vector<gameObject*>gamePlayOverlay;
-	//std::vector<gameObject*>inventoryScreen;
-	//std::vector<gameObject*>mapScreen;
-
+	//map containing lists for all diferent possible states.
 	std::map<int, std::vector<gameObject*>> GUIstatesList;
-
-	//TODO change the vectors into a single map implementation for easier usage.
 
 	int currentState;
 
