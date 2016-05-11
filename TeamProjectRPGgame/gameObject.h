@@ -17,6 +17,7 @@ protected:
 	textureImage*	displayImage;
 	bool			alive;
 	bool			finishedLoading;
+	bool			hasCollision;
 
 public:
 
@@ -35,6 +36,8 @@ public:
 	virtual void update();
 	virtual void loadOnCreation();
 
+	virtual void collidedWith(gameObject& object);
+
 	void changeImage(textureImage* image);		//changes the image and position rect.
 	void setImage(std::string path);			//loads a new image.
 
@@ -45,8 +48,8 @@ public:
 	SDL_Rect	collisionBox;
 	std::vector<SDL_Rect*> collisionBoxes;
 
-	void drawCollisionBox();
-	bool collisionWith(SDL_Rect* positions, SDL_Rect* currentBox);
+	//void drawCollisionBox();
+	//bool collisionWith(SDL_Rect* positions, SDL_Rect* currentBox);
 
 	//------------------------------------//
 

@@ -88,6 +88,7 @@
     <ClCompile Include="abstractEvent.cpp" />
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
+    <ClCompile Include="objectsCollidedEvent.h.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
     <ClCompile Include="changeHealthEvent.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="messageBus.h" />
     <ClInclude Include="messages.h" />
     <ClInclude Include="moveWorldEvent.h" />
+    <ClInclude Include="objectsCollidedEvent.h" />
     <ClInclude Include="playerControlsEvent.h" />
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />

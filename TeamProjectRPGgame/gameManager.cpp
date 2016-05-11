@@ -33,7 +33,7 @@ void gameManager::regulateFrameRate()
 	startTime = SDL_GetTicks();
 }
 //-----------------------------//
-
+/*
 //--COLLISION CHECKS--//
 bool gameManager::checkCollisionWith(std::string type, SDL_Rect &collisionBox)
 {
@@ -59,7 +59,7 @@ bool gameManager::checkCollisionWith(std::string type, SDL_Rect &collisionBox)
 
 	return false;
 }
-
+*/
 
 //sweep deletes any object that are no longer "alive" it does so at the very end of the frame in order to make sure that no deleted items get called.
 void gameManager::sweep()
@@ -116,7 +116,7 @@ void gameManager::freeMemory()
 
 
 }
-
+/*
 void gameManager::drawCollisionBoxes()
 {
 
@@ -126,3 +126,4 @@ void gameManager::drawCollisionBoxes()
 	}
 
 }
+*/

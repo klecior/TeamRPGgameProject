@@ -21,7 +21,7 @@ protected:
 	
 	void loadOnCreation();					//load on creation function is used to avoid loading assets through the constructor, as it often creates further problems.
 	void controls();						//controls for the object.
-	void collisionControl();				//sets up and updates the collision boxes.
+	//void collisionControl();				//sets up and updates the collision boxes.
 
 public:
 	exampleClass(int list);

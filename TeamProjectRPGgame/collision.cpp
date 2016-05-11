@@ -22,17 +22,3 @@ bool collision::checkCollision(gameObject& object1, gameObject& object2)
 	}
 	return false;
 }
-/*
-
-//--collision on x--/
-if ((currentBox->x > positions->x && currentBox->x < positions->x + positions->w) || (currentBox->x + currentBox->w > positions->x  && currentBox->x + currentBox->w < positions->x + positions->w))
-{
-	//--collision on y--//
-	if ((currentBox->y > positions->y && currentBox->y < positions->y + positions->h) || (currentBox->y + currentBox->h > positions->y && currentBox->y + currentBox->h < positions->y + currentBox->h))
-	{
-
-		return true;
-	}
-}
-return false; penis
-*/

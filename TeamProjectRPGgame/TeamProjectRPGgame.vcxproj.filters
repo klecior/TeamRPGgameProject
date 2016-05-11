@@ -161,6 +161,9 @@
     <Filter Include="ManagerClasses\AssetManager">
       <UniqueIdentifier>{39c9bd50-b5a0-4dd5-bdb0-e17047f88000}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\ObjectsCollidedEvent">
+      <UniqueIdentifier>{7b598151-ee9a-47be-b171-bbe9053ead39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -291,6 +294,9 @@
     </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>ManagerClasses\AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="objectsCollidedEvent.h.cpp">
+      <Filter>Events\ObjectsCollidedEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -425,6 +431,9 @@
     </ClInclude>
     <ClInclude Include="AssetManager.h">
       <Filter>ManagerClasses\AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="objectsCollidedEvent.h">
+      <Filter>Events\ObjectsCollidedEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

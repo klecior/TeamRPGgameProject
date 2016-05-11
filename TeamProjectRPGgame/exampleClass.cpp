@@ -47,7 +47,7 @@ void exampleClass::update()
 	{
 
 		controls();
-		collisionControl();
+//		collisionControl();
 
 		moving->loopThrough();
 
@@ -84,7 +84,7 @@ void exampleClass::controls()
 	if(isMoving == true){ changeImage(moving->getCurrentFrame()); }
 
 }
-
+/*
 //--sets up and updates collision boxes--//
 void exampleClass::collisionControl()
 {
@@ -101,3 +101,4 @@ void exampleClass::collisionControl()
 		std::cout << "colided";
 	}
 }
+*/

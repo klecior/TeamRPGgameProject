@@ -44,8 +44,8 @@ public:
 	//--------------------------//
 
 	//--collision--//
-	bool checkCollisionWith(std::string type, SDL_Rect &collisionBox);
-	void drawCollisionBoxes();
+	//bool checkCollisionWith(std::string type, SDL_Rect &collisionBox);
+	//void drawCollisionBoxes();
 
 	//--cleanUp--//
 	void freeMemory();

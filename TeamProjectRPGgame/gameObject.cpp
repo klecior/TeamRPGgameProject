@@ -18,6 +18,7 @@ gameObject::gameObject(void)
 
 	objectType		=	"";
 	finishedLoading	=	false;
+	hasCollision	=	false;
 }
 
 
@@ -80,6 +81,7 @@ void gameObject::loadOnCreation()
 
 }
 
+/*
 //--draws all of the collision boxes--//
 void gameObject::drawCollisionBox()
 {
@@ -111,7 +113,12 @@ bool gameObject::collisionWith(SDL_Rect* positions, SDL_Rect* currentBox)
 	}
 	return false;
 }
+*/
 
+void collidedWith(gameObject& object)
+{
+
+}
 
 void gameObject::moveWorldObject(abstractEvent* msgEvent)
 {
@@ -121,4 +128,9 @@ void gameObject::moveWorldObject(abstractEvent* msgEvent)
 	position.x += move.x;
 	position.y += move.y;
 		
+}
+
+void gameObject::collidedWith(gameObject& object)
+{
+
 }
