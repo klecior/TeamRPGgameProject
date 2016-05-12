@@ -18,13 +18,13 @@ messageBus::~messageBus(void)
 {
 }
 
-
+//adds the object to the right list
 void messageBus::registerListener(int messageType, observer* object)
 {
-	//adds the object to the right list
 	registers[messageType].push_back(object);
 }
 
+//removes the object from the list
 void messageBus::unRegisterListener(int messageType, observer* object)
 {
 	for(int i = 0; i < registers[messageType].size(); i++)
@@ -36,6 +36,7 @@ void messageBus::unRegisterListener(int messageType, observer* object)
 	}
 }
 
+//sends message to everything that listens for it.
 void messageBus::sendMessage(abstractEvent& msgEvent)
 {
 	//get type

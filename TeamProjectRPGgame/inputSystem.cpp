@@ -88,7 +88,7 @@ void inputSystem::manageKeyHolds(SDL_Event &evt)
 			if(evt.key.keysym.sym == SDLK_l){lKey	= false;	}
 
 		}
-		if(evt.type == SDL_QUIT){/* messageBus::sharedMessageBus()->sendMessageS(quitGame);*/ }
+		if(evt.type == SDL_QUIT){ messageBus::sharedMessageBus()->sendMessage(quitGameEvent() ); }
 		
 }
 

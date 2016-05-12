@@ -2,6 +2,7 @@
 
 button::button()
 {
+	std::cout<<"YOU CALLED THE WRONG BUTTON CONSTRUCTOR: you gave it no arguments, use (gameStateYouWant,image path1, image path2)"<<std::endl;
 }
 
 //--Creates a button with one, state containing temporary 'x' image--//
@@ -42,12 +43,10 @@ button::button(int list, std::string idle, std::string over)
 
 button::~button(void)
 {
-	//sprIdle		 = NULL;
-	//sprOver		 = NULL;
+	sprIdle		 = NULL;
+	sprOver		 = NULL;
 	std::cout<<"button destroyer called"<<std::endl;
-	//messageBus::sharedMessageBus()->sendMessage(entityDeletedEvent(belongsToState,this));
 	messageBus::sharedMessageBus()->unRegisterListener(leftMouseClickMessage,this);
-	
 }
 
 
@@ -75,10 +74,11 @@ bool button::mouseClick()
 	displayImage = sprIdle;
 	hovering = false;
 	
+
 	if(buttonClicked == true)
 	{
 		buttonClicked = false;		//makes sure the button is not stuck in the permament state of being pressed.
-		return true;				//returns that the button was clicked.
+		return true;				//returns that the button was clicked. This also quits the function.
 	}
 
 	//get mousePosition

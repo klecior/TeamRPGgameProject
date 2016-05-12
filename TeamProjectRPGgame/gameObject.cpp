@@ -117,11 +117,6 @@ bool gameObject::collisionWith(SDL_Rect* positions, SDL_Rect* currentBox)
 }
 */
 
-void collidedWith(gameObject& object)
-{
-
-}
-
 void gameObject::moveWorldObject(abstractEvent* msgEvent)
 {
 	//cast

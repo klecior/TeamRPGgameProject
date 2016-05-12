@@ -12,7 +12,7 @@
 //events
 #include "entityCreatedEvent.h"
 #include "entityDeletedEvent.h"
-
+#include "quitGameEvent.h"
 class gameManager : public observer
 {
 protected:
@@ -22,21 +22,9 @@ protected:
 	gameManager(void);
 	static gameManager*	pSharedGameManager;
 
-	//--lists for the objects contained in each of the game states--//
-	std::vector<gameObject*> titleList;
-	std::vector<gameObject*> gamePlayList;
-	std::vector<gameObject*> helpList;
-	std::vector<gameObject*> gameOverList;
-	std::vector<gameObject*> pauseList;
+	std::vector<gameObject*> allGameObjects;		//contains basically all the objects currently loaded in the game.
 
-	std::vector<gameObject*> allGameObjects;
-	//--------------------------------------------------------------//
-
-
-	float		startTime;			//used for frame limiter.
-
-	unsigned int	gameState;		//hold the curent state of the game.
-
+	float		startTime;							//used for frame limiter.
 public:
 
 	~gameManager(void);
@@ -52,14 +40,6 @@ public:
 	//--------------------------//
 
 	void handleMessage(abstractEvent& msgEvent);
-
-	//--collision--//
-	//bool checkCollisionWith(std::string type, SDL_Rect &collisionBox);
-	//void drawCollisionBoxes();
-
-	//--cleanUp--//
-	void freeMemory();
-	//-----------//
 
 };
 

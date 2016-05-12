@@ -39,7 +39,7 @@ void GUIsystem::initialise()
 	spell1Hotkey->setPos('x', 500);
 	spell1Hotkey->setPos('y', 20);
 	//---------------------------//
-
+	// TODO: The gui elements should eventually get sorted to separated classes such as "player overlay" "inventory menu" etc. Otherwise the gui system may become progressively harder to manage.
 	//--INITIALISE INVENTORY--//
 	
 	//------------------------//

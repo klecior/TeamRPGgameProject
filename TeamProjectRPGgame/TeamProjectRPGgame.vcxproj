@@ -89,6 +89,7 @@
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="objectsCollidedEvent.h.cpp" />
+    <ClCompile Include="quitGameEvent.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
     <ClCompile Include="changeHealthEvent.cpp" />
@@ -97,7 +98,6 @@
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="entityCreatedEvent.cpp" />
     <ClCompile Include="entityDeletedEvent.cpp" />
-    <ClCompile Include="exampleClass.cpp" />
     <ClCompile Include="gameLogicSystem.cpp" />
     <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="gameObject.cpp" />
@@ -142,7 +142,6 @@
     <ClInclude Include="constants.h" />
     <ClInclude Include="entityCreatedEvent.h" />
     <ClInclude Include="entityDeletedEvent.h" />
-    <ClInclude Include="exampleClass.h" />
     <ClInclude Include="gameLogicSystem.h" />
     <ClInclude Include="gameManager.h" />
     <ClInclude Include="gameObject.h" />
@@ -165,6 +164,7 @@
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="program.h" />
+    <ClInclude Include="quitGameEvent.h" />
     <ClInclude Include="renderSystem.h" />
     <ClInclude Include="SDLManager.h" />
     <ClInclude Include="sequenceAnimation.h" />

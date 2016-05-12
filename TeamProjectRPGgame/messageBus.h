@@ -6,7 +6,7 @@
 #include <iostream>
 #include <map>					//the map is a useful container
 
-//**messageBus clas is responsible for recival, and distribution of messages**//
+//**messageBus class is responsible for recival, and distribution of messages**//
 class messageBus
 {
 protected:

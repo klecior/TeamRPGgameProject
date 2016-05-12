@@ -53,9 +53,6 @@
     <Filter Include="Framework\UtilityClasses\TextureImage">
       <UniqueIdentifier>{22368488-7326-4203-8404-b7cb62b7263b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\UtilityClasses\ExampleClass">
-      <UniqueIdentifier>{26d94d7a-56d0-481b-bab3-62b531b16650}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\UtilityClasses\sequenceAnimation">
       <UniqueIdentifier>{9aa058c1-1755-4503-8c27-c8adfc5fd223}</UniqueIdentifier>
     </Filter>
@@ -164,6 +161,9 @@
     <Filter Include="Events\ObjectsCollidedEvent">
       <UniqueIdentifier>{7b598151-ee9a-47be-b171-bbe9053ead39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\QuitGameEvent">
+      <UniqueIdentifier>{e5723787-ec2b-4298-abd9-3cc04369c489}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -192,9 +192,6 @@
     </ClCompile>
     <ClCompile Include="SDLManager.cpp">
       <Filter>ManagerClasses\SdlManager</Filter>
-    </ClCompile>
-    <ClCompile Include="exampleClass.cpp">
-      <Filter>Framework\UtilityClasses\ExampleClass</Filter>
     </ClCompile>
     <ClCompile Include="sequenceAnimation.cpp">
       <Filter>Framework\UtilityClasses\sequenceAnimation</Filter>
@@ -298,6 +295,9 @@
     <ClCompile Include="objectsCollidedEvent.h.cpp">
       <Filter>Events\ObjectsCollidedEvent</Filter>
     </ClCompile>
+    <ClCompile Include="quitGameEvent.cpp">
+      <Filter>Events\QuitGameEvent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameManager.h">
@@ -326,9 +326,6 @@
     </ClInclude>
     <ClInclude Include="SDLManager.h">
       <Filter>ManagerClasses\SdlManager</Filter>
-    </ClInclude>
-    <ClInclude Include="exampleClass.h">
-      <Filter>Framework\UtilityClasses\ExampleClass</Filter>
     </ClInclude>
     <ClInclude Include="sequenceAnimation.h">
       <Filter>Framework\UtilityClasses\sequenceAnimation</Filter>
@@ -434,6 +431,9 @@
     </ClInclude>
     <ClInclude Include="objectsCollidedEvent.h">
       <Filter>Events\ObjectsCollidedEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="quitGameEvent.h">
+      <Filter>Events\QuitGameEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

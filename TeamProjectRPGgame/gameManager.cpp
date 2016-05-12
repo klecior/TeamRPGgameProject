@@ -10,11 +10,11 @@ gameManager::gameManager(void)
 	std::cout<<std::endl<<"gameManager created... "<<std::endl;
 
 	isRunning = true;
-	gameState = TITLE;
 	startTime = 0;
 
 	messageBus::sharedMessageBus()->registerListener(entityCreatedMessage,this);
 	messageBus::sharedMessageBus()->registerListener(entityDeletedMessage,this);
+	messageBus::sharedMessageBus()->registerListener(quitGameMessage,this);
 
 }
 
@@ -22,6 +22,7 @@ gameManager::~gameManager(void)
 {
 	messageBus::sharedMessageBus()->unRegisterListener(entityCreatedMessage,this);
 	messageBus::sharedMessageBus()->unRegisterListener(entityDeletedMessage,this);
+	messageBus::sharedMessageBus()->unRegisterListener(quitGameMessage,this);
 }
 
 gameManager* gameManager::sharedGameManager()
@@ -40,33 +41,6 @@ void gameManager::regulateFrameRate()
 	startTime = SDL_GetTicks();
 }
 //-----------------------------//
-/*
-//--COLLISION CHECKS--//
-bool gameManager::checkCollisionWith(std::string type, SDL_Rect &collisionBox)
-{
-	for (int i = 0; i < gamePlayList.size(); i++)
-	{
-		//checks if the object is the right type//
-		if (gamePlayList[i]->objectType == type)
-		{
-			//checks each of the targets collision boxes
-			for (int j = 0; j < gamePlayList[i]->collisionBoxes.size(); j++)
-			{
-				//checks the collision
-				if (gamePlayList[i]->collisionWith(&collisionBox, gamePlayList[i]->collisionBoxes[j]))
-				{
-
-					return true;
-				}
-			}
-
-		}
-	}
-
-
-	return false;
-}
-*/
 
 //sweep deletes any object that are no longer "alive" it does so at the very end of the frame in order to make sure that no deleted items get called.
 void gameManager::sweep()
@@ -75,16 +49,12 @@ void gameManager::sweep()
 	{
 		if(allGameObjects.at(i)->getAlive() == false)	
 		{
-			messageBus::sharedMessageBus()->sendMessage(entityDeletedEvent(allGameObjects.at(i)->belongsToState, allGameObjects.at(i) ) );
-			delete allGameObjects.at(i);
-			allGameObjects.erase(allGameObjects.begin()+i);
+			messageBus::sharedMessageBus()->sendMessage(entityDeletedEvent(allGameObjects.at(i)->belongsToState, allGameObjects.at(i) ) );		//makes sure the object unregisters from any list it is on.
+			delete allGameObjects.at(i);																										//deletes the actual object, calls it's destructor.
+			allGameObjects.erase(allGameObjects.begin()+i);																						//deletes it from this list.
 		}
 	}
-
-
 }
-
-
 
 void gameManager::handleMessage(abstractEvent& msgEvent)
 {
@@ -92,33 +62,12 @@ void gameManager::handleMessage(abstractEvent& msgEvent)
 
 	if(msgType == entityCreatedMessage)
 	{
-		entityCreatedEvent& newEntity = *(entityCreatedEvent*)&msgEvent;
-
+		entityCreatedEvent& newEntity = *(entityCreatedEvent*)&msgEvent; 	//cast
 		allGameObjects.push_back(newEntity.createdObject);
 	}
-
-	if(msgType == entityDeletedMessage)
+	
+	if(msgType == quitGameMessage)
 	{
-
-
+		isRunning = false;
 	}
 }
-
-
-
-void gameManager::freeMemory()
-{
-
-
-}
-/*
-void gameManager::drawCollisionBoxes()
-{
-
-	for (int i = 0; i < gamePlayList.size(); i++)
-	{
-		gamePlayList.at(i)->drawCollisionBox();
-	}
-
-}
-*/

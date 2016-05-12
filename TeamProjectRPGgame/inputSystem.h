@@ -13,6 +13,7 @@
 #include "changeHealthEvent.h"
 #include "changeStateEvent.h"
 #include "hitPlayerEvent.h"
+#include "quitGameEvent.h"
 
 //**input System class keeps track of all the inputs, both mouse and keyboard happening,					**//
 //**then translates what they mean based on the current state, and send the right message based on meaning	**//
