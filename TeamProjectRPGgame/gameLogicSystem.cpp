@@ -6,6 +6,7 @@ gameLogicSystem::gameLogicSystem()
 	messageBus::sharedMessageBus()->registerListener(entityDeletedMessage,this);
 	messageBus::sharedMessageBus()->registerListener(changeStateMessage,this);
 	currentState	=	TITLE;
+	collisionS = new collisionSystem();
 	std::cout<<"Game logic system created"<<std::endl;
 }
 
@@ -22,6 +23,8 @@ void gameLogicSystem::doLogic()
 	{
 		//update every object
 		scenesList[currentState].at(i)->update();
+		//check Collisions
+		collisionS->checkCollisions();
 	}
 }
 

@@ -9,6 +9,8 @@
 #include <vector>
 #include <map>
 
+#include "collisionSystem.h"
+
 //--events--//
 #include "changeStateEvent.h"
 #include "getCurrentStateEvent.h"
@@ -21,6 +23,8 @@ class gameLogicSystem : public observer
 protected:
 
 	int currentState;
+
+	collisionSystem* collisionS;
 
 	std::map<int, std::vector<gameObject*>> scenesList;
 

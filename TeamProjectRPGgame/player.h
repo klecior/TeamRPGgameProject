@@ -83,6 +83,8 @@ public:
 
 	void update();
 
+	void collidedWith(gameObject& object);
+
 };
 
 

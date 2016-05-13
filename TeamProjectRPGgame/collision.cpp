@@ -1,6 +1,6 @@
 #include "collision.h"
 
-
+/*
 bool checkCollision(gameObject& object1, gameObject& object2)
 {
 	//Checks every collision box of the first object against every collision box of the second object
@@ -22,3 +22,20 @@ bool checkCollision(gameObject& object1, gameObject& object2)
 	}
 	return false;
 }
+*/
+bool checkCollision(gameObject& object1, gameObject& object2)
+{
+
+	//collision on x//
+	if (object1.getPosition().x > object2.getPosition().x && object1.getPosition().x < (object2.getPosition().x + object2.getPosition().w) || (object1.getPosition().x + object1.getPosition().w) > object2.getPosition().x && (object1.getPosition().x + object1.getPosition().w) < (object2.getPosition().x + object2.getPosition().w))
+	{
+		//collision on y//
+		if (object1.getPosition().y > object2.getPosition().y && object1.getPosition().y < (object2.getPosition().y + object2.getPosition().h) || (object1.getPosition().y + object1.getPosition().h) > object2.getPosition().y && (object1.getPosition().y + object1.getPosition().h) < (object2.getPosition().y + object2.getPosition().h))
+		{
+			//std::cout << "COLLISION" << std::endl;
+			return true;
+		}
+	}
+	return false;
+}
+

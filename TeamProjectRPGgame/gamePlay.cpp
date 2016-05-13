@@ -66,6 +66,12 @@ void gamePlay::loadOnCreation()
 		mainPlayer->setPos('x', 500);
 		mainPlayer->setPos('y', 400);
 
+		testS = new sceneryObject(GAME,true,"images/temp/X.png",600,600);
+		testS = new sceneryObject(GAME,true,"images/temp/X.png",100,500);
+		testS = new sceneryObject(GAME,true,"images/temp/X.png",300,300);
+		testS = new sceneryObject(GAME,true,"images/temp/X.png",350,200);
+		testS = new sceneryObject(GAME,true,"images/temp/X.png",500,250);
+
 		finishedLoading = true;
 	}
 }

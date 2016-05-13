@@ -48,6 +48,7 @@ player::player(void)
 
 
 	objectType = "player";
+	hasCollision = true;
 	belongsToState = GAME;
 	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME,objectType,this));
 }
@@ -74,6 +75,8 @@ void player::loadOnCreation()
 
 		changeImage(idleState);
 		std::cout<<"Loaded player assets"<<std::endl;
+
+		collisionBox = position;
 
 		finishedLoading = true;
 	}
@@ -276,3 +279,18 @@ void player::getPlayerStats(abstractEvent* msgEvent)
 
 #pragma endregion
 
+
+#pragma region collision handlers
+
+void player::collidedWith(gameObject& object)
+{
+	std::string objectType = object.objectType;
+
+	if(objectType == "scenery")
+	{
+		std::cout<<"player collided with scenery"<<std::endl;
+	}
+
+}
+
+#pragma endregion code related to effects of collisions

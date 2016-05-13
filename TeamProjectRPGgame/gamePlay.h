@@ -4,6 +4,8 @@
 
 #include "button.h"
 #include "player.h"
+#include "sceneryObject.h"
+
 #include "messageBus.h"
 
 #include "changeStateEvent.h"
@@ -19,6 +21,8 @@ protected:
 
 	player*			mainPlayer;
 
+
+	sceneryObject* testS;
 public:
 	gamePlay(void);
 	~gamePlay(void);

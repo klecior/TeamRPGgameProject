@@ -170,6 +170,9 @@
     <Filter Include="Framework\BasicFunctionality\QuadTree">
       <UniqueIdentifier>{dd433024-8c1a-4adb-a1da-0f4c3647a1f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameSpecyficClasses\GenericSceneryObject">
+      <UniqueIdentifier>{897019af-73b0-4b30-93d3-ae5822b3c7a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -309,6 +312,9 @@
     </ClCompile>
     <ClCompile Include="quadTree.cpp">
       <Filter>Framework\BasicFunctionality\QuadTree</Filter>
+    </ClCompile>
+    <ClCompile Include="sceneryObject.cpp">
+      <Filter>GameSpecyficClasses\GenericSceneryObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -452,6 +458,9 @@
     </ClInclude>
     <ClInclude Include="quadTree.h">
       <Filter>Framework\BasicFunctionality\QuadTree</Filter>
+    </ClInclude>
+    <ClInclude Include="sceneryObject.h">
+      <Filter>GameSpecyficClasses\GenericSceneryObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

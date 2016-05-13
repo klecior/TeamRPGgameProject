@@ -12,7 +12,7 @@ collisionSystem::collisionSystem()
 
 void collisionSystem::checkCollisions()
 {
-
+	
 	quad->clear();				//empties the quad tree every frame.
 
 	//place all of the objects in the scene onto the quadTree, algorithm inside the tree will decide how to place them.
@@ -21,30 +21,44 @@ void collisionSystem::checkCollisions()
 		quad->addObject(collideableObjectList.at(i) );
 	}
 
-	std::cout<<"Number of collideable objects in total is: "<<collideableObjectList.size()<<std::endl;
+	//std::cout<<"Number of collideable objects in total is: "<<collideableObjectList.size()<<std::endl;
 	
 	std::vector<gameObject*> returnObjects;		
 	
 	for(int i = 0; i < collideableObjectList.size(); i++)
 	{
 		returnObjects.clear();
-		quad->getObjectsAt(collideableObjectList.at(i)->getPosition().x, collideableObjectList.at(i)->getPosition().y);	//gets a list of all the objects that are located in the same zone as the currently checked object.
+		returnObjects = quad->getObjectsAt(collideableObjectList.at(i)->getPosition().x, collideableObjectList.at(i)->getPosition().y);	//gets a list of all the objects that are located in the same zone as the currently checked object.
 
 		//check the collision against every object that is close enough.
 		for(int j = 0; j <returnObjects.size(); j++)
 		{
-			std::cout<<"checking against "<<returnObjects.size()<<" objects"<<std::endl;
+			//std::cout<<"checking against "<<returnObjects.size()<<" objects"<<std::endl;
 			if(checkCollision(*collideableObjectList.at(i),*returnObjects.at(j) ) )
 			{
 				//inform objects that they collided, and give adresses of objects they collided with.
-				std::cout<<"collided with something"<<std::endl;
 				collideableObjectList.at(i)->collidedWith(*returnObjects.at(j) );
 				returnObjects.at(j)->collidedWith(*collideableObjectList.at(i) );
 
 			}
 		}
 	}
+	
+	/*
+	for(int i = 0; i < collideableObjectList.size(); i++)
+	{
+		for(int j = 0; j < collideableObjectList.size(); j++)
+		{
+			if(checkCollision(*collideableObjectList.at(i),*collideableObjectList.at(j) ) )
+				{
+					//inform objects that they collided, and give adresses of objects they collided with.
+					collideableObjectList.at(i)->collidedWith(*collideableObjectList.at(j) );
+					collideableObjectList.at(j)->collidedWith(*collideableObjectList.at(i) );
 
+				}
+		}
+	}
+	*/
 }
 
 void collisionSystem::handleMessage(abstractEvent& msgEvent)
