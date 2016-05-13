@@ -9,6 +9,9 @@
 #include <vector>
 #include <map>
 
+#include "quadTree.h"
+#include "collision.h"
+
 //--events--//
 #include "changeStateEvent.h"
 #include "entityCreatedEvent.h"
@@ -20,14 +23,16 @@ protected:
 
 	int currentState;
 
-	SDL_Rect grid[];
+	quadTree*	quad;
 
-	std::map<int, std::vector<gameObject*>> scenesList;
+	//std::map<int, std::vector<gameObject*>> scenesList;
+
+	std::vector<gameObject*> collideableObjectList;
 
 	//event handlers
 	void changeState(abstractEvent* msgEvent);
 	void addToList(abstractEvent* msgEvent);
-	void removeFromScene(abstractEvent* msgEvent);
+	void removeFromList(abstractEvent* msgEvent);
 
 public:
 	collisionSystem(void);

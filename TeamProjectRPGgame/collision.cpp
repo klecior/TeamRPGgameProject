@@ -1,7 +1,7 @@
 #include "collision.h"
 
 
-bool collision::checkCollision(gameObject& object1, gameObject& object2)
+bool checkCollision(gameObject& object1, gameObject& object2)
 {
 	//Checks every collision box of the first object against every collision box of the second object
 	for (int i = 0; i < object1.collisionBoxes.size(); i++)

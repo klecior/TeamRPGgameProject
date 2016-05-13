@@ -17,7 +17,7 @@ protected:
 	textureImage*	displayImage;
 	bool			alive;						//when false will delete and unregister the object.
 	bool			finishedLoading;			//assets loaded and safe to use.
-	bool			hasCollision;				//used to determine if the object should be added to list of collision checks.
+
 
 public:
 
@@ -49,6 +49,7 @@ public:
 	//--every object has at least one collision box by default--//
 	SDL_Rect	collisionBox;
 	std::vector<SDL_Rect*> collisionBoxes;
+	bool			hasCollision;				//used to determine if the object should be added to list of collision checks.
 
 	//void drawCollisionBox();
 	//bool collisionWith(SDL_Rect* positions, SDL_Rect* currentBox);

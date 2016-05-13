@@ -14,7 +14,6 @@ spellButton::spellButton(std::string path1, std::string path2, int spellName)
 	position.y = 0;
 
 	objectType = "GUI";
-
 	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage, this);
 	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME, objectType, this));
 }
