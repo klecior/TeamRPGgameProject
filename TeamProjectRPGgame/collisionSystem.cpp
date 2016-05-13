@@ -4,7 +4,6 @@ collisionSystem::collisionSystem()
 {
 	//create a quadTree covering the screen.
 	quad = new quadTree(0,0,SCREEN_WIDTH,SCREEN_HEIGHT,0,5);
-
 	messageBus::sharedMessageBus()->registerListener(entityCreatedMessage,this);
 	messageBus::sharedMessageBus()->registerListener(entityDeletedMessage,this);
 }
@@ -28,7 +27,7 @@ void collisionSystem::checkCollisions()
 	for(int i = 0; i < collideableObjectList.size(); i++)
 	{
 		returnObjects.clear();
-		returnObjects = quad->getObjectsAt(collideableObjectList.at(i)->getPosition().x, collideableObjectList.at(i)->getPosition().y);	//gets a list of all the objects that are located in the same zone as the currently checked object.
+		returnObjects = quad->getObjectsAt(collideableObjectList.at(i)->getPosition().x, collideableObjectList.at(i)->getPosition().y, collideableObjectList.at(i)->getPosition().w, collideableObjectList.at(i)->getPosition().h);	//gets a list of all the objects that are located in the same zone as the currently checked object.
 
 		//check the collision against every object that is close enough.
 		for(int j = 0; j <returnObjects.size(); j++)
@@ -44,21 +43,6 @@ void collisionSystem::checkCollisions()
 		}
 	}
 	
-	/*
-	for(int i = 0; i < collideableObjectList.size(); i++)
-	{
-		for(int j = 0; j < collideableObjectList.size(); j++)
-		{
-			if(checkCollision(*collideableObjectList.at(i),*collideableObjectList.at(j) ) )
-				{
-					//inform objects that they collided, and give adresses of objects they collided with.
-					collideableObjectList.at(i)->collidedWith(*collideableObjectList.at(j) );
-					collideableObjectList.at(j)->collidedWith(*collideableObjectList.at(i) );
-
-				}
-		}
-	}
-	*/
 }
 
 void collisionSystem::handleMessage(abstractEvent& msgEvent)

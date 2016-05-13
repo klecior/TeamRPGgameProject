@@ -17,24 +17,31 @@ protected:
 	int		level;						//the depth of the current node.
 	//------------//
 	int		maxLevel;					//maximum depth of the tree structure.
+	int		maxObjects;
 
 	std::vector<gameObject*> objects;	//list of the objects contained in this node.
 	
 	//child nodes//
-	quadTree* NW;	//north west node
-	quadTree* NE;	
-	quadTree* SW;	
-	quadTree* SE;	//south east node
+	//quadTree* NW;	//north west node
+	//quadTree* NE;	
+	//quadTree* SW;	
+	//quadTree* SE;	//south east node
+	quadTree* childNodes[4];
 	//-----------//
 
+	void split();
+
+	int getIndex(int _x, int _y, int _w, int _h);
+
 	//contains function check if the object you are passing is within the bounds of the node you are passing, which in practice are going to be child nodes
-	bool	contains(quadTree *child, gameObject *object);
+	//bool	contains(quadTree *child, gameObject *object);
 
 public:
 	quadTree(float x, float y, float width, float height, int level, int maxLevel);
 	~quadTree();
 
 	void	addObject(gameObject *object);						//tries to add object to one of it's child nodes, if not possible adds one to this node.
-	std::vector<gameObject*> getObjectsAt(float x, float y);	//returns list of objects from node located ad x,y
+	std::vector<gameObject*> getObjectsAt(float _x, float _y, float _w, float _h);
+	//std::vector<gameObject*> getObjectsAt(float x, float y);	//returns list of objects from node located ad x,y
 	void clear();												//clears the node, removes objects from the list.
 };
