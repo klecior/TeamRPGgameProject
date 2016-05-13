@@ -88,7 +88,9 @@
     <ClCompile Include="abstractEvent.cpp" />
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
+    <ClCompile Include="collisionSystem.cpp" />
     <ClCompile Include="objectsCollidedEvent.h.cpp" />
+    <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
@@ -139,6 +141,7 @@
     <ClInclude Include="changeStaminaEvent.h" />
     <ClInclude Include="changeStateEvent.h" />
     <ClInclude Include="collision.h" />
+    <ClInclude Include="collisionSystem.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="entityCreatedEvent.h" />
     <ClInclude Include="entityDeletedEvent.h" />
@@ -164,6 +167,7 @@
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="program.h" />
+    <ClInclude Include="quadTree.h" />
     <ClInclude Include="quitGameEvent.h" />
     <ClInclude Include="renderSystem.h" />
     <ClInclude Include="SDLManager.h" />

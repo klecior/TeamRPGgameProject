@@ -164,6 +164,12 @@
     <Filter Include="Events\QuitGameEvent">
       <UniqueIdentifier>{e5723787-ec2b-4298-abd9-3cc04369c489}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\CollisionSystem">
+      <UniqueIdentifier>{4f453fe9-30c4-486a-8b8d-81f3dc3cf431}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\BasicFunctionality\QuadTree">
+      <UniqueIdentifier>{dd433024-8c1a-4adb-a1da-0f4c3647a1f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -297,6 +303,12 @@
     </ClCompile>
     <ClCompile Include="quitGameEvent.cpp">
       <Filter>Events\QuitGameEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="collisionSystem.cpp">
+      <Filter>Systems\CollisionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="quadTree.cpp">
+      <Filter>Framework\BasicFunctionality\QuadTree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -434,6 +446,12 @@
     </ClInclude>
     <ClInclude Include="quitGameEvent.h">
       <Filter>Events\QuitGameEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="collisionSystem.h">
+      <Filter>Systems\CollisionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="quadTree.h">
+      <Filter>Framework\BasicFunctionality\QuadTree</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
