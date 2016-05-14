@@ -1,5 +1,5 @@
 #include "gamePlay.h"
-
+#include <random>;
 
 gamePlay::gamePlay(void)
 {
@@ -66,11 +66,16 @@ void gamePlay::loadOnCreation()
 		mainPlayer->setPos('x', 500);
 		mainPlayer->setPos('y', 400);
 
-		testS = new sceneryObject(GAME,true,"images/temp/X.png",600,600);
-		testS = new sceneryObject(GAME,true,"images/temp/X.png",100,500);
-		testS = new sceneryObject(GAME,true,"images/temp/X.png",300,300);
-		testS = new sceneryObject(GAME,true,"images/temp/X.png",350,200);
-		testS = new sceneryObject(GAME,true,"images/temp/X.png",500,250);
+		for(int i = 0; i < 35; i++)
+		{
+			testS = new sceneryObject(GAME,true,"images/temp/X.png",rand()%SCREEN_WIDTH,rand()%SCREEN_HEIGHT);
+		}
+
+		//testS = new sceneryObject(GAME,true,"images/temp/X.png",600,600);
+		//testS = new sceneryObject(GAME,true,"images/temp/X.png",100,500);
+		//testS = new sceneryObject(GAME,true,"images/temp/X.png",300,300);
+		//testS = new sceneryObject(GAME,true,"images/temp/X.png",400,200);
+		//testS = new sceneryObject(GAME,true,"images/temp/X.png",800,300);
 
 		finishedLoading = true;
 	}

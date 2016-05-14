@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "gameObject.h"
+#include "SDLManager.h"
 
 //**quadTree is a tree structure with nodes that split into 4 more smaller nodes whenever they begin to contain more objects than a set value**//
 //**this is going to be used to optimise our collision detection. Objects will only check collision against other objects contained in the same node**//
@@ -19,7 +20,7 @@ protected:
 	int		maxLevel;					//maximum depth of the tree structure.
 	int		maxObjects;
 
-	std::vector<gameObject*> objects;	//list of the objects contained in this node.
+	std::vector<gameObject*>* objects;	//list of the objects contained in this node.
 	
 	//child nodes//
 	//quadTree* NW;	//north west node
@@ -41,7 +42,8 @@ public:
 	~quadTree();
 
 	void	addObject(gameObject *object);						//tries to add object to one of it's child nodes, if not possible adds one to this node.
-	std::vector<gameObject*> getObjectsAt(float _x, float _y, float _w, float _h);
+	std::vector<gameObject*>* getObjectsAt(std::vector<gameObject*>& returnVector, float _x, float _y, float _w, float _h);
 	//std::vector<gameObject*> getObjectsAt(float x, float y);	//returns list of objects from node located ad x,y
 	void clear();												//clears the node, removes objects from the list.
+	void draw();
 };

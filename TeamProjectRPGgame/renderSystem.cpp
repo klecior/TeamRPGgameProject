@@ -24,6 +24,10 @@ void renderSystem::drawScene()
 	{
 		//draw every object
 		scenesList[currentState].at(i)->draw();
+
+		SDL_SetRenderDrawColor(SDLManager::sharedSDLManager()->mainRenderer, 0xBB,0xBB,0xFF,0xFF);
+		SDL_RenderDrawRect(SDLManager::sharedSDLManager()->mainRenderer,&scenesList[currentState].at(i)->getPosition());
+		SDL_SetRenderDrawColor(SDLManager::sharedSDLManager()->mainRenderer, 0xFF,0xBB,0xFF,0xFF);
 		//std::cout<<" Rendering: "<<i;
 	}
 	//std::cout<<std::endl;

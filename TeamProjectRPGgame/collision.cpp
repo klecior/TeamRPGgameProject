@@ -23,19 +23,68 @@ bool checkCollision(gameObject& object1, gameObject& object2)
 	return false;
 }
 */
+
 bool checkCollision(gameObject& object1, gameObject& object2)
 {
-
+	//If object 1 intersects object 2
 	//collision on x//
 	if (object1.getPosition().x > object2.getPosition().x && object1.getPosition().x < (object2.getPosition().x + object2.getPosition().w) || (object1.getPosition().x + object1.getPosition().w) > object2.getPosition().x && (object1.getPosition().x + object1.getPosition().w) < (object2.getPosition().x + object2.getPosition().w))
 	{
 		//collision on y//
 		if (object1.getPosition().y > object2.getPosition().y && object1.getPosition().y < (object2.getPosition().y + object2.getPosition().h) || (object1.getPosition().y + object1.getPosition().h) > object2.getPosition().y && (object1.getPosition().y + object1.getPosition().h) < (object2.getPosition().y + object2.getPosition().h))
 		{
-			//std::cout << "COLLISION" << std::endl;
+			//std::cout << "COLLISION with:"<<object2.objectType << std::endl;
+			return true;
+		}
+	}//if object 2 intersects object 1
+	
+	/*
+	if (object2.getPosition().x > object1.getPosition().x && object2.getPosition().x < (object1.getPosition().x + object1.getPosition().w) || (object2.getPosition().x + object2.getPosition().w) > object1.getPosition().x && (object2.getPosition().x + object2.getPosition().w) < (object1.getPosition().x + object1.getPosition().w))
+	{
+		//collision on y//
+		if (object2.getPosition().y > object1.getPosition().y && object2.getPosition().y < (object1.getPosition().y + object1.getPosition().h) || (object2.getPosition().y + object2.getPosition().h) > object1.getPosition().y && (object2.getPosition().y + object2.getPosition().h) < (object1.getPosition().y + object1.getPosition().h))
+		{
+			//std::cout << "COLLISION with:"<<object2.objectType << std::endl;
+			return true;
+		}
+	}
+	*/
+
+	return false;
+}
+
+
+/*
+bool checkCollision(gameObject& object1, gameObject& object2)
+{
+
+	//collision on x//
+	if (object1.getPosition().x < object2.getPosition().x + object2.getPosition().w && object1.getPosition().x + object1.getPosition().w > object2.getPosition().x)
+	{
+		if(object1.getPosition().y < object2.getPosition().y + object2.getPosition().h && object1.getPosition().h + object1.getPosition().y > object2.getPosition().y)
+		{
+			std::cout << "COLLISION with:"<<object2.objectType << std::endl;
 			return true;
 		}
 	}
 	return false;
 }
-
+*/
+/*
+bool checkCollision(gameObject& object1, gameObject& object2)
+{
+	int a_x = object1.getPosition().x / 2;
+	int a_y = object1.getPosition().y / 2;
+	int b_x = object2.getPosition().x / 2;
+	int b_y = object2.getPosition().y / 2;
+	//collision on x//
+	if ( ( a_x - b_x) * 2 < ( object1.getPosition().w + object2.getPosition().w)	)
+	{
+		if(	 ( a_y - b_y ) * 2 < ( object1.getPosition().h + object2.getPosition().h)	)
+		{
+			std::cout << "COLLISION with:"<<object2.objectType << std::endl;
+			return true;
+		}
+	}
+	return false;
+}*/

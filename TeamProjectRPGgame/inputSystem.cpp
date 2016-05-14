@@ -123,7 +123,7 @@ void inputSystem::translateMeaning()
 
 
 	//debug stuff
-	if(kKey){ messageBus::sharedMessageBus()->sendMessage(changeHealthEvent(20)); }
+	if(kKey){ messageBus::sharedMessageBus()->sendMessage(changeHealthEvent(500)); }
 	
 }
 

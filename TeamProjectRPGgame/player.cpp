@@ -95,7 +95,14 @@ void player::update()
 
 		if (health <= 0)
 		{
-			std::cout << "player is DED" << std::endl;
+			static bool triggerOnce = false;
+			if(triggerOnce == false)
+			{
+				std::cout << "player is DED" << std::endl;
+				triggerOnce = true;
+				//alive = false;
+			}
+
 		}
 	}
 
@@ -250,7 +257,6 @@ void player::changeHealth(abstractEvent* msgEvent)
 	changeHealthEvent& newHealth = *(changeHealthEvent*)msgEvent;
 
 	health = newHealth.newHealth;
-	std::cout << "changed health to: " << health << std::endl;
 }
 
 //updates stamina.
@@ -288,7 +294,8 @@ void player::collidedWith(gameObject& object)
 
 	if(objectType == "scenery")
 	{
-		std::cout<<"player collided with scenery"<<std::endl;
+		//std::cout<<"player collided with scenery"<<std::endl;
+		messageBus::sharedMessageBus()->sendMessage(changeHealthEvent(health - 1));
 	}
 
 }
