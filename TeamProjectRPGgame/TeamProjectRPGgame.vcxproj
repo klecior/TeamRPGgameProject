@@ -88,6 +88,7 @@
     <ClCompile Include="abstractEvent.cpp" />
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
+    <ClCompile Include="soundSystem.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
     <ClCompile Include="changeHealthEvent.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="renderSystem.h" />
     <ClInclude Include="SDLManager.h" />
     <ClInclude Include="sequenceAnimation.h" />
+    <ClInclude Include="soundSystem.h" />
     <ClInclude Include="spellButton.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="observer.h" />

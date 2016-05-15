@@ -161,6 +161,9 @@
     <Filter Include="ManagerClasses\AssetManager">
       <UniqueIdentifier>{39c9bd50-b5a0-4dd5-bdb0-e17047f88000}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\SoundSystem">
+      <UniqueIdentifier>{6fea6dfe-6bdd-4eb2-a9e3-55ac187b5e1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -291,6 +294,9 @@
     </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>ManagerClasses\AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="soundSystem.cpp">
+      <Filter>Systems\SoundSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -425,6 +431,9 @@
     </ClInclude>
     <ClInclude Include="AssetManager.h">
       <Filter>ManagerClasses\AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="soundSystem.h">
+      <Filter>Systems\SoundSystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
