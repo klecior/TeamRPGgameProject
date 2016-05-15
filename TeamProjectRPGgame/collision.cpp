@@ -39,17 +39,6 @@ bool checkCollision(gameObject& object1, gameObject& object2)
 	int h2 = object2.position.h;
 
 	//collision on x//
-	/*
-	if (object1.position.x > object2.position.x && object1.position.x < (object2.position.x + object2.position.w) || (object1.position.x + object1.position.w) > object2.position.x && (object1.position.x + object1.position.w) < (object2.position.x + object2.position.w))
-	{
-		//collision on y//
-		if (object1.position.y > object2.position.y && object1.position.y < (object2.position.y + object2.position.h) || (object1.position.y + object1.position.h) > object2.position.y && (object1.position.y + object1.position.h) < (object2.position.y + object2.position.h))
-		{
-			//std::cout << "COLLISION with:"<<object2.objectType << std::endl;
-			return true;
-		}
-	}
-	*/
 	if (x1 > x2 && object1.position.x < (x2 + w2) || (x1 + w1) > x2 && (x1 + w1) < (x2 + w2))
 	{
 		//collision on y//

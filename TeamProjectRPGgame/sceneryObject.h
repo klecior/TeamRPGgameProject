@@ -2,7 +2,6 @@
 #include "messageBus.h"
 //events
 #include "entityCreatedEvent.h"
-#include "entityDeletedEvent.h"
 #include "moveWorldEvent.h"
 
 class sceneryObject : public gameObject

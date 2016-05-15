@@ -35,6 +35,9 @@ protected:
 	void addToList(abstractEvent* msgEvent);
 	void removeFromList(abstractEvent* msgEvent);
 
+	void bruteForceCollision();
+	void quadTreeCollision();
+
 public:
 	collisionSystem(void);
 	~collisionSystem(void);
