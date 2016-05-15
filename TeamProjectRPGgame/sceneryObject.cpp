@@ -18,7 +18,7 @@ sceneryObject::sceneryObject(int atState, bool solid, std::string imagePath, int
 
 	collisionBox	= position;
 
-	objectType		=	"scenery";
+	objectType		=	sceneryT;
 
 	messageBus::sharedMessageBus()->registerListener(moveWorldMessage,this);
 	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(atState,objectType,this));
@@ -41,7 +41,10 @@ sceneryObject::sceneryObject(int atState, bool solid, bool animated, int frames,
 
 	collisionBox	= position;
 
-	objectType		=	"scenery";
+	objectType		=	sceneryT;
+
+	messageBus::sharedMessageBus()->registerListener(moveWorldMessage,this);
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(atState,objectType,this));
 }
 
 sceneryObject::~sceneryObject()
@@ -60,7 +63,7 @@ void sceneryObject::handleMessage(abstractEvent& msgEvent)
 void sceneryObject::collidedWith(gameObject* object)
 {
 
-	if(object->objectType == "player"){std::cout<<"scenery is coliding with player"<<std::endl; }
+	if(object->objectType == playerT){std::cout<<"scenery is coliding with player"<<std::endl; }
 }
 
 

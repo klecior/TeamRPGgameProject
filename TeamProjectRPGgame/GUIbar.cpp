@@ -14,7 +14,7 @@ GUIbar::GUIbar()
 	amountShown.y	=	0;
 	amountShown.w	=	position.w;
 	amountShown.h	=	position.h;
-	objectType		= "GUI";
+	objectType		=	GUIT;
 }
 
 //GUI bar that accepts how much of it should be shown at the start, and all the paths to the images building it up.
@@ -30,8 +30,8 @@ GUIbar::GUIbar(int percentage,std::string backDropPath,std::string barPath, std:
 	amountShown.y	=	0;
 	amountShown.h	=	position.h;
 	amountShown.w	=	0;
-	objectType		=	"GUI";
-	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME, "GUI", this));
+	objectType		=	GUIT;
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME, objectType, this));
 }
 
 void GUIbar::draw()

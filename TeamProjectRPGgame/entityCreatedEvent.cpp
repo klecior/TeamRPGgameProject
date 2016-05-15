@@ -1,6 +1,6 @@
 #include "entityCreatedEvent.h"
 
-entityCreatedEvent::entityCreatedEvent(int belongsToState, std::string typeOfEntity, gameObject* object)
+entityCreatedEvent::entityCreatedEvent(int belongsToState, int typeOfEntity, gameObject* object)
 {
 	atState			= belongsToState;
 	type			= typeOfEntity;

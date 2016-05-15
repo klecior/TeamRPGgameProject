@@ -17,8 +17,6 @@ class gameManager : public observer
 {
 protected:
 
-	
-
 	gameManager(void);
 	static gameManager*	pSharedGameManager;
 

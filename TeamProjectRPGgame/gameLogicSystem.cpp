@@ -52,7 +52,7 @@ void gameLogicSystem::addToScene(abstractEvent* msgEvent)
 	//cast
 	entityCreatedEvent& newEntity = *(entityCreatedEvent*)msgEvent;
 
-	if (newEntity.type != "GUI")
+	if (newEntity.type != GUIT)
 	{
 		scenesList[newEntity.atState].push_back(newEntity.createdObject);
 	}
@@ -63,7 +63,7 @@ void gameLogicSystem::removeFromScene(abstractEvent* msgEvent)
 	//cast
 	entityDeletedEvent& deletedEntity = *(entityDeletedEvent*)msgEvent;
 	//if not something that would not be on this list.
-	if(deletedEntity.deletedObject->objectType != "GUI")
+	if(deletedEntity.deletedObject->objectType != GUIT)
 	{
 		//go through the scene looking for object.
 		for(int i = 0; i < scenesList[deletedEntity.atState].size(); i++)

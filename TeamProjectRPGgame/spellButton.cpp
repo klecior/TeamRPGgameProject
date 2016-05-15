@@ -13,7 +13,7 @@ spellButton::spellButton(std::string path1, std::string path2, int spellName)
 	position.x = 0;
 	position.y = 0;
 
-	objectType = "GUI";
+	objectType = GUIT;
 	messageBus::sharedMessageBus()->registerListener(leftMouseClickMessage, this);
 	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME, objectType, this));
 }

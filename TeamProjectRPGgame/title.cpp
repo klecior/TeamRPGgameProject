@@ -64,9 +64,9 @@ void title::loadOnCreation()
 		helpButton	 = new button(TITLE,"images/template/buttons/help.png","images/template/buttons/helpOver.png");
 		quitButton	 = new button(TITLE,"images/template/buttons/quit.png","images/template/buttons/quitOver.png");
 
-		startButton->setPos('x', (SCREEN_WIDTH / 2 ) - (startButton->getPosition().w / 2) );
-		helpButton->setPos('x', (SCREEN_WIDTH / 2 ) - (helpButton->getPosition().w / 2) );
-		quitButton->setPos('x', (SCREEN_WIDTH / 2 ) - (quitButton->getPosition().w / 2) );
+		startButton->setPos('x', (SCREEN_WIDTH / 2 ) - (startButton->position.w / 2) );
+		helpButton->setPos('x', (SCREEN_WIDTH / 2 ) - (helpButton->position.w / 2) );
+		quitButton->setPos('x', (SCREEN_WIDTH / 2 ) - (quitButton->position.w / 2) );
 
 		startButton->setPos('y', 150 );
 		helpButton->setPos('y', 350 );

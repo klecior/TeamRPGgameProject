@@ -49,7 +49,7 @@ void pause::loadOnCreation()
 		//LOAD STUFF HERE//
 
 		backButton = new button(PAUSE,"images/template/buttons/back.png","images/template/buttons/backOver.png");
-		backButton->setPos('x',( SCREEN_WIDTH / 2) - ( backButton->getPosition().w / 2 ) );
+		backButton->setPos('x',( SCREEN_WIDTH / 2) - ( backButton->position.w / 2 ) );
 		backButton->setPos('y', 550);
 
 		finishedLoading = true;

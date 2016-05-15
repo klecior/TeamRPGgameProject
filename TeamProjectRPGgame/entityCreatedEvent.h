@@ -7,10 +7,10 @@ class entityCreatedEvent :
 {
 public:
 
-	entityCreatedEvent(int belongsToState, std::string typeOfEntity, gameObject* object);
+	entityCreatedEvent(int belongsToState, int typeOfEntity, gameObject* object);
 	virtual eventTypeId getEventType()const override {return entityCreatedMessage;}
 	
-	std::string type;
+	int type;
 	int	atState;
 	gameObject*	createdObject;
 

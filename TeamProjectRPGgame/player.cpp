@@ -47,7 +47,7 @@ player::player(void)
 	//---------//
 
 
-	objectType = "player";
+	objectType = playerT;
 	hasCollision = true;
 	belongsToState = GAME;
 	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME,objectType,this));
@@ -290,9 +290,9 @@ void player::getPlayerStats(abstractEvent* msgEvent)
 
 void player::collidedWith(gameObject& object)
 {
-	std::string objectType = object.objectType;
+	int objectType = object.objectType;
 
-	if(objectType == "scenery")
+	if(objectType == sceneryT)
 	{
 		//std::cout<<"player collided with scenery"<<std::endl;
 		messageBus::sharedMessageBus()->sendMessage(changeHealthEvent(health - 1));

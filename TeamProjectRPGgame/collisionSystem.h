@@ -28,7 +28,7 @@ protected:
 
 	std::vector<gameObject*> collideableObjectList;				//contains all of the objects with collisions.
 	
-	bool shouldDoCheckForThisObject(std::string type);			//returns true if it's important to check if this objects collides with anything, and false if it's not (for example, scenery never moves so it doesn't need to check if it collides with things. Other things such as player will still check if they collide with scenery.
+	bool shouldDoCheckForThisObject(int type);			//returns true if it's important to check if this objects collides with anything, and false if it's not (for example, scenery never moves so it doesn't need to check if it collides with things. Other things such as player will still check if they collide with scenery.
 
 	//event handlers
 	void changeState(abstractEvent* msgEvent);

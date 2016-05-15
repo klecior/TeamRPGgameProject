@@ -4,6 +4,7 @@ collisionSystem::collisionSystem()
 {
 	//create a quadTree covering the screen.
 	//quad = new quadTree(0,0,2048,2048,0,5);
+	std::cout<<"CollisionSystem created"<<std::endl;
 	quad = new quadTree(0,0,SCREEN_WIDTH,SCREEN_HEIGHT,0,5);
 	messageBus::sharedMessageBus()->registerListener(entityCreatedMessage,this);
 	messageBus::sharedMessageBus()->registerListener(entityDeletedMessage,this);
@@ -36,7 +37,7 @@ void collisionSystem::checkCollisions()
 			//returnObjects = quad->getObjectsAt(collideableObjectList.at(i)->getPosition().x, collideableObjectList.at(i)->getPosition().y, collideableObjectList.at(i)->getPosition().w, collideableObjectList.at(i)->getPosition().h);	//gets a list of all the objects that are located in the same zone as the currently checked object.
 			quad->getObjectsAt(*returnObjects,collideableObjectList.at(i)->getPosition().x, collideableObjectList.at(i)->getPosition().y, collideableObjectList.at(i)->getPosition().w, collideableObjectList.at(i)->getPosition().h);	//gets a list of all the objects that are located in the same zone as the currently checked object.
 
-			if(collideableObjectList.at(i)->objectType == "player")
+			if(collideableObjectList.at(i)->objectType == playerT)
 			{
 				static int timer = 0;
 				if(timer >= 300)
@@ -64,7 +65,7 @@ void collisionSystem::checkCollisions()
 	returnObjects->clear();
 	delete returnObjects;
 #pragma endregion 
-*/
+	*/
 	
 #pragma region collisions check using brute force
 
@@ -124,12 +125,12 @@ void collisionSystem::removeFromList(abstractEvent* msgEvent)
 }
 
 
-bool collisionSystem::shouldDoCheckForThisObject(std::string type)
+bool collisionSystem::shouldDoCheckForThisObject(int type)
 {
 	bool should = true;
-	return true;
-	if(type == "scenery")	{ should = false; }
-	if(type == "tile")		{ should = false; }
+	return true;	//temporary allways true.
+	if(type == sceneryT)	{ should = false; }
+	if(type == tileT)		{ should = false; }
 
 	return should;
 }

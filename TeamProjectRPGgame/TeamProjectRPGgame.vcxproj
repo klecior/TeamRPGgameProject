@@ -164,6 +164,7 @@
     <ClInclude Include="messages.h" />
     <ClInclude Include="moveWorldEvent.h" />
     <ClInclude Include="objectsCollidedEvent.h" />
+    <ClInclude Include="objectTypes.h" />
     <ClInclude Include="playerControlsEvent.h" />
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />

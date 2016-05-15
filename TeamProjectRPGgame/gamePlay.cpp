@@ -65,10 +65,25 @@ void gamePlay::loadOnCreation()
 		mainPlayer = new player();
 		mainPlayer->setPos('x', 500);
 		mainPlayer->setPos('y', 400);
-
-		for(int i = 0; i < 35; i++)
+		/*
+		for(int i = 0; i < 50; i++)
 		{
 			testS = new sceneryObject(GAME,true,"images/temp/X.png",rand()%SCREEN_WIDTH,rand()%SCREEN_HEIGHT);
+		}
+		*/
+		int xP = 0;
+		int yP = 0;
+		for(int i = 0; i < 50; i++)
+		{
+			testS = new sceneryObject(GAME,true,"images/temp/X.png",xP,yP);
+
+			xP += 66;
+
+			if(xP >= SCREEN_WIDTH - 100)
+			{
+				xP = 0;
+				yP += 66;
+			}
 		}
 
 		//testS = new sceneryObject(GAME,true,"images/temp/X.png",600,600);

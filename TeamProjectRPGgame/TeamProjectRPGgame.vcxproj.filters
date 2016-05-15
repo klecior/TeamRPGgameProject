@@ -462,5 +462,8 @@
     <ClInclude Include="sceneryObject.h">
       <Filter>GameSpecyficClasses\GenericSceneryObject</Filter>
     </ClInclude>
+    <ClInclude Include="objectTypes.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

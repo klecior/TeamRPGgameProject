@@ -116,7 +116,7 @@ void GUIsystem::addGUIobject(abstractEvent* msgEvent)
 	//cast
 	entityCreatedEvent& newEntity = *(entityCreatedEvent*)msgEvent;
 	//if the object created was a GUI object
-	if (newEntity.type == "GUI")
+	if (newEntity.type == GUIT)
 	{
 		GUIstatesList[newEntity.atState].push_back(newEntity.createdObject);	
 	}
@@ -129,7 +129,7 @@ void GUIsystem::removeGUIobject(abstractEvent* msgEvent)
 	entityDeletedEvent& newEntity = *(entityDeletedEvent*)msgEvent;
 	
 	//if GUI has it somewhere.
-	if(newEntity.deletedObject->objectType == "GUI")
+	if(newEntity.deletedObject->objectType == GUIT)
 	{
 		//go through that state list
 		for (int i = 0; i < GUIstatesList[newEntity.atState].size(); i++)

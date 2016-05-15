@@ -12,11 +12,11 @@ gameObject::gameObject(void)
 	position.h		=	0;
 
 	collisionBox	=	position;
-	collisionBoxes.push_back(&collisionBox);
+	//collisionBoxes.push_back(&collisionBox);
 
 	alive			=	true;
 
-	objectType		=	"";
+	objectType		=	0;
 	finishedLoading	=	false;
 	hasCollision	=	false;
 

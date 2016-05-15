@@ -50,7 +50,7 @@ void help::loadOnCreation()
 		//LOAD STUFF HERE//
 
 		backButton = new button(HELP,"images/template/buttons/back.png","images/template/buttons/backOver.png");
-		backButton->setPos('x',( SCREEN_WIDTH / 2) - ( backButton->getPosition().w / 2 ) +300 );
+		backButton->setPos('x',( SCREEN_WIDTH / 2) - ( backButton->position.w / 2 ) +300 );
 		backButton->setPos('y', 550);
 
 		finishedLoading = true;

@@ -13,7 +13,7 @@ button::button(int list)
 	loadImages("images/temp/X.png","images/temp/X.png");
 	displayImage = sprIdle;
 
-	objectType		=	"GUI";
+	objectType		=	GUIT;
 	buttonClicked	=	false;
 	hasCollision	=	false;
 	alive			=	true;
@@ -31,7 +31,7 @@ button::button(int list, std::string idle, std::string over)
 	loadImages(idle,over);
 	displayImage = sprIdle;
 
-	objectType		=	"GUI";
+	objectType		=	GUIT;
 	buttonClicked	=	false;
 	hasCollision	=	false;
 	alive			=	true;
@@ -85,10 +85,10 @@ bool button::mouseClick()
 	messageBus::sharedMessageBus()->sendMessage(currMousePos);
 
 	//--x collision--//
-	if(currMousePos.mouseXis > getPosition().x && currMousePos.mouseXis < (getPosition().x + getPosition().w) )
+	if(currMousePos.mouseXis > position.x && currMousePos.mouseXis < (position.x + position.w) )
 		{
 			//y collision--//
-			if(currMousePos.mouseYis > getPosition().y && currMousePos.mouseYis < (getPosition().y +getPosition().h) )
+			if(currMousePos.mouseYis > position.y && currMousePos.mouseYis < (position.y +position.h) )
 			{
 				//--change the image to an different one--//
 				displayImage = sprOver;

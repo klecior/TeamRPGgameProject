@@ -37,7 +37,7 @@ bool program::initialise()
 		else
 		{
 			//create main renderer.
-			SDLManager::sharedSDLManager()->mainRenderer = SDL_CreateRenderer(mainWindow,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+			SDLManager::sharedSDLManager()->mainRenderer = SDL_CreateRenderer(mainWindow,-1,SDL_RENDERER_ACCELERATED);
 	
 			if(SDLManager::sharedSDLManager()->mainRenderer == NULL)
 			{

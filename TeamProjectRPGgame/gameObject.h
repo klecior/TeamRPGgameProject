@@ -6,21 +6,21 @@
 #include "AssetManager.h"
 #include "observer.h"
 #include "moveWorldEvent.h"
-
+#include "objectTypes.h"
 
 //**gameObject class is the main base level object with common functionality. Most other object inherit from it.**//
 class gameObject : public observer
 {
 protected:
 
-	SDL_Rect		position;
+	
 	textureImage*	displayImage;
 	bool			alive;						//when false will delete and unregister the object.
 	bool			finishedLoading;			//assets loaded and safe to use.
 
 
 public:
-
+	SDL_Rect		position;
 	gameObject(void);
 	virtual ~gameObject(void);					//virtual destructor will cause the derived object destructor to be called.
 
@@ -31,7 +31,8 @@ public:
 	void setAlive(bool newAlive);
 	//----------------------//
 
-	std::string objectType;						//used to label the type of object it is. Usefull for filtering.
+	//std::string objectType;						//used to label the type of object it is. Usefull for filtering.
+	int objectType;
 	int	belongsToState;
 
 	virtual void draw();
@@ -48,7 +49,7 @@ public:
 	//--collision boxes and their drawing--//
 	//--every object has at least one collision box by default--//
 	SDL_Rect	collisionBox;
-	std::vector<SDL_Rect*> collisionBoxes;
+	//std::vector<SDL_Rect*> collisionBoxes;
 	bool			hasCollision;				//used to determine if the object should be added to list of collision checks.
 
 	//void drawCollisionBox();

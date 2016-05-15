@@ -13,5 +13,6 @@ const int INVENTORY = 5;
 const int MAPSCREEN = 6;
 
 const int FRAMERATE = 60;
+const int SCREEN_TICKS_PER_FRAME = 1000 / FRAMERATE;
 
 #endif

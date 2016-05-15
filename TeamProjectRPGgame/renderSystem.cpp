@@ -57,7 +57,7 @@ void renderSystem::addToRenderer(abstractEvent* msgEvent)
 	//cast
 	entityCreatedEvent& newEntity = *(entityCreatedEvent*)msgEvent;
 
-	if (newEntity.type != "GUI")
+	if (newEntity.type != GUIT)
 	{
 		scenesList[newEntity.atState].push_back(newEntity.createdObject);
 	}

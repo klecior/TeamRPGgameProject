@@ -91,7 +91,7 @@ void quadTree::addObject(gameObject* object)
 	if(childNodes[0] != NULL)
 	{
 		//get the child that can take it.
-		int index = getIndex(object->getPosition().x, object->getPosition().y, object->getPosition().w, object->getPosition().h);
+		int index = getIndex(object->position.x, object->position.y, object->position.w, object->position.h);
 
 		//if one of the childs can take it.
 		if(index != -1)
@@ -116,7 +116,7 @@ void quadTree::addObject(gameObject* object)
 			while(i < objects->size())
 			{
 				//checks which child can take this objct
-				int index = getIndex(objects->at(i)->getPosition().x, objects->at(i)->getPosition().y, objects->at(i)->getPosition().w, objects->at(i)->getPosition().h);
+				int index = getIndex(objects->at(i)->position.x, objects->at(i)->position.y, objects->at(i)->position.w, objects->at(i)->position.h);
 	
 				if(index != -1)
 				{ 
