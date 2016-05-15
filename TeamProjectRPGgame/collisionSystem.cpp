@@ -114,12 +114,12 @@ void collisionSystem::quadTreeCollision()
 					collideableObjectList.at(i)->collidedWith(*returnObjects->at(j) );
 					returnObjects->at(j)->collidedWith(*collideableObjectList.at(i) );
 				}
-				else if(checkCollision(*collideableObjectList.at(j),*returnObjects->at(i) ) )
+			/*	else if(checkCollision(*collideableObjectList.at(j),*returnObjects->at(i) ) )
 				{
 					//inform objects that they collided, and give adresses of objects they collided with.
 					collideableObjectList.at(i)->collidedWith(*returnObjects->at(j) );
 					returnObjects->at(j)->collidedWith(*collideableObjectList.at(i) );
-				}
+				}*/
 			}
 		}
 	}

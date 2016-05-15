@@ -68,7 +68,7 @@ void gamePlay::loadOnCreation()
 		
 		for(int i = 0; i < 100; i++)
 		{
-			testS = new sceneryObject(GAME,true,"images/temp/X.png",rand()%SCREEN_WIDTH,rand()%SCREEN_HEIGHT);
+			testS = new sceneryObject(GAME,true,"images/temp/Xsmall.png",rand()%SCREEN_WIDTH,rand()%SCREEN_HEIGHT);
 		}
 		
 		int xP = 0;
