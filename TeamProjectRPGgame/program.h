@@ -3,6 +3,7 @@
 #include<SDL.h>
 #include<vector>
 #include<iostream>
+#include<SDL_mixer.h>
 
 #include"constants.h"
 #include"gameManager.h"

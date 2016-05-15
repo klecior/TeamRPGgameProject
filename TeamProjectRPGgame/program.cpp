@@ -53,6 +53,10 @@ bool program::initialise()
 			}
 		}
 	}
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+	{
+		std::cout << "unable to Initialise Audio";
+	}
 	return success;
 }
 

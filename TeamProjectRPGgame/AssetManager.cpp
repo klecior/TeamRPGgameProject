@@ -89,11 +89,26 @@ sequenceAnimation* assetManager::getAnimation(unsigned int frames, std::string p
 
 Mix_Chunk* assetManager::getChunk(std::string path)
 {
-	tempChunk = new Mix_Chunk();
-	Mix_Chunk* chonk = Mix_LoadWAV_RW(SDL_RWFromFile(path.c_str(), "rb"), 1);
-	tempChunk = chonk;
+	
+	//checks ids within list
+	for (int i = 0; i < idChunkList.size(); i++)
+	{
+		//id exists
+		if (path == idChunkList[i]->name)
+		{
+			//return the chunk that is already loaded
+			return chunkList[idChunkList[i]->id];
+		}
+
+	}
+
+	//loads new chunks if file was not found in list
+
+	//creates audio chunk
+	tempChunk	=	Mix_LoadWAV(path.c_str());
 	chunkList.push_back(tempChunk);
 
+	//create ID
 	tempID = new idStruct();
 	tempID->id = chunkList.size() - 1;
 	tempID->name = path;
@@ -102,19 +117,35 @@ Mix_Chunk* assetManager::getChunk(std::string path)
 	return chunkList[tempID->id];
 }
 
-/*Mix_Music* assetManager::getMusic(std::string path)
+Mix_Music* assetManager::getMusic(std::string path)
 {
-tempMusic	=	new Mix_Music();
-tempMusic	=	Mix_LoadMUS(path.c_str);
-musicList.push_back(tempChunk);
 
-tempID	=	new idStruct();
-tempID->id	=	chunkList.size() - 1;
-tempID->name	=	path;
-idChunkList.push_back(tempID);
+	//checks ids within list
+	for (int i = 0; i < idMusicList.size(); i++)
+	{
+		//id exists
+		if (path == idChunkList[i]->name)
+		{
+			//return the music that is already loaded
+			return musicList[idMusicList[i]->id];
+		}
 
-return musicList[tempID->id];
-}*/
+	}
+
+	//loads new music if music was not found in the list
+
+	//create music
+	tempMusic	=	Mix_LoadMUS(path.c_str());
+	musicList.push_back(tempMusic);
+
+	//create ID
+	tempID	=	new idStruct();
+	tempID->id	=	chunkList.size() - 1;
+	tempID->name	=	path;
+	idChunkList.push_back(tempID);
+
+	return musicList[tempID->id];
+}
 
 //--InitializeFromFile function opens up a text document with every image and animation in the game, and then loads the graphics into memory, so it can be easily retrieved later--//
 void assetManager::initializeFromFile(std::string path)
