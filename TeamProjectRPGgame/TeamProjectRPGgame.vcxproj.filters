@@ -164,6 +164,9 @@
     <Filter Include="Systems\SoundSystem">
       <UniqueIdentifier>{6fea6dfe-6bdd-4eb2-a9e3-55ac187b5e1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\PlayAudioEvent">
+      <UniqueIdentifier>{24df0e13-f069-49f5-9e99-37ce3c507dc1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -297,6 +300,9 @@
     </ClCompile>
     <ClCompile Include="soundSystem.cpp">
       <Filter>Systems\SoundSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="playAudioEvent.cpp">
+      <Filter>Events\PlayAudioEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -434,6 +440,9 @@
     </ClInclude>
     <ClInclude Include="soundSystem.h">
       <Filter>Systems\SoundSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="playAudioEvent.h">
+      <Filter>Events\PlayAudioEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
