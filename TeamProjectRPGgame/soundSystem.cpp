@@ -21,15 +21,16 @@ void soundSystem::handleMessage(abstractEvent& msgEvent)
 void soundSystem::playAudio(abstractEvent * msgEvent)
 {
 	playAudioEvent& playAudioV = *(playAudioEvent*)msgEvent;
+	filePath = playAudioV.filePath;
 	if (playAudioV.isPlaying == true)
 	{
 		if (playAudioV.isMusic)
 		{
-			
+			tempMusic = assetManager::sharedassetManager()->getMusic(filePath);
 		}
 		else
 		{
-
+			tempChunk = assetManager::sharedassetManager()->getChunk(filePath);
 		}
 	}
 }
