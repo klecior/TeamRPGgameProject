@@ -20,5 +20,16 @@ void soundSystem::handleMessage(abstractEvent& msgEvent)
 
 void soundSystem::playAudio(abstractEvent * msgEvent)
 {
-	
+	playAudioEvent& playAudioV = *(playAudioEvent*)msgEvent;
+	if (playAudioV.isPlaying == true)
+	{
+		if (playAudioV.isMusic)
+		{
+			
+		}
+		else
+		{
+
+		}
+	}
 }
