@@ -173,6 +173,21 @@
     <Filter Include="GameSpecyficClasses\GenericSceneryObject">
       <UniqueIdentifier>{897019af-73b0-4b30-93d3-ae5822b3c7a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\StatusEffectEvents">
+      <UniqueIdentifier>{0dd4e641-21bb-41cb-aad1-5dc9138c843b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\StatusEffectEvents\AddStatusEffectEvent">
+      <UniqueIdentifier>{994201b1-b0e5-4e88-9540-1416479243eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\StatusEffectEvents\RemoveStatusEffectEvent">
+      <UniqueIdentifier>{3c2c64f6-2a8f-4b8c-bddb-71c7c3840a9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSpecyficClasses\Status Effects\OnFire">
+      <UniqueIdentifier>{1ae8c7f6-f067-4be0-b71a-abef9a921b23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSpecyficClasses\TestingObjects">
+      <UniqueIdentifier>{d203ec82-6569-4706-8f3a-4475326075e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -315,6 +330,15 @@
     </ClCompile>
     <ClCompile Include="sceneryObject.cpp">
       <Filter>GameSpecyficClasses\GenericSceneryObject</Filter>
+    </ClCompile>
+    <ClCompile Include="addStatusEffectEvent.cpp">
+      <Filter>Events\StatusEffectEvents\AddStatusEffectEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="onFire.cpp">
+      <Filter>GameSpecyficClasses\Status Effects\OnFire</Filter>
+    </ClCompile>
+    <ClCompile Include="removeStatusEffectEvent.cpp">
+      <Filter>Events\StatusEffectEvents\RemoveStatusEffectEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -461,6 +485,15 @@
     </ClInclude>
     <ClInclude Include="sceneryObject.h">
       <Filter>GameSpecyficClasses\GenericSceneryObject</Filter>
+    </ClInclude>
+    <ClInclude Include="addStatusEffectEvent.h">
+      <Filter>Events\StatusEffectEvents\AddStatusEffectEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="removeStatusEffectEvent.h">
+      <Filter>Events\StatusEffectEvents\RemoveStatusEffectEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="onFire.h">
+      <Filter>GameSpecyficClasses\Status Effects\OnFire</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

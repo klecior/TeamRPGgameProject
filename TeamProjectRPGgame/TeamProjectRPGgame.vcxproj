@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -86,12 +86,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="abstractEvent.cpp" />
+    <ClCompile Include="addStatusEffectEvent.cpp" />
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="collisionSystem.cpp" />
     <ClCompile Include="objectsCollidedEvent.h.cpp" />
+    <ClCompile Include="onFire.cpp" />
     <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
+    <ClCompile Include="removeStatusEffectEvent.cpp" />
     <ClCompile Include="sceneryObject.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
@@ -135,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abstractEvent.h" />
+    <ClInclude Include="addStatusEffectEvent.h" />
     <ClInclude Include="baseGameState.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="castSpellEvent.h" />
@@ -164,12 +168,14 @@
     <ClInclude Include="messages.h" />
     <ClInclude Include="moveWorldEvent.h" />
     <ClInclude Include="objectsCollidedEvent.h" />
+    <ClInclude Include="onFire.h" />
     <ClInclude Include="playerControlsEvent.h" />
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="program.h" />
     <ClInclude Include="quadTree.h" />
     <ClInclude Include="quitGameEvent.h" />
+    <ClInclude Include="removeStatusEffectEvent.h" />
     <ClInclude Include="renderSystem.h" />
     <ClInclude Include="sceneryObject.h" />
     <ClInclude Include="SDLManager.h" />

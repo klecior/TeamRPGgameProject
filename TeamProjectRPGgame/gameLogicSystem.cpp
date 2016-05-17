@@ -24,7 +24,8 @@ void gameLogicSystem::doLogic()
 		//update every object
 		scenesList[currentState].at(i)->update();
 		//check Collisions
-		collisionS->checkCollisions();
+		//collisionS->checkCollisions();
+		
 	}
 }
 
