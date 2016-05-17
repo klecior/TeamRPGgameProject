@@ -24,7 +24,7 @@ void statusEffectQueue::handleMessage(abstractEvent& msgEvent)
 
 	if (msgType == addStatusEffectMessage)
 	{
-		
+		addStatusEffect(&msgEvent);
 	}
 }
 
@@ -38,14 +38,11 @@ void statusEffectQueue::addStatusEffect(abstractEvent* msgEvent)
 
 void statusEffectQueue::update()
 {
-	if (SDL_GetTicks() / 1000 == 0) { std::cout << "IS THE STATUS QUEUE EMPTY... "; }
-	if (!queue.empty())
+	//std::cout << "IS THE STATUS QUEUE EMPTY... ";
+	//std::cout << "THERE ARE " << queue.size()<< " STATUS EFFECTS TO HANDLE" << std::endl;
+	for (int i = 0; i < queue.size(); i++)
 	{
-		if (SDL_GetTicks() / 1000 == 0) { std::cout << "THERE ARE " << queue.size() + 1 << " STATUS EFFECTS TO HANDLE" << std::endl; }
-		for (int i = 0; i < queue.size(); i++)
-		{
-			queue.at(i).update();
-		}
+		queue.at(i).update();
 	}
-	if (SDL_GetTicks() / 1000 == 0){std::cout << "THERE ARE NO MORE STATUS EFFECTS TO HANDLE" << std::endl;
+	//std::cout<<"THERE ARE NO MORE STATUS EFFECTS TO HANDLE" << std::endl;
 }

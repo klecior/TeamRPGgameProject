@@ -94,6 +94,7 @@ void player::update()
 		{
 			//send message
 			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(testStatus, this));
+	
 			doOnce = true;
 			std::cout << "Adding a status effect to player" << std::endl;
 		}

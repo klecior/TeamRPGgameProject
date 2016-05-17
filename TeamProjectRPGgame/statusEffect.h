@@ -4,6 +4,7 @@
 
 //Events
 #include "hitPlayerEvent.h"
+#include"entityDeletedEvent.h"
 
 
 class statusEffect :
@@ -18,7 +19,7 @@ public:
 	virtual void update();
 
 protected:
-	int startTime, duration, endTime, remainingTime;
+	int startTime, duration, endTime, currentTime;
 	gameObject *target;
 };
 

@@ -54,7 +54,7 @@ void gameLogicSystem::addToScene(abstractEvent* msgEvent)
 	//cast
 	entityCreatedEvent& newEntity = *(entityCreatedEvent*)msgEvent;
 
-	if (newEntity.type != "GUI")
+	if (newEntity.type != "GUI" && newEntity.type != "statusEffectT")
 	{
 		scenesList[newEntity.atState].push_back(newEntity.createdObject);
 	}
@@ -65,17 +65,14 @@ void gameLogicSystem::removeFromScene(abstractEvent* msgEvent)
 	//cast
 	entityDeletedEvent& deletedEntity = *(entityDeletedEvent*)msgEvent;
 	//if not something that would not be on this list.
-	if(deletedEntity.deletedObject->objectType != "GUI")
-	{
 		//go through the scene looking for object.
-		for(int i = 0; i < scenesList[deletedEntity.atState].size(); i++)
+	for(int i = 0; i < scenesList[deletedEntity.atState].size(); i++)
+	{
+		//if the address is the one of the deleted object
+		if(scenesList[deletedEntity.atState].at(i) == deletedEntity.deletedObject)
 		{
-			//if the address is the one of the deleted object
-			if(scenesList[deletedEntity.atState].at(i) == deletedEntity.deletedObject)
-			{
-				//remove the object
-				scenesList[deletedEntity.atState].erase(scenesList[deletedEntity.atState].begin()+i);
-			}
+			//remove the object
+			scenesList[deletedEntity.atState].erase(scenesList[deletedEntity.atState].begin()+i);
 		}
 	}
 }

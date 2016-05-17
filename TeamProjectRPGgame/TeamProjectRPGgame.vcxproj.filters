@@ -179,9 +179,6 @@
     <Filter Include="Events\StatusEffectEvents\AddStatusEffectEvent">
       <UniqueIdentifier>{994201b1-b0e5-4e88-9540-1416479243eb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Events\StatusEffectEvents\RemoveStatusEffectEvent">
-      <UniqueIdentifier>{3c2c64f6-2a8f-4b8c-bddb-71c7c3840a9a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameSpecyficClasses\Status Effects\OnFire">
       <UniqueIdentifier>{1ae8c7f6-f067-4be0-b71a-abef9a921b23}</UniqueIdentifier>
     </Filter>
@@ -337,9 +334,6 @@
     <ClCompile Include="onFire.cpp">
       <Filter>GameSpecyficClasses\Status Effects\OnFire</Filter>
     </ClCompile>
-    <ClCompile Include="removeStatusEffectEvent.cpp">
-      <Filter>Events\StatusEffectEvents\RemoveStatusEffectEvent</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameManager.h">
@@ -488,9 +482,6 @@
     </ClInclude>
     <ClInclude Include="addStatusEffectEvent.h">
       <Filter>Events\StatusEffectEvents\AddStatusEffectEvent</Filter>
-    </ClInclude>
-    <ClInclude Include="removeStatusEffectEvent.h">
-      <Filter>Events\StatusEffectEvents\RemoveStatusEffectEvent</Filter>
     </ClInclude>
     <ClInclude Include="onFire.h">
       <Filter>GameSpecyficClasses\Status Effects\OnFire</Filter>

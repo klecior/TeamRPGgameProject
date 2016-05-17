@@ -5,6 +5,7 @@ addStatusEffectEvent::addStatusEffectEvent(int statusToAdd, gameObject *target)
 	switch (statusToAdd)
 	{
 	case testStatus:
+		std::cout << "Adding test Status Effect" << std::endl;
 		statusToGive = new statusEffect(target);
 		break;
 

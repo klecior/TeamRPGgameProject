@@ -94,7 +94,6 @@
     <ClCompile Include="onFire.cpp" />
     <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
-    <ClCompile Include="removeStatusEffectEvent.cpp" />
     <ClCompile Include="sceneryObject.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
@@ -175,7 +174,6 @@
     <ClInclude Include="program.h" />
     <ClInclude Include="quadTree.h" />
     <ClInclude Include="quitGameEvent.h" />
-    <ClInclude Include="removeStatusEffectEvent.h" />
     <ClInclude Include="renderSystem.h" />
     <ClInclude Include="sceneryObject.h" />
     <ClInclude Include="SDLManager.h" />
