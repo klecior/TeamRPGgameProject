@@ -7,6 +7,8 @@ statusEffectQueue::statusEffectQueue()
 	messageBus::sharedMessageBus()->registerListener(addStatusEffectMessage, this);
 	messageBus::sharedMessageBus()->registerListener(removeStatusEffectMessage, this);
 	messageBus::sharedMessageBus()->registerListener(removeAllStatusEffectMessage, this);
+
+	std::cout << "STATUS QUEUE STARTED" << std::endl;
 }
 
 statusEffectQueue::~statusEffectQueue()
@@ -36,8 +38,14 @@ void statusEffectQueue::addStatusEffect(abstractEvent* msgEvent)
 
 void statusEffectQueue::update()
 {
-	for (int i = 0; i < queue.size(); i++)
+	if (SDL_GetTicks() / 1000 == 0) { std::cout << "IS THE STATUS QUEUE EMPTY... "; }
+	if (!queue.empty())
 	{
-		queue.at(i).update();
+		if (SDL_GetTicks() / 1000 == 0) { std::cout << "THERE ARE " << queue.size() + 1 << " STATUS EFFECTS TO HANDLE" << std::endl; }
+		for (int i = 0; i < queue.size(); i++)
+		{
+			queue.at(i).update();
+		}
 	}
+	if (SDL_GetTicks() / 1000 == 0){std::cout << "THERE ARE NO MORE STATUS EFFECTS TO HANDLE" << std::endl;
 }

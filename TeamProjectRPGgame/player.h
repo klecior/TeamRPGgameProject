@@ -17,6 +17,7 @@
 #include "getPlayerStatsEvent.h"
 #include "leftMouseClickEvent.h"
 #include "castSpellEvent.h"
+#include "addStatusEffectEvent.h"
 
 class player :
 	public gameObject

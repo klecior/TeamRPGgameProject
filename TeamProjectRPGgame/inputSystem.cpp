@@ -66,6 +66,7 @@ void inputSystem::manageKeyHolds(SDL_Event &evt)
 			if(evt.key.keysym.sym == SDLK_j){jKey	= true;	}
 			if(evt.key.keysym.sym == SDLK_k){kKey	= true;	}
 			if(evt.key.keysym.sym == SDLK_l){lKey	= true;	}
+			if (evt.key.keysym.sym == SDLK_COMMA) { commaKey = true; }
 
 		}
 
@@ -86,6 +87,7 @@ void inputSystem::manageKeyHolds(SDL_Event &evt)
 			if(evt.key.keysym.sym == SDLK_j){jKey	= false;	}
 			if(evt.key.keysym.sym == SDLK_k){kKey	= false;	}
 			if(evt.key.keysym.sym == SDLK_l){lKey	= false;	}
+			if (evt.key.keysym.sym == SDLK_COMMA) { commaKey = false; }
 
 		}
 		if(evt.type == SDL_QUIT){ messageBus::sharedMessageBus()->sendMessage(quitGameEvent() ); }

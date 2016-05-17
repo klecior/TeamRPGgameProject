@@ -39,6 +39,7 @@ protected:
 	bool jKey;
 	bool kKey;
 	bool lKey;
+	bool commaKey;
 	//-------------//
 #pragma endregion all of the key variables in the program
 

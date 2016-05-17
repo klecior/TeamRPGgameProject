@@ -4,11 +4,12 @@ addStatusEffectEvent::addStatusEffectEvent(int statusToAdd, gameObject *target)
 {
 	switch (statusToAdd)
 	{
-	testStatus:
+	case testStatus:
 		statusToGive = new statusEffect(target);
 		break;
 
 	default:
+		std::cout << "Failed to add status effect" << std::endl;
 		break;
 	}
 }

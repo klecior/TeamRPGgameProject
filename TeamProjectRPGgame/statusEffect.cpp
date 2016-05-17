@@ -27,9 +27,10 @@ int statusEffect::getStartTime()
 	return 0;
 }
 
-void statusEffect::effect()
+void statusEffect::update()
 {
 	std::cout << "Testing Base Status Effect"<<std::endl;
 	messageBus::sharedMessageBus()->sendMessage(hitPlayerEvent(10));
 	remainingTime = SDL_GetTicks() - endTime;
+	std::cout << remainingTime;
 }

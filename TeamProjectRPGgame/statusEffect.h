@@ -15,7 +15,7 @@ public:
 	~statusEffect();
 	int getDuration();
 	int getStartTime();
-	virtual void effect();
+	virtual void update();
 
 protected:
 	int startTime, duration, endTime, remainingTime;
