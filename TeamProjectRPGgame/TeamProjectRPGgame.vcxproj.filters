@@ -173,6 +173,9 @@
     <Filter Include="GameSpecyficClasses\GenericSceneryObject">
       <UniqueIdentifier>{897019af-73b0-4b30-93d3-ae5822b3c7a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\UtilityClasses\GenericCollider">
+      <UniqueIdentifier>{08c4eb5a-9d17-4a4a-9978-49a08cb4e2af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -315,6 +318,9 @@
     </ClCompile>
     <ClCompile Include="sceneryObject.cpp">
       <Filter>GameSpecyficClasses\GenericSceneryObject</Filter>
+    </ClCompile>
+    <ClCompile Include="genericCollider.cpp">
+      <Filter>Framework\UtilityClasses\GenericCollider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -464,6 +470,9 @@
     </ClInclude>
     <ClInclude Include="objectTypes.h">
       <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="genericCollider.h">
+      <Filter>Framework\UtilityClasses\GenericCollider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

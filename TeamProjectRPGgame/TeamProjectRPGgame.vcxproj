@@ -89,6 +89,7 @@
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="collisionSystem.cpp" />
+    <ClCompile Include="genericCollider.cpp" />
     <ClCompile Include="objectsCollidedEvent.h.cpp" />
     <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="gameOver.h" />
     <ClInclude Include="gamePlay.h" />
+    <ClInclude Include="genericCollider.h" />
     <ClInclude Include="getCurrentStateEvent.h" />
     <ClInclude Include="getMousePosEvent.h" />
     <ClInclude Include="getPlayerStatsEvent.h" />
