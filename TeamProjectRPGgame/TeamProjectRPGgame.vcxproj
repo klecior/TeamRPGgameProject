@@ -89,6 +89,7 @@
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="collisionSystem.cpp" />
+    <ClCompile Include="consumePotionEvent.cpp" />
     <ClCompile Include="objectsCollidedEvent.h.cpp" />
     <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="collision.h" />
     <ClInclude Include="collisionSystem.h" />
     <ClInclude Include="constants.h" />
+    <ClInclude Include="consumePotionEvent.h" />
     <ClInclude Include="entityCreatedEvent.h" />
     <ClInclude Include="entityDeletedEvent.h" />
     <ClInclude Include="gameLogicSystem.h" />
