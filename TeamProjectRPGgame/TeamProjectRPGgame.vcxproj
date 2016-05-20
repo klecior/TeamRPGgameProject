@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -90,6 +90,7 @@
     <ClCompile Include="button.cpp" />
     <ClCompile Include="collisionSystem.cpp" />
     <ClCompile Include="consumePotionEvent.cpp" />
+    <ClCompile Include="frameRateLimiter.cpp" />
     <ClCompile Include="objectsCollidedEvent.h.cpp" />
     <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="consumePotionEvent.h" />
     <ClInclude Include="entityCreatedEvent.h" />
     <ClInclude Include="entityDeletedEvent.h" />
+    <ClInclude Include="frameRateLimiter.h" />
     <ClInclude Include="gameLogicSystem.h" />
     <ClInclude Include="gameManager.h" />
     <ClInclude Include="gameObject.h" />

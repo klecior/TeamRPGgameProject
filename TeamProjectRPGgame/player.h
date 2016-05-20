@@ -7,6 +7,8 @@
 #include "gameManager.h"
 #include "statusEffect.h"
 
+#include "frameRateLimiter.h"
+
 //events//
 #include "playerControlsEvent.h"
 #include "entityCreatedEvent.h"

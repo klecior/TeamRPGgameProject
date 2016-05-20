@@ -15,6 +15,7 @@
 #include "renderSystem.h"
 #include "gameLogicSystem.h"
 //-----------//
+#include "frameRateLimiter.h"
 
 //**Main class for the game, contains all of the states as well as the game loop**//
 class program
@@ -26,6 +27,7 @@ protected:
 	GUIsystem		GUIs;
 	renderSystem	renderS;
 	gameLogicSystem	gameLogicS;
+
 public:
 	program(void);
 	~program(void);

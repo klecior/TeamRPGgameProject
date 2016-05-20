@@ -27,11 +27,11 @@ player::player(void)
 	//------//
 
 	//speed//
-	baseSpeed		= 2;
+	baseSpeed		= 10;
 	movementSpeed	= baseSpeed;
 
 	sprintModifier	= 3;
-	sprintCost		= 5;	
+	sprintCost		= 20;	
 	//-----//
 
 	totalDefenceTreshold = 0;
@@ -126,7 +126,7 @@ void player::staminaRegen()
 	{
 		if(stamina < maxStamina)
 		{
-			messageBus::sharedMessageBus()->sendMessage(changeStaminaEvent(stamina + staminaRecovery));
+			messageBus::sharedMessageBus()->sendMessage(changeStaminaEvent(stamina + frameRateLimiter::sharedFrameRateLimiter()->frameDelta * staminaRecovery));
 		}
 		if(stamina > maxStamina)
 		{
@@ -182,10 +182,12 @@ void player::playerControls(abstractEvent* msgEvent)
 
 void player::walk(playerControlsEvent* controls)
 {
-	if(controls->downPressed)	{ position.y +=	movementSpeed; isMoving = true; }
-	if(controls->upPressed)		{ position.y -= movementSpeed; isMoving = true; }
-	if(controls->leftPressed)	{ position.x -= movementSpeed; isMoving = true; }
-	if(controls->rightPressed)	{ position.x += movementSpeed; isMoving = true; }
+	//double speedDelta = frameRateLimiter::sharedFrameRateLimiter()->frameDelta * movementSpeed;
+	float tempSpeed = frameRateLimiter::sharedFrameRateLimiter()->frameDelta * movementSpeed;
+	if(controls->downPressed)	{ position.y +=	tempSpeed; isMoving = true; }
+	if(controls->upPressed)		{ position.y -=	tempSpeed; isMoving = true; }
+	if(controls->leftPressed)	{ position.x -= tempSpeed; isMoving = true; }
+	if(controls->rightPressed)	{ position.x += tempSpeed; isMoving = true; }
 }
 
 void player::sprint()
@@ -196,7 +198,8 @@ void player::sprint()
 		isSprinting = true;
 		//std::cout<<"playerIsSprinting"<<std::endl;
 		movementSpeed	=	baseSpeed * sprintModifier;
-		messageBus::sharedMessageBus()->sendMessage(changeStaminaEvent(stamina - sprintCost));
+		int tempCost	=	frameRateLimiter::sharedFrameRateLimiter()->frameDelta * sprintCost;
+		messageBus::sharedMessageBus()->sendMessage(changeStaminaEvent(stamina - tempCost));
 	}
 	else
 	{
@@ -295,7 +298,7 @@ void player::collidedWith(gameObject& object)
 	if(objectType == sceneryT)
 	{
 		//std::cout<<"player collided with scenery"<<std::endl;
-		messageBus::sharedMessageBus()->sendMessage(changeHealthEvent(health - 1));
+		messageBus::sharedMessageBus()->sendMessage(changeHealthEvent(health - frameRateLimiter::sharedFrameRateLimiter()->frameDelta * 1));
 	}
 
 }

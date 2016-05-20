@@ -58,8 +58,12 @@ bool program::initialise()
 
 void program::gameLoop()
 {
+
 	while(gameManager::sharedGameManager()->isRunning == true)
 	{
+
+		frameRateLimiter::sharedFrameRateLimiter()->setDelta();
+
 		//--reset the window--//
 		SDL_SetRenderDrawColor(SDLManager::sharedSDLManager()->mainRenderer,0xFF,0xBB,0xFF,0xFF);
 		SDL_RenderClear(SDLManager::sharedSDLManager()->mainRenderer);
@@ -71,15 +75,17 @@ void program::gameLoop()
 		gameLogicS.doLogic();
 		//ai update?
 		//Audio.play();
+
+	
 		renderS.drawScene();
 		GUIs.drawState();
 
 		//--Draw current screen, same function as previously SDL_Flip()--//
 		SDL_RenderPresent(SDLManager::sharedSDLManager()->mainRenderer);
 		
-		gameManager::sharedGameManager()->regulateFrameRate();
+		//gameManager::sharedGameManager()->regulateFrameRate();
 		gameManager::sharedGameManager()->sweep();
-
+		frameRateLimiter::sharedFrameRateLimiter()->endFrame();
 	}
 }
 

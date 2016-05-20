@@ -72,8 +72,6 @@ void title::loadOnCreation()
 		helpButton->setPos('y', 350 );
 		quitButton->setPos('y', 550 );
 
-	
-
 		finishedLoading = true;
 	}
 }

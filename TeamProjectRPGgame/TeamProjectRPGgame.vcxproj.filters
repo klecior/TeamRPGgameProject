@@ -176,6 +176,9 @@
     <Filter Include="Events\ConsumePotion">
       <UniqueIdentifier>{f4b1632c-fc72-415f-a787-c41df7f869a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ManagerClasses\FrameRateLimiter">
+      <UniqueIdentifier>{b56f4fdb-531f-4d20-844f-df82972dbcdd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -321,6 +324,9 @@
     </ClCompile>
     <ClCompile Include="consumePotionEvent.cpp">
       <Filter>Events\ConsumePotion</Filter>
+    </ClCompile>
+    <ClCompile Include="frameRateLimiter.cpp">
+      <Filter>ManagerClasses\FrameRateLimiter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -473,6 +479,9 @@
     </ClInclude>
     <ClInclude Include="consumePotionEvent.h">
       <Filter>Events\ConsumePotion</Filter>
+    </ClInclude>
+    <ClInclude Include="frameRateLimiter.h">
+      <Filter>ManagerClasses\FrameRateLimiter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

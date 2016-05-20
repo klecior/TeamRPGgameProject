@@ -66,7 +66,7 @@ void gamePlay::loadOnCreation()
 		mainPlayer->setPos('x', 500);
 		mainPlayer->setPos('y', 400);
 		
-		for(int i = 0; i < 100; i++)
+		for(int i = 0; i < 10; i++)
 		{
 			testS = new sceneryObject(GAME,true,"images/temp/X.png",rand()%SCREEN_WIDTH,rand()%SCREEN_HEIGHT);
 		}

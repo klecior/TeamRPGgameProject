@@ -7,7 +7,7 @@
 #include "textureImage.h"
 
 #include "button.h"
-
+#include "player.h"
 //events
 #include "changeStateEvent.h"
 
@@ -21,7 +21,6 @@ protected:
 	button*	startButton;
 	button* helpButton;
 	button* quitButton;
-
 public:
 	title(void);
 	~title(void);
