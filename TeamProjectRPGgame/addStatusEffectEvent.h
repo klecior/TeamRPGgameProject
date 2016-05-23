@@ -5,8 +5,9 @@ class addStatusEffectEvent :
 	public abstractEvent
 {
 public:
-	gameObject *characterTarget;
-	statusEffect *statusToGive;
+	//statusEffect *statusToGive;
+	int statusToGive;
+	gameObject* targetCharacter;
 
 	addStatusEffectEvent(int addedStatus, gameObject *target);
 	virtual eventTypeId getEventType()const override { return addStatusEffectMessage; }

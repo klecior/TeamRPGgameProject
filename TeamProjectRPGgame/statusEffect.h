@@ -5,6 +5,7 @@
 //Events
 #include "hitPlayerEvent.h"
 #include"entityDeletedEvent.h"
+#include"statusEffectEndedEvent.h"
 
 
 class statusEffect :
@@ -16,10 +17,11 @@ public:
 	~statusEffect();
 	int getDuration();
 	int getStartTime();
+	int getRemainingTime();
 	virtual void update();
 
 protected:
-	int startTime, duration, endTime, currentTime;
+	long int startTime, duration, endTime, remainingTime;
 	gameObject *target;
 };
 

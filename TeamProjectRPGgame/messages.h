@@ -3,7 +3,7 @@ enum messages
 {
 	noEvent,changeStateMessage, getCurrentStateMessage,getMousePosMessage, leftMouseClickMessage, changeHealthMessage, changeStaminaMessage,
 	playerControlsMessage, entityCreatedMessage, entityDeletedMessage,hitPlayerMessage, castSpellMessage, getPlayerStatsMessage,moveWorldMessage,
-	objectsCollidedMessage, quitGameMessage, addStatusEffectMessage, removeStatusEffectMessage, removeAllStatusEffectMessage
+	objectsCollidedMessage, quitGameMessage
 };
 
 enum spellNames
@@ -11,7 +11,7 @@ enum spellNames
 	fireBallSpell, healSpell,teleportSpell
 };
 
-enum statusEffects
+enum statusEffectMessages
 {
-	onFire, speedBoost, armourBoost, healing, testStatus
+	onFire, speedBoost, armourBoost, healing, testStatus, addStatusEffectMessage, removeStatusEffectMessage, removeAllStatusEffectMessage, statusEffectEndedMessage
 };

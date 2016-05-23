@@ -185,6 +185,9 @@
     <Filter Include="GameSpecyficClasses\TestingObjects">
       <UniqueIdentifier>{d203ec82-6569-4706-8f3a-4475326075e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events\StatusEffectEvents\StatusEffectEndedEvent">
+      <UniqueIdentifier>{da9354a8-b322-48e2-b241-9476a1d8f801}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -333,6 +336,9 @@
     </ClCompile>
     <ClCompile Include="onFire.cpp">
       <Filter>GameSpecyficClasses\Status Effects\OnFire</Filter>
+    </ClCompile>
+    <ClCompile Include="statusEffectEndedEvent.cpp">
+      <Filter>Events\StatusEffectEvents\StatusEffectEndedEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -485,6 +491,9 @@
     </ClInclude>
     <ClInclude Include="onFire.h">
       <Filter>GameSpecyficClasses\Status Effects\OnFire</Filter>
+    </ClInclude>
+    <ClInclude Include="statusEffectEndedEvent.h">
+      <Filter>Events\StatusEffectEvents\StatusEffectEndedEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
