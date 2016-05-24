@@ -14,7 +14,7 @@ class statusEffect :
 {
 public:
 	statusEffect();
-	statusEffect::statusEffect(gameObject *targetAddress);
+	statusEffect(gameObject *targetAddress);
 	~statusEffect();
 	int getDuration();
 	int getStartTime();
