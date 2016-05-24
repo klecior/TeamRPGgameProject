@@ -5,25 +5,32 @@ statusEffect::statusEffect()
 	target = nullptr;
 }
 
-statusEffect::statusEffect(gameObject *targetAddress)
+void statusEffect::init(gameObject *targetAddress)
 {
 	duration = 5000;
 	target = targetAddress;
 	startTime = SDL_GetTicks();
 	endTime = (SDL_GetTicks() + duration);
-	tickEnd =startTime+1000;
+	tickEnd = startTime + 1000;
 	currentTime = SDL_GetTicks();
 	objectType = "statusEffectT";
 
-	//Debug
 	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME, "statusEffectT", this));
+
+	//Debug
 	std::cout << "Start Time Is: " << startTime << std::endl;
 	std::cout << "END TIME IS: " << endTime << std::endl;
+}
+
+statusEffect::statusEffect(gameObject *targetAddress)
+{
+	init(targetAddress);
 }
 
 statusEffect::~statusEffect()
 {
 	target = nullptr;
+	std::cout << "FUCKING FINALLY, released from this pain" << std::endl;
 }
 
 int statusEffect::getDuration()
@@ -41,6 +48,11 @@ int statusEffect::getRemainingTime()
 	return endTime-currentTime;
 }
 
+void statusEffect::effect()
+{
+	messageBus::sharedMessageBus()->sendMessage(hitPlayerEvent(10));
+}
+
 void statusEffect::update()
 {
 	
@@ -51,7 +63,7 @@ void statusEffect::update()
 	if (currentTime >= tickEnd)
 	{
 		std::cout << "Tick Ended" << std::endl;
-		messageBus::sharedMessageBus()->sendMessage(hitPlayerEvent(10));
+		effect();
 		tickEnd += 1000;
 	}
 	else
@@ -64,5 +76,6 @@ void statusEffect::update()
 		messageBus::sharedMessageBus()->sendMessage(statusEffectEndedEvent());
 		std::cout << "Status Effect ended" << std::endl;
 		std::cout << "Is alive = " << getAlive() << std::endl;
+		alive = false;
 	}
 }

@@ -47,8 +47,10 @@ void gameManager::sweep()
 {
 	for(int i=0; i<allGameObjects.size();i++)
 	{
+		
 		if(allGameObjects.at(i)->getAlive() == false)	
 		{
+			std::cout << allGameObjects.at(i)->objectType << std::endl;
 			messageBus::sharedMessageBus()->sendMessage(entityDeletedEvent(allGameObjects.at(i)->belongsToState, allGameObjects.at(i) ) );		//makes sure the object unregisters from any list it is on.
 			delete allGameObjects.at(i);																										//deletes the actual object, calls it's destructor.
 			allGameObjects.erase(allGameObjects.begin()+i);																						//deletes it from this list.

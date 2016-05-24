@@ -44,6 +44,10 @@ void statusEffectQueue::addStatusEffect(abstractEvent* msgEvent)
 		queue.push_back(new statusEffect(addingStatus.targetCharacter));
 		break;
 
+	case setOnFire:
+		queue.push_back(new onFire(addingStatus.targetCharacter));
+		break;
+
 	default:
 		break;
 	}
@@ -58,11 +62,11 @@ void statusEffectQueue::statusEffectEnded(abstractEvent* msgEvent)
 		for (int i = 0; i < queue.size(); i++)
 		{
 			
-			if (queue.at(i).getRemainingTime() <= 0)
+			if (queue.at(i)->getRemainingTime() <= 0)
 			{
-				std::cout << "Stuff";
-				queue.at(i).setAlive(false);
-				
+				queue.at(i)->setAlive(false);
+				//delete queue.at(i);																									//deletes the actual object, calls it's destructor.
+				queue.erase(queue.begin() + i);
 			}
 		}
 	}
@@ -76,7 +80,7 @@ void statusEffectQueue::update()
 	
 	for (int i = 0; i < queue.size(); i++)
 	{
-		queue.at(i).update();
+		queue.at(i)->update();
 	}
 }
 

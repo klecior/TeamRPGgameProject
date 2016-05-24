@@ -19,7 +19,10 @@ public:
 	int getDuration();
 	int getStartTime();
 	int getRemainingTime();
-	virtual void update();
+	virtual void effect();
+	void update();
+
+	virtual void init(gameObject *targetAddress);
 
 protected:
 	int duration, startTime, endTime, tickEnd, currentTime;

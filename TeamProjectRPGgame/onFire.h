@@ -6,5 +6,7 @@ class onFire :
 public:
 	onFire();
 	~onFire();
+
+	void effect();
 };
 
