@@ -16,6 +16,7 @@ statusEffect::statusEffect(gameObject *targetAddress)
 	objectType = "statusEffectT";
 
 	//Debug
+	messageBus::sharedMessageBus()->sendMessage(entityCreatedEvent(GAME, "statusEffectT", this));
 	std::cout << "Start Time Is: " << startTime << std::endl;
 	std::cout << "END TIME IS: " << endTime << std::endl;
 }
@@ -27,17 +28,17 @@ statusEffect::~statusEffect()
 
 int statusEffect::getDuration()
 {
-	return 0;
+	return duration;
 }
 
 int statusEffect::getStartTime()
 {
-	return 0;
+	return startTime;
 }
 
 int statusEffect::getRemainingTime()
 {
-	return 0;
+	return endTime-currentTime;
 }
 
 void statusEffect::update()
@@ -58,9 +59,10 @@ void statusEffect::update()
 		currentTime = SDL_GetTicks();
 	}
 
-	if (endTime-currentTime == 0)
+	if (endTime-currentTime <= 0)
 	{
 		messageBus::sharedMessageBus()->sendMessage(statusEffectEndedEvent());
 		std::cout << "Status Effect ended" << std::endl;
+		std::cout << "Is alive = " << getAlive() << std::endl;
 	}
 }

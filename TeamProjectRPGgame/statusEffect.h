@@ -6,6 +6,7 @@
 #include "hitPlayerEvent.h"
 #include"entityDeletedEvent.h"
 #include"statusEffectEndedEvent.h"
+#include"entityCreatedEvent.h"
 
 
 class statusEffect :

@@ -57,20 +57,12 @@ void statusEffectQueue::statusEffectEnded(abstractEvent* msgEvent)
 	{
 		for (int i = 0; i < queue.size(); i++)
 		{
+			
 			if (queue.at(i).getRemainingTime() <= 0)
 			{
+				std::cout << "Stuff";
 				queue.at(i).setAlive(false);
-				for (int j = i; j < queue.size(); j++)
-				{
-					if (j+1 == queue.size())
-					{
-						queue.at(j) = nullptr;
-					}
-					else
-					{
-						queue.at(j) = queue.at(j + 1);
-					}
-				}
+				
 			}
 		}
 	}
@@ -78,12 +70,13 @@ void statusEffectQueue::statusEffectEnded(abstractEvent* msgEvent)
 
 void statusEffectQueue::update()
 {
-	std::cout << "IS THE STATUS QUEUE EMPTY... ";
-	std::cout << "THERE ARE " << queue.size()<< " STATUS EFFECTS TO HANDLE" << std::endl;
+	//DEBUG TEXT
+	//std::cout << "IS THE STATUS QUEUE EMPTY... ";
+	//std::cout << "THERE ARE " << queue.size()<< " STATUS EFFECTS TO HANDLE" << std::endl;
+	
 	for (int i = 0; i < queue.size(); i++)
 	{
 		queue.at(i).update();
 	}
-	//std::cout<<"THERE ARE NO MORE STATUS EFFECTS TO HANDLE" << std::endl;
 }
 
