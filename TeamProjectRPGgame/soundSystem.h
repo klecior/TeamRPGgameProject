@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL_mixer.h>
+#include <iostream> 
 
 #include "observer.h"
 #include "messageBus.h"
@@ -13,6 +14,7 @@ protected:
 	std::string filePath;
 	Mix_Chunk* tempChunk;
 	Mix_Music* tempMusic;
+	short int curChannel;
 public:
 	soundSystem();
 	~soundSystem();

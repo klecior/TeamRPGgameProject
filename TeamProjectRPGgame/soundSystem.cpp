@@ -3,6 +3,7 @@
 soundSystem::soundSystem() 
 {
 	messageBus::sharedMessageBus()->registerListener(playAudioMessage, this);		//Sets up event listener
+	curChannel = 0;
 }
 
 soundSystem::~soundSystem() 
@@ -31,6 +32,10 @@ void soundSystem::playAudio(abstractEvent * msgEvent)
 		else
 		{
 			tempChunk = assetManager::sharedassetManager()->getChunk(filePath);
+			
+			Mix_PlayChannel(curChannel, tempChunk, 0);
+			curChannel++;
+			if (curChannel > 8) curChannel = 0;
 		}
 	}
 }
