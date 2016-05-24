@@ -62,7 +62,6 @@ void statusEffectQueue::addStatusEffect(abstractEvent* msgEvent)
 		break;
 
 	default:
-		throw invalid_argument("Not an appropriate statusEffect");
 		break;
 	}
 }
