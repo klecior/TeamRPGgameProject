@@ -93,7 +93,7 @@ void player::update()
 		if (!doOnce)
 		{
 			//send message
-			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(setOnFire, this));
+			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(onFireEffect, this));
 
 	
 			doOnce = true;

@@ -188,6 +188,9 @@
     <Filter Include="Events\StatusEffectEvents\StatusEffectEndedEvent">
       <UniqueIdentifier>{da9354a8-b322-48e2-b241-9476a1d8f801}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameSpecyficClasses\Status Effects\SpeedBoost">
+      <UniqueIdentifier>{60f84055-7142-498c-8bb4-310ed1ad5d1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -339,6 +342,9 @@
     </ClCompile>
     <ClCompile Include="statusEffectEndedEvent.cpp">
       <Filter>Events\StatusEffectEvents\StatusEffectEndedEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="speedBoost.cpp">
+      <Filter>GameSpecyficClasses\Status Effects\SpeedBoost</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -494,6 +500,9 @@
     </ClInclude>
     <ClInclude Include="statusEffectEndedEvent.h">
       <Filter>Events\StatusEffectEvents\StatusEffectEndedEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="speedBoost.h">
+      <Filter>GameSpecyficClasses\Status Effects\SpeedBoost</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

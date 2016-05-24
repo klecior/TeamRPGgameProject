@@ -13,5 +13,5 @@ enum spellNames
 
 enum statusEffectMessages
 {
-	setOnFire, speedBoost, armourBoost, healing, testStatus
+	onFireEffect, speedBoostEffect, armourBoostEffect, healingEffect, testStatus
 };

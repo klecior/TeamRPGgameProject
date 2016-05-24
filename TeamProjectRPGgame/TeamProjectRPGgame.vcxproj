@@ -95,6 +95,7 @@
     <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
     <ClCompile Include="sceneryObject.cpp" />
+    <ClCompile Include="speedBoost.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
     <ClCompile Include="changeHealthEvent.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="sceneryObject.h" />
     <ClInclude Include="SDLManager.h" />
     <ClInclude Include="sequenceAnimation.h" />
+    <ClInclude Include="speedBoost.h" />
     <ClInclude Include="spellButton.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="observer.h" />

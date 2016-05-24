@@ -1,12 +1,13 @@
 #pragma once
 #include "gameObject.h"
 #include "messageBus.h"
+#include <stdexcept>
 
 //Events
 #include "hitPlayerEvent.h"
-#include"entityDeletedEvent.h"
-#include"statusEffectEndedEvent.h"
-#include"entityCreatedEvent.h"
+#include "entityDeletedEvent.h"
+#include "statusEffectEndedEvent.h"
+#include "entityCreatedEvent.h"
 
 
 class statusEffect :
