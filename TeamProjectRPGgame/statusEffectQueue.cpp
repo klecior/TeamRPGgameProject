@@ -20,15 +20,15 @@ statusEffectQueue::~statusEffectQueue()
 	messageBus::sharedMessageBus()->unRegisterListener(addStatusEffectMessage, this);
 }
 
-void statusEffectQueue::handleMessage(abstractEvent* msgEvent)
+void statusEffectQueue::handleMessage(abstractEvent& msgEvent)
 {
-	int msgType = msgEvent->getEventType();
+	int msgType = msgEvent.getEventType();
 	
 	std::cout << "Handling status events" << std::endl;
 	
-	if (msgType == addStatusEffectMessage) { addStatusEffect(msgEvent); }
+	if (msgType == addStatusEffectMessage) { addStatusEffect(&msgEvent); }
 
-	if (msgType == statusEffectEndedMessage) { statusEffectEnded(msgEvent); }
+	if (msgType == statusEffectEndedMessage) { statusEffectEnded(&msgEvent); }
 }
 
 void statusEffectQueue::addStatusEffect(abstractEvent* msgEvent)

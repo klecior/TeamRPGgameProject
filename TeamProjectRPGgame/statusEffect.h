@@ -21,7 +21,7 @@ public:
 	virtual void update();
 
 protected:
-	long int startTime, duration, endTime, remainingTime;
+	int duration, startTime, endTime, tickEnd, currentTime;
 	gameObject *target;
 };
 

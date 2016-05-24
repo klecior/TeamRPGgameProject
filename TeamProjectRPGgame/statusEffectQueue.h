@@ -15,7 +15,7 @@ public:
 
 protected:
 	std::vector<statusEffect> queue;
-	void handleMessage(abstractEvent* msgEvent);
+	void handleMessage(abstractEvent& msgEvent);
 	void addStatusEffect(abstractEvent* msgEvent);
 	void statusEffectEnded(abstractEvent* msgEvent);
 };
