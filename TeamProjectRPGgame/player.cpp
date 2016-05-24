@@ -94,10 +94,6 @@ void player::update()
 		{
 			//send message
 			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(testStatus, this));
-			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(testStatus, this));
-			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(testStatus, this));
-			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(testStatus, this));
-			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(testStatus, this));
 
 	
 			doOnce = true;
@@ -119,6 +115,11 @@ void player::update()
 				//alive = false;
 			}
 
+		}
+
+		if ((SDL_GetTicks()/1000) %2 ==1)
+		{
+			std::cout << "Player Health: " << health << std::endl;
 		}
 	}
 
