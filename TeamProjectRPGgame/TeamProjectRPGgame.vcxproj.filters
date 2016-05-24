@@ -328,6 +328,9 @@
     <ClCompile Include="frameRateLimiter.cpp">
       <Filter>ManagerClasses\FrameRateLimiter</Filter>
     </ClCompile>
+    <ClCompile Include="Conor Has A Tiny Penis.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameManager.h">
