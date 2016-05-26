@@ -4,6 +4,13 @@
 #include "entityCreatedEvent.h"
 #include "entityDeletedEvent.h"
 #include <iostream>
+/* Class Name: generic Collider
+Author:Andrija Delevic
+The purpose of this class is to check if there is any collision occuring
+within a certain area of the object it's attached to.
+It has two constructors, one for taking x,y,width and height, the other takes SDL_Rectangle.
+*/
+
 
 class genericCollider : public gameObject
 {
@@ -24,5 +31,4 @@ public:
 
 	std::vector<gameObject*>*gameCollisions();
 	void clearList();
-	//notice me git sempai
 };
