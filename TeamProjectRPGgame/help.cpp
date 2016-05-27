@@ -38,7 +38,7 @@ void help::updateDrawing()
 {
 	if(finishedLoading)
 	{
-		
+		keysHelp->draw();
 
 	}
 }
@@ -52,6 +52,8 @@ void help::loadOnCreation()
 		backButton = new button(HELP,"images/template/buttons/back.png","images/template/buttons/backOver.png");
 		backButton->setPos('x',( SCREEN_WIDTH / 2) - ( backButton->position.w / 2 ) +300 );
 		backButton->setPos('y', 550);
+
+		keysHelp = assetManager::sharedAssetManager()->getImage("Assets/helpScreen.png");
 
 		finishedLoading = true;
 	}

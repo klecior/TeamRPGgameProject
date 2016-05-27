@@ -14,6 +14,7 @@ protected:
 		void loadOnCreation();
 
 		button*	backButton;
+		textureImage* keysHelp;
 
 public:
 
