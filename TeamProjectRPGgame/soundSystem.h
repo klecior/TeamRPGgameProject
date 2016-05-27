@@ -14,7 +14,7 @@ protected:
 	std::string filePath;
 	Mix_Chunk* tempChunk;
 	Mix_Music* tempMusic;
-	short int curChannel;
+	short int curChannel;	//intager to keep track of the current channel to play audio to
 public:
 	soundSystem();
 	~soundSystem();

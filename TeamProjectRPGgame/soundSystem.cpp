@@ -8,10 +8,12 @@ soundSystem::soundSystem()
 
 soundSystem::~soundSystem() 
 {
-	messageBus::sharedMessageBus()->unRegisterListener(playAudioMessage, this);	//Unregusters when system dies dies
+	messageBus::sharedMessageBus()->unRegisterListener(playAudioMessage, this);	//Unregusters when system dies 
 }
-
-void soundSystem::handleMessage(abstractEvent& msgEvent)
+/*----------------------------------------------------------------------------
+	used to recieve the event then calls to the play audio function
+--------------------------------------------------------------------------------*/
+void soundSystem::handleMessage(abstractEvent& msgEvent)	
 {
 	int msgType = msgEvent.getEventType();
 
@@ -19,6 +21,15 @@ void soundSystem::handleMessage(abstractEvent& msgEvent)
 
 }
 
+
+/*--------------------------------------------------------------------------------
+	Play audio function
+		Gets the message from the event being cast
+		takes 3 variables from the event 
+			FilePath = Path to the audio file
+			isMusic	= is true if the audio is music
+			isPlaying = if true then audio is playing else if false then stops the audio
+----------------------------------------------------------------------------------------*/
 void soundSystem::playAudio(abstractEvent * msgEvent)
 {
 	playAudioEvent& playAudioV = *(playAudioEvent*)msgEvent;
@@ -35,7 +46,7 @@ void soundSystem::playAudio(abstractEvent * msgEvent)
 			
 			Mix_PlayChannel(curChannel, tempChunk, 0);
 			curChannel++;
-			if (curChannel > 8) curChannel = 0;
+			if (curChannel > 8) curChannel = 0;		//temmporary soloution to switch channels just switched channel whenever an audio channel is used
 		}
 	}
 }
