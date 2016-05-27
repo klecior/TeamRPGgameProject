@@ -21,7 +21,7 @@
 #include "changeStateEvent.h"
 #include "getCurrentStateEvent.h"
 
-
+//**State handler class is containing the list of all the states in the game, from various menu screens, to the game itself.**//
 class stateHandler : public observer
 {
 protected:
@@ -31,7 +31,7 @@ protected:
 	void changeState(abstractEvent* msgEvent);
 	void getCurrentState(abstractEvent* msgEvent);
 
-	std::map<int,baseGameState*> stateHandlerList;
+	std::map<int,baseGameState*> stateHandlerList;	//the map that actually contain's the states.
 
 
 public:
@@ -42,7 +42,6 @@ public:
 
 	void updateGameState();
 	void initialiseStates();
-
 
 };
 

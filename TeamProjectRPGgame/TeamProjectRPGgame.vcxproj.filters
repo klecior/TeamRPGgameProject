@@ -179,6 +179,12 @@
     <Filter Include="ManagerClasses\FrameRateLimiter">
       <UniqueIdentifier>{b56f4fdb-531f-4d20-844f-df82972dbcdd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems\SoundSystem">
+      <UniqueIdentifier>{30970dd5-a922-48f3-a8e9-bdd69fae56f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\PlayAudioEvent">
+      <UniqueIdentifier>{d4b8b1c3-e97d-435c-a120-b7cd9813fc2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -304,9 +310,6 @@
     <ClCompile Include="statusEffectQueue.cpp">
       <Filter>GameSpecyficClasses\Status Effects\Status Queue</Filter>
     </ClCompile>
-    <ClCompile Include="AssetManager.cpp">
-      <Filter>ManagerClasses\AssetManager</Filter>
-    </ClCompile>
     <ClCompile Include="objectsCollidedEvent.h.cpp">
       <Filter>Events\ObjectsCollidedEvent</Filter>
     </ClCompile>
@@ -327,6 +330,15 @@
     </ClCompile>
     <ClCompile Include="frameRateLimiter.cpp">
       <Filter>ManagerClasses\FrameRateLimiter</Filter>
+    </ClCompile>
+    <ClCompile Include="soundSystem.cpp">
+      <Filter>Systems\SoundSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="assetManager.cpp">
+      <Filter>ManagerClasses\AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="playAudioEvent.cpp">
+      <Filter>Events\PlayAudioEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -456,9 +468,6 @@
     <ClInclude Include="statusEffectQueue.h">
       <Filter>GameSpecyficClasses\Status Effects\Status Queue</Filter>
     </ClInclude>
-    <ClInclude Include="AssetManager.h">
-      <Filter>ManagerClasses\AssetManager</Filter>
-    </ClInclude>
     <ClInclude Include="objectsCollidedEvent.h">
       <Filter>Events\ObjectsCollidedEvent</Filter>
     </ClInclude>
@@ -482,6 +491,15 @@
     </ClInclude>
     <ClInclude Include="frameRateLimiter.h">
       <Filter>ManagerClasses\FrameRateLimiter</Filter>
+    </ClInclude>
+    <ClInclude Include="soundSystem.h">
+      <Filter>Systems\SoundSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="assetManager.h">
+      <Filter>ManagerClasses\AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="playAudioEvent.h">
+      <Filter>Events\PlayAudioEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

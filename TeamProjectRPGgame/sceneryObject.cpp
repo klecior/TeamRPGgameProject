@@ -5,7 +5,7 @@ sceneryObject::sceneryObject(int atState, bool solid, std::string imagePath, int
 {
 	belongsToState	=	atState;
 	hasCollision	=	solid;
-	objectImage		=	AssetManager::sharedAssetManager()->getImage(imagePath);
+	objectImage		=	assetManager::sharedAssetManager()->getImage(imagePath);
 	isAnimated		=	false;
 	onFrame			=	0;
 
@@ -28,7 +28,7 @@ sceneryObject::sceneryObject(int atState, bool solid, bool animated, int frames,
 {
 	belongsToState	=	atState;
 	hasCollision	=	solid;
-	objectAnimation	=	AssetManager::sharedAssetManager()->getAnimation(frames,animationPath);
+	objectAnimation	=	assetManager::sharedAssetManager()->getAnimation(frames,animationPath);
 
 	onFrame			=	0;
 

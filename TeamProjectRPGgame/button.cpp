@@ -55,8 +55,8 @@ void button::loadImages(std::string idle, std::string over)
 {
 	//--loads images--//
 	//--images are loaded through the sprite manager, because it's more efficient this way--//
-	sprIdle = AssetManager::sharedAssetManager()->getImage(idle.c_str());
-	sprOver = AssetManager::sharedAssetManager()->getImage(over.c_str());
+	sprIdle = assetManager::sharedAssetManager()->getImage(idle.c_str());
+	sprOver = assetManager::sharedAssetManager()->getImage(over.c_str());
 	//---------------//
 
 	//--fills the width and height, used when centering the object--//

@@ -3,23 +3,23 @@
 
 /*shared static instance of the AssetManager class
 this is the real pSharedAssetManager object global*/
-AssetManager*	AssetManager::pSharedAssetManager = NULL;
+assetManager*	assetManager::pSharedAssetManager = NULL;
 
 
-AssetManager::AssetManager(void)
+assetManager::assetManager(void)
 {
 }
 
 
-AssetManager* AssetManager::sharedAssetManager()
+assetManager* assetManager::sharedAssetManager()
 {	
-	if(pSharedAssetManager == NULL){pSharedAssetManager = new AssetManager();}
+	if(pSharedAssetManager == NULL){pSharedAssetManager = new assetManager();}
 	return pSharedAssetManager;
 }
 
 
 //--checks if the image was allready loaded, if yes returns the loaded image, if no, makes one, puts it onto a list, and then returns it--//
-textureImage*	AssetManager::getImage(std::string path)
+textureImage*	assetManager::getImage(std::string path)
 {
 	
 	//checks all the ids.
@@ -53,7 +53,7 @@ textureImage*	AssetManager::getImage(std::string path)
 }
 
 //--checks if the animation was allready loaded, if yes returns the loaded animation, if no, makes one, puts it onto a list, and then returns it--//
-sequenceAnimation* AssetManager::getAnimation(unsigned int frames, std::string path)
+sequenceAnimation* assetManager::getAnimation(unsigned int frames, std::string path)
 {
 
 	//checks all the ids.
@@ -87,9 +87,68 @@ sequenceAnimation* AssetManager::getAnimation(unsigned int frames, std::string p
 
 }
 
+Mix_Chunk* assetManager::getChunk(std::string path)
+{
+	
+	//checks ids within list
+	for (int i = 0; i < idChunkList.size(); i++)
+	{
+		//id exists
+		if (path == idChunkList[i]->name)
+		{
+			//return the chunk that is already loaded
+			return chunkList[idChunkList[i]->id];
+		}
+
+	}
+
+	//loads new chunks if file was not found in list
+
+	//creates audio chunk
+	tempChunk	=	Mix_LoadWAV(path.c_str());
+	chunkList.push_back(tempChunk);
+
+	//create ID
+	tempID = new idStruct();
+	tempID->id = chunkList.size() - 1;
+	tempID->name = path;
+	idChunkList.push_back(tempID);
+
+	return chunkList[tempID->id];
+}
+
+Mix_Music* assetManager::getMusic(std::string path)
+{
+
+	//checks ids within list
+	for (int i = 0; i < idMusicList.size(); i++)
+	{
+		//id exists
+		if (path == idChunkList[i]->name)
+		{
+			//return the music that is already loaded
+			return musicList[idMusicList[i]->id];
+		}
+
+	}
+
+	//loads new music if music was not found in the list
+
+	//create music
+	tempMusic	=	Mix_LoadMUS(path.c_str());
+	musicList.push_back(tempMusic);
+
+	//create ID
+	tempID	=	new idStruct();
+	tempID->id	=	chunkList.size() - 1;
+	tempID->name	=	path;
+	idChunkList.push_back(tempID);
+
+	return musicList[tempID->id];
+}
 
 //--InitializeFromFile function opens up a text document with every image and animation in the game, and then loads the graphics into memory, so it can be easily retrieved later--//
-void AssetManager::initializeFromFile(std::string path)
+void assetManager::initializeFromFile(std::string path)
 {
 	//opens the file
 	file.open(path.c_str(), std::ios::in);		
@@ -159,7 +218,7 @@ void AssetManager::initializeFromFile(std::string path)
 }
 
 //--free memory will make sure that all of the lists are being properly cleared on quit--// //--Could be potentialy used in between loading screens if multiple levels with multiple graphics are being loaded--//
-void AssetManager::freeMemory()
+void assetManager::freeMemory()
 {
 
 	for(unsigned int i = 0;  i < imageList.size(); i++)

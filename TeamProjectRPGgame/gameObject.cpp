@@ -61,7 +61,7 @@ void gameObject::changeImage(textureImage* image)
 //--loads a new image through the AssetManager--//
 void gameObject::setImage(std::string path)
 {
-	displayImage = AssetManager::sharedAssetManager()->getImage(path);
+	displayImage = assetManager::sharedAssetManager()->getImage(path);
 	position.w  = displayImage->getOffset().w;
 	position.h  = displayImage->getOffset().h;
 }

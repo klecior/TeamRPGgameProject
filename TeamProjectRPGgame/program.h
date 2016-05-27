@@ -14,6 +14,7 @@
 #include "GUIsystem.h"
 #include "renderSystem.h"
 #include "gameLogicSystem.h"
+#include "soundSystem.h"
 //-----------//
 #include "frameRateLimiter.h"
 
@@ -27,6 +28,7 @@ protected:
 	GUIsystem		GUIs;
 	renderSystem	renderS;
 	gameLogicSystem	gameLogicS;
+	soundSystem		soundSystems;
 
 public:
 	program(void);

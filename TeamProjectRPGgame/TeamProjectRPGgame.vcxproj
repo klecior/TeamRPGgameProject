@@ -62,7 +62,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -92,9 +92,11 @@
     <ClCompile Include="consumePotionEvent.cpp" />
     <ClCompile Include="frameRateLimiter.cpp" />
     <ClCompile Include="objectsCollidedEvent.h.cpp" />
+    <ClCompile Include="playAudioEvent.cpp" />
     <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
     <ClCompile Include="sceneryObject.cpp" />
+    <ClCompile Include="soundSystem.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
     <ClCompile Include="changeHealthEvent.cpp" />
@@ -127,7 +129,7 @@
     <ClCompile Include="renderSystem.cpp" />
     <ClCompile Include="SDLManager.cpp" />
     <ClCompile Include="sequenceAnimation.cpp" />
-    <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="assetManager.cpp" />
     <ClCompile Include="observer.cpp" />
     <ClCompile Include="stateHandler.cpp" />
     <ClCompile Include="statusEffect.cpp" />
@@ -169,6 +171,7 @@
     <ClInclude Include="moveWorldEvent.h" />
     <ClInclude Include="objectsCollidedEvent.h" />
     <ClInclude Include="objectTypes.h" />
+    <ClInclude Include="playAudioEvent.h" />
     <ClInclude Include="playerControlsEvent.h" />
     <ClInclude Include="pause.h" />
     <ClInclude Include="player.h" />
@@ -179,8 +182,9 @@
     <ClInclude Include="sceneryObject.h" />
     <ClInclude Include="SDLManager.h" />
     <ClInclude Include="sequenceAnimation.h" />
+    <ClInclude Include="soundSystem.h" />
     <ClInclude Include="spellButton.h" />
-    <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="assetManager.h" />
     <ClInclude Include="observer.h" />
     <ClInclude Include="stateHandler.h" />
     <ClInclude Include="statusEffect.h" />

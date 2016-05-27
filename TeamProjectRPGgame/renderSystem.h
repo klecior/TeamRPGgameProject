@@ -15,7 +15,7 @@
 #include "entityCreatedEvent.h"
 #include "entityDeletedEvent.h"
 
-
+//**Render system is drawing all of the objects when it's their turn**//
 class renderSystem : public observer
 {
 protected:
