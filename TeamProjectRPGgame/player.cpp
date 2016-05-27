@@ -74,6 +74,7 @@ void player::loadOnCreation()
 		moveState = assetManager::sharedAssetManager()->getImage("Assets/Characters/Player/playerMoving.png");
 
 		changeImage(idleState);
+
 		std::cout<<"Loaded player assets"<<std::endl;
 
 		collisionBox = position;
@@ -88,6 +89,17 @@ void player::update()
 	
 	if(finishedLoading)
 	{
+		static bool doOnce = false;
+		if (!doOnce)
+		{
+			//send message
+			messageBus::sharedMessageBus()->sendMessage(addStatusEffectEvent(onFireEffect, this));
+
+	
+			doOnce = true;
+			std::cout << "Adding a status effect to player" << std::endl;
+		}
+
 
 		handleSprites();
 		
@@ -104,6 +116,7 @@ void player::update()
 			}
 
 		}
+
 	}
 
 }

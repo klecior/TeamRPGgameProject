@@ -185,6 +185,24 @@
     <Filter Include="Events\PlayAudioEvent">
       <UniqueIdentifier>{d4b8b1c3-e97d-435c-a120-b7cd9813fc2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\BasicFunctionality\GenericCollider">
+      <UniqueIdentifier>{1f50371d-b9b9-42f7-bbb9-204f42065b4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSpecyficClasses\Status Effects\OnFire">
+      <UniqueIdentifier>{705e472e-5fb0-41ef-bd2e-790fea1b5e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSpecyficClasses\Status Effects\SpeedBoost">
+      <UniqueIdentifier>{c2aaa73b-9b92-4850-9a5d-9edf9cc6fc74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\StatusEffectEvents">
+      <UniqueIdentifier>{d5d9ca0a-1687-47d4-9f52-28699395d2f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\StatusEffectEvents\AddStatusEffectEvent">
+      <UniqueIdentifier>{bda5909a-c8ab-4ed5-8a48-25922e78d428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events\StatusEffectEvents\StatusEffectEndedEvent">
+      <UniqueIdentifier>{6ccb14a7-b4da-4be7-9e61-59714d638d59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gameManager.cpp">
@@ -339,6 +357,21 @@
     </ClCompile>
     <ClCompile Include="playAudioEvent.cpp">
       <Filter>Events\PlayAudioEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="genericCollider.cpp">
+      <Filter>Framework\BasicFunctionality\GenericCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="onFire.cpp">
+      <Filter>GameSpecyficClasses\Status Effects\OnFire</Filter>
+    </ClCompile>
+    <ClCompile Include="speedBoost.cpp">
+      <Filter>GameSpecyficClasses\Status Effects\SpeedBoost</Filter>
+    </ClCompile>
+    <ClCompile Include="addStatusEffectEvent.cpp">
+      <Filter>Events\StatusEffectEvents\AddStatusEffectEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="statusEffectEndedEvent.cpp">
+      <Filter>Events\StatusEffectEvents\StatusEffectEndedEvent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -500,6 +533,21 @@
     </ClInclude>
     <ClInclude Include="playAudioEvent.h">
       <Filter>Events\PlayAudioEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="genericCollider.h">
+      <Filter>Framework\BasicFunctionality\GenericCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="onFire.h">
+      <Filter>GameSpecyficClasses\Status Effects\OnFire</Filter>
+    </ClInclude>
+    <ClInclude Include="speedBoost.h">
+      <Filter>GameSpecyficClasses\Status Effects\SpeedBoost</Filter>
+    </ClInclude>
+    <ClInclude Include="addStatusEffectEvent.h">
+      <Filter>Events\StatusEffectEvents\AddStatusEffectEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="statusEffectEndedEvent.h">
+      <Filter>Events\StatusEffectEvents\StatusEffectEndedEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

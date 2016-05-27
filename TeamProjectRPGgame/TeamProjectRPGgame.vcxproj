@@ -86,17 +86,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="abstractEvent.cpp" />
+    <ClCompile Include="addStatusEffectEvent.cpp" />
     <ClCompile Include="baseGameState.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="collisionSystem.cpp" />
     <ClCompile Include="consumePotionEvent.cpp" />
     <ClCompile Include="frameRateLimiter.cpp" />
+    <ClCompile Include="genericCollider.cpp" />
     <ClCompile Include="objectsCollidedEvent.h.cpp" />
+    <ClCompile Include="onFire.cpp" />
     <ClCompile Include="playAudioEvent.cpp" />
     <ClCompile Include="quadTree.cpp" />
     <ClCompile Include="quitGameEvent.cpp" />
     <ClCompile Include="sceneryObject.cpp" />
     <ClCompile Include="soundSystem.cpp" />
+    <ClCompile Include="speedBoost.cpp" />
     <ClCompile Include="spellButton.cpp" />
     <ClCompile Include="castSpellEvent.cpp" />
     <ClCompile Include="changeHealthEvent.cpp" />
@@ -133,12 +137,14 @@
     <ClCompile Include="observer.cpp" />
     <ClCompile Include="stateHandler.cpp" />
     <ClCompile Include="statusEffect.cpp" />
+    <ClCompile Include="statusEffectEndedEvent.cpp" />
     <ClCompile Include="statusEffectQueue.cpp" />
     <ClCompile Include="textureImage.cpp" />
     <ClCompile Include="title.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abstractEvent.h" />
+    <ClInclude Include="addStatusEffectEvent.h" />
     <ClInclude Include="baseGameState.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="castSpellEvent.h" />
@@ -157,6 +163,7 @@
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="gameOver.h" />
     <ClInclude Include="gamePlay.h" />
+    <ClInclude Include="genericCollider.h" />
     <ClInclude Include="getCurrentStateEvent.h" />
     <ClInclude Include="getMousePosEvent.h" />
     <ClInclude Include="getPlayerStatsEvent.h" />
@@ -171,6 +178,7 @@
     <ClInclude Include="moveWorldEvent.h" />
     <ClInclude Include="objectsCollidedEvent.h" />
     <ClInclude Include="objectTypes.h" />
+    <ClInclude Include="onFire.h" />
     <ClInclude Include="playAudioEvent.h" />
     <ClInclude Include="playerControlsEvent.h" />
     <ClInclude Include="pause.h" />
@@ -183,11 +191,13 @@
     <ClInclude Include="SDLManager.h" />
     <ClInclude Include="sequenceAnimation.h" />
     <ClInclude Include="soundSystem.h" />
+    <ClInclude Include="speedBoost.h" />
     <ClInclude Include="spellButton.h" />
     <ClInclude Include="assetManager.h" />
     <ClInclude Include="observer.h" />
     <ClInclude Include="stateHandler.h" />
     <ClInclude Include="statusEffect.h" />
+    <ClInclude Include="statusEffectEndedEvent.h" />
     <ClInclude Include="statusEffectQueue.h" />
     <ClInclude Include="textureImage.h" />
     <ClInclude Include="title.h" />

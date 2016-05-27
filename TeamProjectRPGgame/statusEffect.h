@@ -1,9 +1,13 @@
 #pragma once
 #include "gameObject.h"
 #include "messageBus.h"
+#include <stdexcept>
 
 //Events
 #include "hitPlayerEvent.h"
+#include "entityDeletedEvent.h"
+#include "statusEffectEndedEvent.h"
+#include "entityCreatedEvent.h"
 
 
 class statusEffect :
@@ -11,14 +15,18 @@ class statusEffect :
 {
 public:
 	statusEffect();
-	statusEffect::statusEffect(gameObject *targetAddress);
+	statusEffect(gameObject *targetAddress);
 	~statusEffect();
 	int getDuration();
 	int getStartTime();
+	int getRemainingTime();
 	virtual void effect();
+	void update();
+
+	virtual void init(gameObject *targetAddress);
 
 protected:
-	int startTime, duration, endTime, remainingTime;
+	int duration, startTime, endTime, tickEnd, currentTime;
 	gameObject *target;
 };
 

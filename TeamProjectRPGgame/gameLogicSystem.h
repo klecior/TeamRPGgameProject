@@ -10,6 +10,7 @@
 #include <map>
 
 #include "collisionSystem.h"
+#include "statusEffectQueue.h"
 
 //--events--//
 #include "changeStateEvent.h"
@@ -25,6 +26,7 @@ protected:
 	int currentState;
 
 	collisionSystem* collisionS;
+	statusEffectQueue statusQueue;
 
 	std::map<int, std::vector<gameObject*>> scenesList;
 

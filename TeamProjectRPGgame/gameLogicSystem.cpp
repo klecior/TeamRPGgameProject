@@ -25,6 +25,7 @@ void gameLogicSystem::doLogic()
 		scenesList[currentState].at(i)->update();
 		//check Collisions
 		collisionS->checkCollisions();
+		statusQueue.update();
 	}
 }
 
@@ -52,7 +53,7 @@ void gameLogicSystem::addToScene(abstractEvent* msgEvent)
 	//cast
 	entityCreatedEvent& newEntity = *(entityCreatedEvent*)msgEvent;
 
-	if (newEntity.type != GUIT)
+	if (newEntity.type != GUIT && newEntity.type != statusEffectT)
 	{
 		scenesList[newEntity.atState].push_back(newEntity.createdObject);
 	}
@@ -63,7 +64,7 @@ void gameLogicSystem::removeFromScene(abstractEvent* msgEvent)
 	//cast
 	entityDeletedEvent& deletedEntity = *(entityDeletedEvent*)msgEvent;
 	//if not something that would not be on this list.
-	if(deletedEntity.deletedObject->objectType != GUIT)
+	if(deletedEntity.deletedObject->objectType != GUIT && deletedEntity.deletedObject->objectType != statusEffectT)
 	{
 		//go through the scene looking for object.
 		for(int i = 0; i < scenesList[deletedEntity.atState].size(); i++)
