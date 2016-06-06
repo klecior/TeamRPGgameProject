@@ -83,9 +83,9 @@ void inputSystem::manageKeyHolds(SDL_Event &evt)
 			if (evt.key.keysym.sym == SDLK_u) { uKey = false;	messageBus::sharedMessageBus()->sendMessage(hitPlayerEvent(10)); }
 			if(evt.key.keysym.sym == SDLK_i){iKey	= false;	}
 			if(evt.key.keysym.sym == SDLK_o){oKey	= false;	}
-			if(evt.key.keysym.sym == SDLK_j){jKey	= false;	}
-			if(evt.key.keysym.sym == SDLK_k){kKey	= false;	}
-			if(evt.key.keysym.sym == SDLK_l){lKey	= false;	messageBus::sharedMessageBus()->sendMessage(playAudioEvent("assets/audio/trump.wav", false, true));}
+			if(evt.key.keysym.sym == SDLK_j){jKey	= false;	messageBus::sharedMessageBus()->sendMessage(playAudioEvent("assets/audio/trump.wav", false, true));}
+			if(evt.key.keysym.sym == SDLK_k){kKey	= false;	messageBus::sharedMessageBus()->sendMessage(playAudioEvent("assets/audio/trump.wav", true, false));}
+			if(evt.key.keysym.sym == SDLK_l){lKey	= false;	messageBus::sharedMessageBus()->sendMessage(playAudioEvent("assets/audio/trump.wav", true, true));}
 
 		}
 		if(evt.type == SDL_QUIT){ messageBus::sharedMessageBus()->sendMessage(quitGameEvent() ); }

@@ -140,7 +140,7 @@ Mix_Music* assetManager::getMusic(std::string path)
 
 	//create ID
 	tempID	=	new idStruct();
-	tempID->id	=	chunkList.size() - 1;
+	tempID->id	=	musicList.size() - 1;
 	tempID->name	=	path;
 	idChunkList.push_back(tempID);
 

@@ -38,6 +38,7 @@ void soundSystem::playAudio(abstractEvent * msgEvent)
 	{
 		if (playAudioV.isMusic)
 		{
+			std::cout << "Playing music";
 			tempMusic = assetManager::sharedAssetManager()->getMusic(filePath);
 		}
 		else
